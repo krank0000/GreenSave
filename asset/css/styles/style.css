@@ -58,6 +58,7 @@ body #btn_add:hover {
 }
 html #resetButton,
 body #resetButton {
+  color: #000;
   transition: 0.5s;
 }
 html #resetButton:hover,
@@ -325,6 +326,13 @@ footer p {
   header button p {
     display: none;
   }
+  main .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
 }
 @media screen and (max-width: 455px) {
   header nav .ul_area {
@@ -344,7 +352,7 @@ main form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10vh 2vw;
+  margin: 5vh 2vw 2vh 2vw;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -381,6 +389,7 @@ main form section input#date {
   outline: none;
   background: transparent;
   font-size: 1rem;
+  color: #000;
 }
 main form section input:focus {
   outline: none;
@@ -451,6 +460,7 @@ main form section.change input {
   background: transparent;
   text-align: center;
   font-size: 1rem;
+  color: #000;
 }
 main form section.change p {
   width: 50px;

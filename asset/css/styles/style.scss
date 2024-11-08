@@ -68,6 +68,7 @@ body {
   }
   // 清除按鈕
   #resetButton {
+    color: $black;
     transition: 0.5s;
 
     &:hover {
@@ -371,6 +372,18 @@ footer {
       }
     }
   }
+  main {
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+
+    form {
+    }
+  }
 }
 @media screen and (max-width: 455px) {
   header {
@@ -398,12 +411,11 @@ main {
   }
   // 開始記帳表單
   form {
-    // width: 400px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh 2vw; //可刪除
+    margin: 5vh 2vw 2vh 2vw; //可刪除
     background-color: $white;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -447,6 +459,7 @@ main {
           outline: none;
           background: transparent;
           font-size: 1rem;
+          color: $black;
         }
 
         &:focus {
@@ -533,6 +546,7 @@ main {
           background: transparent;
           text-align: center;
           font-size: 1rem;
+          color: $black;
         }
 
         p {
