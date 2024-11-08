@@ -1,0 +1,346 @@
+// 色彩設定
+$bg_color: #f3f3f3;
+$green: rgb(0, 159, 65);
+$white: #fff;
+$black: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
+}
+
+// 按鈕設定
+html,
+body {
+  .btn {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 5rem;
+    transition: 0.5s ease-in-out;
+
+    div.hidden {
+      display: none;
+    }
+
+    &:hover {
+      width: 5rem;
+      div.visible {
+        display: none;
+      }
+      div.hidden {
+        display: block;
+      }
+    }
+  }
+  // 新增按鈕
+  #btn_add {
+    background-color: $green;
+    color: $white;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $white;
+      color: $green;
+      border: $green 1px solid;
+      transform: translateY(-5px);
+    }
+  }
+  // 清除按鈕
+  #resetButton {
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #3d3d3d;
+      color: #f3f3f3;
+    }
+  }
+  // 置頂按鈕樣式
+  .top_btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #c3c3c356;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    display: none; /* 預設隱藏 */
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 20px;
+    z-index: 1000;
+  }
+
+  .top_btn:hover {
+    background-color: $green;
+  }
+}
+
+//menu按鈕設定
+$menu-color: rgb(0, 0, 0);
+$menu-color-close: rgb(0, 159, 65);
+$fatness: 2px; // 調整fatness為較小值
+@mixin transition {
+  transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.menu-icon {
+  width: 30px; // 調整寬度為原來的一半
+  height: 30px; // 調整高度為原來的一半
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px; // 減少內邊距
+  cursor: pointer;
+  margin-left: 2px; // 減少左邊距
+  //   z-index: 1;
+
+  &_hamburger {
+    width: 100%;
+    height: $fatness;
+    background: $menu-color;
+    position: relative;
+    border-radius: 3px; // 輕微縮小圓角
+    transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: $fatness;
+      background: $menu-color;
+      border-radius: 3px; // 輕微縮小圓角
+      transform: translateY(-8px); // 減少移動距離
+      transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    &:before {
+      transform: translateY(-8px); // 減少位移
+    }
+    &:after {
+      transform: translateY(8px); // 減少位移
+    }
+  }
+
+  &.open {
+    .menu-icon_hamburger {
+      transform: translateX(-15px); // 減少移動距離
+      background: transparent;
+      &:before {
+        transform: translate(15px) rotate(45deg); // 減少旋轉角度
+        background: $menu-color-close;
+      }
+      &:after {
+        transform: translate(15px) rotate(-45deg); // 減少旋轉角度
+        background: $menu-color-close;
+      }
+    }
+  }
+}
+
+// 背景動畫
+.bg_anime {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  .wave-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .wave {
+      position: fixed;
+      height: 100%;
+      bottom: 0;
+      fill: #aeaeae3a;
+      opacity: 0.7;
+      animation: moveWave 13s linear infinite alternate-reverse;
+
+      &.wave2 {
+        animation-duration: 15s;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  @keyframes moveWave {
+    0% {
+      transform: translateX(-5%);
+    }
+    100% {
+      transform: translateX(-45%);
+    }
+  }
+}
+// 通用設定
+body {
+  background-color: $bg_color;
+  z-index: -2;
+  margin-top: 60px;
+}
+
+// 導覽列設定
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease; /* 使導航列隱藏和顯示有過渡動畫 */
+  &.hidden {
+    transform: translateY(-100%); /* 隱藏導航列，將其上移至視窗外 */
+  }
+  nav {
+    width: 70vw;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bg_color;
+    border-radius: 100px;
+    padding: 0 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px 15px 15px 0;
+
+    div.icon_area {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: $black;
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        h3 {
+          font-size: 1.5rem;
+          letter-spacing: 0.25rem;
+        }
+      }
+    }
+
+    .menu_icon_area {
+      display: none;
+      .menu-icon {
+        cursor: pointer;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        list-style: none;
+        margin: 0 10px;
+        a {
+          margin: 0 10px;
+          text-decoration: none;
+          color: $black;
+          font-size: 1.25rem;
+          transition: 0.5s;
+          &:hover {
+            color: $green;
+          }
+          &.active {
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $green;
+    color: $white;
+    transition: 0.5s;
+    height: 40px;
+    width: auto;
+    padding: 0 20px;
+    border-radius: 100px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: none;
+
+    i {
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+@media screen and (max-width: 1080px) {
+  header {
+    nav {
+      padding: 4px 20px;
+      align-items: start;
+      .menu_icon_area {
+        display: block;
+      }
+
+      .ul_area {
+        display: none;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          li {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    button {
+      i {
+        margin-right: 0;
+      }
+      p {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 455px) {
+  header {
+    nav {
+      .ul_area {
+        position: absolute;
+        left: 70px;
+        top: 60px;
+      }
+    }
+  }
+}
+// 頁面設定
+
+main {
+  width: 70vw;
+  position: relative;
+  top: 1500px;
+}
