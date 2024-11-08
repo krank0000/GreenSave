@@ -37,6 +37,7 @@ document.getElementById("topBtn").onclick = function () {
 };
 
 // 導覽列效果--------------------------------------------------------------
+/*
 let lastScrollTop = 0; // 記錄上次滾動位置
 const header = document.querySelector("header");
 
@@ -54,6 +55,7 @@ window.addEventListener("scroll", function () {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // 防止滾動過頭
 });
+*/
 
 // 設定日期欄位為今日的日期-----------------------------------------------
 function setTodayAsDefaultDate() {

@@ -11,6 +11,22 @@ $black: #000;
   font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
 }
 
+//動畫設定
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0%, 0);
+  }
+  25% {
+    transform: translate3d(0, 5%, 0);
+  }
+  75% {
+    transform: translate3d(0, -5%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0%, 0);
+  }
+}
+
 // 按鈕設定
 html,
 body {
@@ -22,17 +38,17 @@ body {
     cursor: pointer;
     width: 5rem;
     transition: 0.5s ease-in-out;
+    overflow: hidden;
 
-    div.hidden {
+    .hidden {
       display: none;
     }
 
     &:hover {
-      width: 5rem;
-      div.visible {
+      .visible {
         display: none;
       }
-      div.hidden {
+      .hidden {
         display: block;
       }
     }
@@ -46,7 +62,7 @@ body {
     &:hover {
       background-color: $white;
       color: $green;
-      border: $green 1px solid;
+      outline: $green 1px solid;
       transform: translateY(-5px);
     }
   }
@@ -73,10 +89,10 @@ body {
     transition: 0.3s ease;
     font-size: 20px;
     z-index: 1000;
-  }
 
-  .top_btn:hover {
-    background-color: $green;
+    &:hover {
+      background-color: #c3c3c3;
+    }
   }
 }
 
@@ -143,12 +159,13 @@ $fatness: 2px; // 調整fatness為較小值
 }
 
 // 背景動畫
+/*
 .bg_anime {
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -1;
+  z-index: 0;
   .wave-container {
     position: fixed;
     bottom: 0;
@@ -180,15 +197,17 @@ $fatness: 2px; // 調整fatness為較小值
     }
   }
 }
+  */
+
 // 通用設定
 body {
   background-color: $bg_color;
-  z-index: -2;
   margin-top: 60px;
 }
 
 // 導覽列設定
 header {
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,7 +224,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $bg_color;
+    background-color: $white;
     border-radius: 100px;
     padding: 0 20px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -226,6 +245,7 @@ header {
         h3 {
           font-size: 1.5rem;
           letter-spacing: 0.25rem;
+          font-weight: 550;
         }
       }
     }
@@ -288,6 +308,24 @@ header {
     }
   }
 }
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+// 頁腳設定
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  color: $white;
+  background: linear-gradient(to top right, #93e880, #4fb980);
+  p {
+    font-size: 1rem;
+  }
+}
 @media screen and (max-width: 1080px) {
   header {
     nav {
@@ -305,9 +343,17 @@ header {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #fffffff3;
 
           li {
             margin: 10px 0;
+            a {
+              padding: 10px 20px;
+            }
+          }
+
+          &:hover {
+            background-color: #ffffff;
           }
         }
       }
@@ -337,10 +383,207 @@ header {
     }
   }
 }
-// 頁面設定
 
+// 頁面設定----------------------------------
+
+// 首頁
+
+// 綠色帳本
 main {
-  width: 70vw;
-  position: relative;
-  top: 1500px;
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // 開始記帳表單
+  form {
+    // width: 400px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh 2vw; //可刪除
+    background-color: $white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: outline 0.5s;
+
+    &:hover {
+      outline: 0.5px solid $green; /* 改變外框線 */
+    }
+
+    // 每行區塊
+    section {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      label {
+        overflow: hidden;
+        border-radius: 5px;
+
+        span {
+          div {
+            display: flex;
+            align-items: center;
+          }
+
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
+            background-color: $green;
+            color: $white;
+          }
+        }
+      }
+
+      input {
+        font-family: "cwTeXYen", sans-serif; //圓體字體
+
+        &#date {
+          border: none;
+          outline: none;
+          background: transparent;
+          font-size: 1rem;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      // 改變radio按鈕樣式
+      input[type="radio"] {
+        display: none;
+
+        & + span {
+          display: inline-block;
+          padding: 10px 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: $green;
+          }
+        }
+
+        &:checked + span {
+          border: none;
+          background-color: $green;
+          color: $white;
+        }
+      }
+
+      // 標題
+      &.title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 20px;
+
+        i {
+          margin-right: 0.5rem;
+          color: $green;
+        }
+      }
+
+      // 金額區塊
+      &.item_amount {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+        label {
+          border-radius: 0;
+          padding-right: 0.5rem;
+          border-right: #ccc 1px solid;
+        }
+
+        input {
+          width: 105px;
+          border: none;
+          outline: none;
+          background: transparent;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      // 細項改變區塊
+      &.change {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+        select,
+        input {
+          width: 120px;
+          border: none;
+          outline: none;
+          background: transparent;
+          text-align: center;
+          font-size: 1rem;
+        }
+
+        p {
+          width: 50px;
+          text-align: center;
+        }
+      }
+
+      // 產生碳排放區塊
+      &.CO2_area {
+        display: flex;
+        align-items: center;
+        padding: 5px 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      // 按鈕區塊
+      &.btn_area {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+      }
+
+      // 本日累積區塊---------------------
+      &.total_area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 5px 10px;
+        // border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 2px 0;
+
+        p {
+          &.save_carbon {
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+
+    &.today_total {
+      animation: float 2.5s infinite linear;
+      overflow: hidden;
+      hr {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  }
 }

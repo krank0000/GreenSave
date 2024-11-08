@@ -3,16 +3,273 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <meta name="description" content="" />
     <base target="_self" />
     <!-- icon -->
-    <link rel="shortcut icon" href="../asset/img/logo-icon.png" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../asset/img/environment-protection.png"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="../asset/css/styles/style.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <style>
+      @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+    </style>
+    <!-- jquery -->
+    <script src="../asset/js/jquery-3.7.1.min.js"></script>
+    <title>存碳養綠｜綠色帳本</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <!-- 導覽列 -->
+    <header>
+      <nav>
+        <div class="icon_area">
+          <a href="../index.html">
+            <img src="../asset/img/environment-protection.png" />
+            <h3>存碳養綠</h3>
+          </a>
+        </div>
+        <div class="ul_area">
+          <ul>
+            <li><a class="" href="../index.html">專案理念</a></li>
+            <li><a class="" href="../page/partner_stores.html">合作店家</a></li>
+            <li><a class="" href="../page/plant_games.html">養成遊戲</a></li>
+            <li><a class="" href="../page/points_shop.html">點數商店</a></li>
+            <li><a class="" href="../page/member_center.html">會員中心</a></li>
+          </ul>
+        </div>
+        <div class="menu_icon_area">
+          <div class="menu-icon" id="icon1">
+            <div class="menu-icon_hamburger"></div>
+          </div>
+        </div>
+      </nav>
+      <button onclick="window.location.href='../page/accounting.html'">
+        <i class="fa-solid fa-piggy-bank fa-lg" style="color: #ffffff"></i>
+        <p>綠色帳本</p>
+      </button>
+    </header>
+    <!-- 置頂按鈕 -->
+    <div class="top_btn" id="topBtn">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <main>
+      <div class="container">
+        <!-- 本日累積 -->
+        <form action="" class="today_total">
+          <section class="title">
+            <i class="fa-solid fa-circle fa-fade" style="color: darkgray"></i>
+            <h2>本日累積</h2>
+          </section>
+          <!-- 累積金額 -->
+          <section class="total_area">
+            <label for="">金額</label>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <div>
+              <p class="">---</p>
+            </div>
+            <p>元</p>
+          </section>
+          <!-- 累積碳排量 -->
+          <section class="total_area">
+            <label for="">碳排量</label>
+            <div>
+              <p class="">---</p>
+            </div>
+            <p>kg</p>
+          </section>
+          <!-- 指標 -->
+          <section class="total_area">
+            <label for="">指標</label>
+            <div></div>
+            <p>普通</p>
+          </section>
+          <hr />
+          <!-- 省下 -->
+          <section class="total_area">
+            <label for="">已省下碳排量</label>
+            <div>
+              <p class="save_carbon">---</p>
+            </div>
+            <p>kg</p>
+          </section>
+        </form>
+        <!-- 開始記帳表單 -->
+        <form action="">
+          <section class="title">
+            <i class="fa-solid fa-circle fa-fade"></i>
+            <h2>開始記帳</h2>
+          </section>
+          <!-- 日期 -->
+          <section>
+            <label for="date">日期</label>
+            <input type="date" name="" id="date" />
+          </section>
+          <!-- 品名&金額 -->
+          <section class="item_amount">
+            <label for="item-name">品名</label>
+            <input type="text" name="" id="item-name" />
+            <label for="amount">金額</label>
+            <input type="number" name="" id="amount" />
+          </section>
+          <!-- 類別選項 -->
+          <section>
+            <label for="Food" title="食">
+              <input
+                type="radio"
+                name="category"
+                id="Food"
+                aria-label="Food"
+                onclick="updateChangeSection('food')"
+              />
+              <span>
+                <div>
+                  <i class="fa-solid fa-utensils"></i>
+                </div>
+              </span>
+            </label>
+            <label for="Clothes" title="衣">
+              <input
+                type="radio"
+                name="category"
+                id="Clothes"
+                aria-label="Clothes"
+                onclick="updateChangeSection('clothes')"
+              />
+              <span>
+                <div>
+                  <i class="fa-solid fa-shirt"></i>
+                </div>
+              </span>
+            </label>
+            <label for="Live" title="住">
+              <input
+                type="radio"
+                name="category"
+                id="Live"
+                aria-label="Live"
+                onclick="updateChangeSection('live')"
+              />
+              <span>
+                <div>
+                  <i class="fa-solid fa-house-user"></i>
+                </div>
+              </span>
+            </label>
+            <label for="Act" title="行">
+              <input
+                type="radio"
+                name="category"
+                id="Act"
+                aria-label="Act"
+                onclick="updateChangeSection('act')"
+              />
+              <span>
+                <div>
+                  <i class="fa-solid fa-car"></i>
+                </div>
+              </span>
+            </label>
+            <label for="Other" title="其他">
+              <input
+                type="radio"
+                name="category"
+                id="Other"
+                aria-label="Other"
+                onclick="updateChangeSection('other')"
+              />
+              <span>
+                <div>
+                  <i class="fa-solid fa-ellipsis"></i>
+                </div>
+              </span>
+            </label>
+          </section>
+          <!-- 類別細項(改變) -->
+          <section class="change">
+            <select name="categoryOptions" id="categoryOptions">
+              <option value="">細項</option>
+            </select>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              aria-label="Quantity"
+              min="0"
+              step="0.01"
+              placeholder="請輸入..."
+            />
+            <p id="unit">單位</p>
+          </section>
+          <!-- 消費型態 -->
+          <section>
+            <label for="gogo" title="自行前往">
+              <input type="radio" name="transport" id="gogo" />
+              <span>
+                <div>
+                  <p>自行前往&nbsp;</p>
+                  <i class="fa-solid fa-person-running"></i>
+                </div>
+              </span>
+            </label>
+            <label for="online" title="物流運送">
+              <input type="radio" name="transport" id="online" />
+              <span>
+                <div>
+                  <p>物流運送&nbsp;</p>
+                  <i class="fa-solid fa-truck-fast"></i>
+                </div>
+              </span>
+            </label>
+          </section>
+          <!-- 產生碳排量 -->
+          <section class="CO2_area">
+            <label for="calculateCO2">產生碳排量</label>
+            <div>
+              <p class="co2"></p>
+            </div>
+            <p>kg</p>
+          </section>
+          <!-- 按鈕 -->
+          <section class="btn_area">
+            <button id="resetButton" class="btn">
+              <div class="visible">清除</div>
+              <div class="hidden">
+                <i class="fa fa-minus"></i>
+              </div>
+            </button>
+            <button type="submit" class="btn" id="btn_add">
+              <div class="visible">新增</div>
+              <div class="hidden">
+                <i class="fa fa-plus"></i>
+              </div>
+            </button>
+          </section>
+        </form>
+      </div>
+      <div class="container"></div>
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy;存碳養綠 2022 | 中原大學資訊管理系專題製作</p>
+    </footer>
   </body>
+
+  <script src="../asset/js/app.js"></script>
 </html>
