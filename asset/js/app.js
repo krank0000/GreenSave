@@ -273,3 +273,28 @@ function calculateCO2() {
   // 顯示碳排量結果
   co2Display.textContent = co2Emission.toFixed(2); // 顯示碳排量
 }
+
+// 表格顯示--------------------------------------------------------------
+$(function () {
+  $("#myTable").DataTable();
+});
+
+document.getElementById("delButton").addEventListener("click", function (e) {
+  e.preventDefault();
+  const checkboxes = document.querySelectorAll(
+    "#myTable tbody input[type='checkbox']:checked"
+  );
+
+  if (checkboxes.length === 0) {
+    alert("請選擇要刪除的項目");
+    return;
+  }
+
+  // 顯示確認刪除的彈窗
+  if (confirm("是否確認刪除？")) {
+    checkboxes.forEach((checkbox) => {
+      const row = checkbox.closest("tr");
+      $("#myTable").DataTable().row(row).remove().draw(); // 從 DataTable 中刪除行
+    });
+  }
+});

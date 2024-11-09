@@ -31,6 +31,12 @@
     </style>
     <!-- jquery -->
     <script src="../asset/js/jquery-3.7.1.min.js"></script>
+    <!-- jquery DataTabels-->
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link
+      href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
     <title>存碳養綠｜綠色帳本</title>
   </head>
   <body>
@@ -59,7 +65,7 @@
         </div>
       </nav>
       <button onclick="window.location.href='../page/accounting.html'">
-        <i class="fa-solid fa-piggy-bank fa-lg" style="color: #ffffff"></i>
+        <i class="fa-solid fa-piggy-bank fa-xl" style="color: #ffffff"></i>
         <p>綠色帳本</p>
       </button>
     </header>
@@ -69,7 +75,7 @@
     </div>
 
     <main>
-      <div class="container">
+      <div class="container row-reverse">
         <!-- 本日累積 -->
         <form action="" class="today_total">
           <section class="title">
@@ -247,7 +253,7 @@
           </section>
           <!-- 按鈕 -->
           <section class="btn_area">
-            <button id="resetButton" class="btn">
+            <button id="resetButton" class="btn delbtn">
               <div class="visible">清除</div>
               <div class="hidden">
                 <i class="fa fa-minus"></i>
@@ -262,7 +268,180 @@
           </section>
         </form>
       </div>
-      <div class="container"></div>
+      <!-- 碳排量紀錄 --------------------->
+      <div class="container">
+        <!-- 表格 ------------------------->
+        <form action="">
+          <section class="title">
+            <i class="fa-solid fa-circle fa-fade" style="color: darkgray"></i>
+            <h2>歷史紀錄</h2>
+          </section>
+          <section class="tableDate">
+            <div>
+              <input type="date" name="" />
+              <i class="fa-solid fa-caret-right"></i>
+              <i class="fa-solid fa-caret-down"></i>
+              <input type="date" name="" />
+            </div>
+            <button id="delButton" class="btn delbtn">
+              <div class="visible">刪除</div>
+              <div class="hidden">
+                <i class="fa fa-minus"></i>
+              </div>
+            </button>
+          </section>
+          <table id="myTable" class="display">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>品名</th>
+                <th>金額</th>
+                <th>碳排</th>
+                <th>類別</th>
+                <th>消費</th>
+                <th>日期</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /> 1</td>
+                <td>T恤</td>
+                <td>$599</td>
+                <td><span>9</span>kg</td>
+                <td><i class="fa-solid fa-shirt"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 2</td>
+                <td>牛仔褲</td>
+                <td>$1299</td>
+                <td><span>33</span>kg</td>
+                <td><i class="fa-solid fa-shirt"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/02</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 3</td>
+                <td>運動鞋</td>
+                <td>$2299</td>
+                <td><span>30</span>kg</td>
+                <td><i class="fa-solid fa-shirt"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/03</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 4</td>
+                <td>外套</td>
+                <td>$1599</td>
+                <td><span>13</span>kg</td>
+                <td><i class="fa-solid fa-shirt"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/04</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 5</td>
+                <td>咖啡</td>
+                <td>$99</td>
+                <td><span>2.4</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/05</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 6</td>
+                <td>零食</td>
+                <td>$50</td>
+                <td><span>0.5</span>kg</td>
+                <td><i class="fa-solid fa-cookie-bite"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/06</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 7</td>
+                <td>手機殼</td>
+                <td>$300</td>
+                <td><span>2</span>kg</td>
+                <td><i class="fa-solid fa-mobile-alt"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/07</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 8</td>
+                <td>背包</td>
+                <td>$799</td>
+                <td><span>8</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/08</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 9</td>
+                <td>手錶</td>
+                <td>$1999</td>
+                <td><span>5</span>kg</td>
+                <td><i class="fa-solid fa-watch"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/09</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 10</td>
+                <td>水瓶</td>
+                <td>$100</td>
+                <td><span>0.2</span>kg</td>
+                <td><i class="fa-solid fa-bottle-water"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/10</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 11</td>
+                <td>筆記本</td>
+                <td>$150</td>
+                <td><span>0.3</span>kg</td>
+                <td><i class="fa-solid fa-book"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/11</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 12</td>
+                <td>耳機</td>
+                <td>$299</td>
+                <td><span>1.5</span>kg</td>
+                <td><i class="fa-solid fa-headphones"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/12</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 13</td>
+                <td>雨傘</td>
+                <td>$120</td>
+                <td><span>0.4</span>kg</td>
+                <td><i class="fa-solid fa-umbrella"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/13</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 14</td>
+                <td>帽子</td>
+                <td>$200</td>
+                <td><span>0.6</span>kg</td>
+                <td><i class="fa-solid fa-hat-cowboy"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/14</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 15</td>
+                <td>墨鏡</td>
+                <td>$350</td>
+                <td><span>0.7</span>kg</td>
+                <td><i class="fa-solid fa-sunglasses"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/15</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
     </main>
 
     <!-- footer -->

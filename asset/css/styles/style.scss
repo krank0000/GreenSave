@@ -67,7 +67,7 @@ body {
     }
   }
   // 清除按鈕
-  #resetButton {
+  .delbtn {
     color: $black;
     transition: 0.5s;
 
@@ -327,6 +327,9 @@ footer {
     font-size: 1rem;
   }
 }
+
+// RWD設定-------------------------------------
+
 @media screen and (max-width: 1080px) {
   header {
     nav {
@@ -378,10 +381,47 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .row-reverse {
       flex-direction: column-reverse;
     }
+  }
 
-    form {
+  // 表格設定---------------------
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #myTable th:nth-child(5),  /* 類別欄位 */
+  #myTable th:nth-child(6),  /* 消費型態欄位 */
+  #myTable td:nth-child(5),  /* 類別欄位 */
+  #myTable td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+
+  .tableDate {
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      i {
+        &.fa-caret-right {
+          display: none;
+        }
+        &.fa-caret-down {
+          display: block;
+        }
+      }
+
+      input[type="date"] {
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 50px;
+        margin: 5px 0;
+        letter-spacing: 0.15rem;
+        text-align: center;
+      }
     }
   }
 }
@@ -394,21 +434,31 @@ footer {
         top: 60px;
       }
     }
+    button {
+      padding: 0 15px;
+    }
   }
 }
 
 // 頁面設定----------------------------------
+.container {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 // 首頁
 
 // 綠色帳本
 main {
-  .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   // 開始記帳表單
   form {
     padding: 30px;
@@ -597,6 +647,62 @@ main {
       hr {
         width: 100%;
         margin: 5px 0;
+      }
+    }
+  }
+
+  // 表格-------------
+
+  /* 隱藏 "顯示條目" 下拉選單和 "顯示第 X 到 Y 筆，共 Z 筆" 的文字 */
+  .dataTables_length,
+  .dataTables_info {
+    display: none;
+  }
+  /* 調整分頁按鈕樣式 */
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin: 2px;
+  }
+
+  /* 搜尋框的樣式 */
+  .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ddd;
+    border-radius: 150px;
+    padding: 5px;
+    margin-left: 0.5em;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .tableDate {
+    display: flex;
+    align-items: center;
+
+    div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        margin: 0 10px;
+
+        &.fa-caret-down {
+          display: none;
+        }
+      }
+
+      input[type="date"] {
+        border: 1px solid #ccc;
+        padding: 5px 15px;
+        border-radius: 50px;
+        margin: 5px 0;
+        letter-spacing: 0.15rem;
+        text-align: center;
       }
     }
   }

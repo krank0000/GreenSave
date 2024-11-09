@@ -56,13 +56,13 @@ body #btn_add:hover {
   outline: rgb(0, 159, 65) 1px solid;
   transform: translateY(-5px);
 }
-html #resetButton,
-body #resetButton {
+html .delbtn,
+body .delbtn {
   color: #000;
   transition: 0.5s;
 }
-html #resetButton:hover,
-body #resetButton:hover {
+html .delbtn:hover,
+body .delbtn:hover {
   background-color: #3d3d3d;
   color: #f3f3f3;
 }
@@ -331,7 +331,38 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  main .row-reverse {
     flex-direction: column-reverse;
+  }
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #myTable th:nth-child(5),
+  #myTable th:nth-child(6),
+  #myTable td:nth-child(5),
+  #myTable td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  .tableDate div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .tableDate div i.fa-caret-right {
+    display: none;
+  }
+  .tableDate div i.fa-caret-down {
+    display: block;
+  }
+  .tableDate div input[type=date] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 5px 0;
+    letter-spacing: 0.15rem;
+    text-align: center;
   }
 }
 @media screen and (max-width: 455px) {
@@ -340,12 +371,28 @@ footer p {
     left: 70px;
     top: 60px;
   }
+  header button {
+    padding: 0 15px;
+  }
 }
-main .container {
-  width: 100%;
+.container {
+  min-height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  /* 隱藏 "顯示條目" 下拉選單和 "顯示第 X 到 Y 筆，共 Z 筆" 的文字 */
+  /* 調整分頁按鈕樣式 */
+  /* 搜尋框的樣式 */
 }
 main form {
   padding: 30px;
@@ -498,4 +545,47 @@ main form.today_total {
 main form.today_total hr {
   width: 100%;
   margin: 5px 0;
+}
+main .dataTables_length,
+main .dataTables_info {
+  display: none;
+}
+main .dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 30px;
+  padding: 5px 10px;
+  margin: 2px;
+}
+main .dataTables_wrapper .dataTables_filter input {
+  border: 1px solid #ddd;
+  border-radius: 150px;
+  padding: 5px;
+  margin-left: 0.5em;
+  text-align: center;
+}
+main .dataTables_wrapper .dataTables_filter input:focus {
+  outline: none;
+}
+main .tableDate {
+  display: flex;
+  align-items: center;
+}
+main .tableDate div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .tableDate div i {
+  margin: 0 10px;
+}
+main .tableDate div i.fa-caret-down {
+  display: none;
+}
+main .tableDate div input[type=date] {
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+  border-radius: 50px;
+  margin: 5px 0;
+  letter-spacing: 0.15rem;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
