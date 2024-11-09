@@ -284,6 +284,7 @@ footer {
   width: 100%;
   text-align: center;
   padding: 20px 0;
+  margin-top: 15px;
   color: #fff;
   background: linear-gradient(to top right, #93e880, #4fb980);
 }
@@ -293,8 +294,13 @@ footer p {
 
 @media screen and (max-width: 1080px) {
   header nav {
-    padding: 4px 20px;
+    padding: 5px 20px;
     align-items: start;
+  }
+  header nav div.icon_area a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   header nav .menu_icon_area {
     display: block;
@@ -335,34 +341,8 @@ footer p {
   main .row-reverse {
     flex-direction: column-reverse;
   }
-  /* 隱藏「類別」和「消費型態」欄位 */
-  #myTable th:nth-child(5),
-  #myTable th:nth-child(6),
-  #myTable td:nth-child(5),
-  #myTable td:nth-child(6) {
-    /* 消費型態欄位 */
-    display: none;
-  }
-  .tableDate div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .tableDate div i.fa-caret-right {
-    display: none;
-  }
-  .tableDate div i.fa-caret-down {
-    display: block;
-  }
-  .tableDate div input[type=date] {
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 50px;
-    margin: 5px 0;
-    letter-spacing: 0.15rem;
-    text-align: center;
+  form {
+    width: 90vw;
   }
 }
 @media screen and (max-width: 455px) {
@@ -373,6 +353,46 @@ footer p {
   }
   header button {
     padding: 0 15px;
+  }
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #myTable th:nth-child(5),
+  #myTable th:nth-child(6),
+  #myTable td:nth-child(5),
+  #myTable td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  /* 調整字體大小和內邊距 */
+  #myTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 12px; /* 更小字體 */
+  }
+  .table_area {
+    overflow: hidden;
+  }
+  .table_area .tableDate_bth div.tableDate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .table_area .tableDate_bth div.tableDate #caret-down {
+    display: block;
+  }
+  .table_area .tableDate_bth div.tableDate .fa-caret-right {
+    display: none;
+  }
+  .table_area .tableDate_bth div.tableDate input[type=date] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 5px 0;
+    letter-spacing: 0.15rem;
+    text-align: center;
   }
 }
 .container {
@@ -565,23 +585,31 @@ main .dataTables_wrapper .dataTables_filter input {
 main .dataTables_wrapper .dataTables_filter input:focus {
   outline: none;
 }
-main .tableDate {
+main td.sorting_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main td.sorting_1 input {
+  margin-right: 1px;
+}
+main .tableDate_bth {
   display: flex;
   align-items: center;
 }
-main .tableDate div {
+main .tableDate_bth div {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-main .tableDate div i {
+main .tableDate_bth div i {
   margin: 0 10px;
 }
-main .tableDate div i.fa-caret-down {
+main .tableDate_bth div i.fa-caret-down {
   display: none;
 }
-main .tableDate div input[type=date] {
+main .tableDate_bth div input[type=date] {
   border: 1px solid #ccc;
   padding: 5px 15px;
   border-radius: 50px;

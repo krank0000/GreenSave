@@ -291,7 +291,7 @@ document.getElementById("delButton").addEventListener("click", function (e) {
   }
 
   // 顯示確認刪除的彈窗
-  if (confirm("是否確認刪除？")) {
+  if (confirm("請注意！刪除紀錄將扣除一點！")) {
     checkboxes.forEach((checkbox) => {
       const row = checkbox.closest("tr");
       $("#myTable").DataTable().row(row).remove().draw(); // 從 DataTable 中刪除行
