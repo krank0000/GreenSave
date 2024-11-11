@@ -414,6 +414,12 @@ footer {
       padding: 0 15px;
     }
   }
+
+  // 本日累積不要動畫
+  #today_total {
+    animation: none;
+  }
+
   // 表格設定---------------------
   /* 隱藏「類別」和「消費型態」欄位 */
   #myTable th:nth-child(5),  /* 類別欄位 */
@@ -433,6 +439,7 @@ footer {
     font-size: 12px; /* 更小字體 */
   }
 
+  // 調整表格大小
   .table_area {
     overflow: hidden;
     .tableDate_bth {
@@ -459,6 +466,18 @@ footer {
           letter-spacing: 0.15rem;
           text-align: center;
         }
+      }
+    }
+  }
+
+  // 調整圖表大小
+  .chart_show_button {
+    flex-direction: column;
+
+    #chart_button {
+      flex-direction: row;
+      label {
+        margin: 5px;
       }
     }
   }
@@ -739,6 +758,50 @@ main {
         margin: 5px 0;
         letter-spacing: 0.15rem;
         text-align: center;
+      }
+    }
+  }
+
+  // 圖表區域--------------------------------
+  .chart_area {
+    .chart_show_button {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      margin: 10px 20px;
+
+      .chart_button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        label {
+          margin: 5px 0;
+
+          input[type="radio"] {
+            display: none;
+
+            & + span {
+              display: inline-block;
+              padding: 10px 15px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: 0.5s;
+
+              &:hover {
+                background-color: gray;
+              }
+            }
+
+            &:checked + span {
+              border: none;
+              background-color: gray;
+              color: $white;
+            }
+          }
+        }
       }
     }
   }

@@ -37,6 +37,10 @@
       href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
       rel="stylesheet"
     />
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>存碳養綠｜綠色帳本</title>
   </head>
   <body>
@@ -75,9 +79,10 @@
     </div>
 
     <main>
+      <!-- 輸入記帳區 -->
       <div class="container row-reverse">
         <!-- 本日累積 -->
-        <form action="" class="today_total">
+        <form action="" class="today_total" id="today_total">
           <section class="title">
             <i class="fa-solid fa-circle fa-fade" style="color: darkgray"></i>
             <h2>本日累積</h2>
@@ -305,20 +310,20 @@
             <tbody>
               <tr>
                 <td><input type="checkbox" /> 1</td>
-                <td>T恤</td>
-                <td>$599</td>
-                <td><span>9</span>kg</td>
-                <td><i class="fa-solid fa-shirt"></i></td>
+                <td>咖啡</td>
+                <td>$99</td>
+                <td><span>2.4</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
                 <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/01</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 2</td>
-                <td>牛仔褲</td>
-                <td>$1299</td>
-                <td><span>33</span>kg</td>
-                <td><i class="fa-solid fa-shirt"></i></td>
-                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>牛奶</td>
+                <td>$150</td>
+                <td><span>1.5</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
                 <td>2022/03/02</td>
               </tr>
               <tr>
@@ -332,65 +337,65 @@
               </tr>
               <tr>
                 <td><input type="checkbox" /> 4</td>
+                <td>牛仔褲</td>
+                <td>$1299</td>
+                <td><span>33</span>kg</td>
+                <td><i class="fa-solid fa-shirt"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/04</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 5</td>
                 <td>外套</td>
                 <td>$1599</td>
                 <td><span>13</span>kg</td>
                 <td><i class="fa-solid fa-shirt"></i></td>
                 <td><i class="fa-solid fa-person-running"></i></td>
-                <td>2022/03/04</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" /> 5</td>
-                <td>咖啡</td>
-                <td>$99</td>
-                <td><span>2.4</span>kg</td>
-                <td><i class="fa-solid fa-utensils"></i></td>
-                <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/05</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 6</td>
-                <td>零食</td>
-                <td>$50</td>
-                <td><span>0.5</span>kg</td>
-                <td><i class="fa-solid fa-cookie-bite"></i></td>
-                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>雨傘</td>
+                <td>$120</td>
+                <td><span>0.4</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
                 <td>2022/03/06</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 7</td>
-                <td>手機殼</td>
-                <td>$300</td>
-                <td><span>2</span>kg</td>
-                <td><i class="fa-solid fa-mobile-alt"></i></td>
+                <td>水瓶</td>
+                <td>$100</td>
+                <td><span>0.2</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
                 <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/07</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 8</td>
+                <td>手機殼</td>
+                <td>$300</td>
+                <td><span>2</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/08</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 9</td>
                 <td>背包</td>
                 <td>$799</td>
                 <td><span>8</span>kg</td>
                 <td><i class="fa-solid fa-ellipsis"></i></td>
                 <td><i class="fa-solid fa-truck-fast"></i></td>
-                <td>2022/03/08</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" /> 9</td>
-                <td>手錶</td>
-                <td>$1999</td>
-                <td><span>5</span>kg</td>
-                <td><i class="fa-solid fa-watch"></i></td>
-                <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/09</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 10</td>
-                <td>水瓶</td>
-                <td>$100</td>
-                <td><span>0.2</span>kg</td>
-                <td><i class="fa-solid fa-bottle-water"></i></td>
-                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>手錶</td>
+                <td>$1999</td>
+                <td><span>5</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/10</td>
               </tr>
               <tr>
@@ -398,48 +403,201 @@
                 <td>筆記本</td>
                 <td>$150</td>
                 <td><span>0.3</span>kg</td>
-                <td><i class="fa-solid fa-book"></i></td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
                 <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/11</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 12</td>
-                <td>耳機</td>
-                <td>$299</td>
-                <td><span>1.5</span>kg</td>
-                <td><i class="fa-solid fa-headphones"></i></td>
+                <td>墨鏡</td>
+                <td>$350</td>
+                <td><span>0.7</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
                 <td><i class="fa-solid fa-truck-fast"></i></td>
                 <td>2022/03/12</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 13</td>
-                <td>雨傘</td>
-                <td>$120</td>
-                <td><span>0.4</span>kg</td>
-                <td><i class="fa-solid fa-umbrella"></i></td>
+                <td>帽子</td>
+                <td>$200</td>
+                <td><span>0.6</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
                 <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/13</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 14</td>
-                <td>帽子</td>
-                <td>$200</td>
-                <td><span>0.6</span>kg</td>
-                <td><i class="fa-solid fa-hat-cowboy"></i></td>
-                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>零食</td>
+                <td>$50</td>
+                <td><span>0.5</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
                 <td>2022/03/14</td>
               </tr>
               <tr>
                 <td><input type="checkbox" /> 15</td>
-                <td>墨鏡</td>
-                <td>$350</td>
-                <td><span>0.7</span>kg</td>
-                <td><i class="fa-solid fa-sunglasses"></i></td>
+                <td>雞肉</td>
+                <td>$200</td>
+                <td><span>3.5</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
                 <td><i class="fa-solid fa-truck-fast"></i></td>
                 <td>2022/03/15</td>
               </tr>
+              <tr>
+                <td><input type="checkbox" /> 16</td>
+                <td>油費</td>
+                <td>$1200</td>
+                <td><span>185.13</span>kg</td>
+                <td><i class="fa-solid fa-car"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/16</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 17</td>
+                <td>電費</td>
+                <td>$5000</td>
+                <td><span>664</span>kg</td>
+                <td><i class="fa-solid fa-house-user"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/17</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 18</td>
+                <td>水費</td>
+                <td>$1200</td>
+                <td><span>220</span>kg</td>
+                <td><i class="fa-solid fa-house-user"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/18</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 19</td>
+                <td>瓦斯費</td>
+                <td>$1000</td>
+                <td><span>1500</span>kg</td>
+                <td><i class="fa-solid fa-house-user"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/19</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 20</td>
+                <td>飛機</td>
+                <td>$3200</td>
+                <td><span>1980</span>kg</td>
+                <td><i class="fa-solid fa-car"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/20</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 21</td>
+                <td>公車</td>
+                <td>$50</td>
+                <td><span>0.5</span>kg</td>
+                <td><i class="fa-solid fa-car"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/21</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 22</td>
+                <td>飛機</td>
+                <td>$2500</td>
+                <td><span>495</span>kg</td>
+                <td><i class="fa-solid fa-car"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/22</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 23</td>
+                <td>筆電</td>
+                <td>$18000</td>
+                <td><span>200</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/23</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 24</td>
+                <td>藍牙耳機</td>
+                <td>$3500</td>
+                <td><span>5</span>kg</td>
+                <td><i class="fa-solid fa-ellipsis"></i></td>
+                <td><i class="fa-solid fa-person-running"></i></td>
+                <td>2022/03/24</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /> 25</td>
+                <td>吃到飽</td>
+                <td>$20000</td>
+                <td><span>500</span>kg</td>
+                <td><i class="fa-solid fa-utensils"></i></td>
+                <td><i class="fa-solid fa-truck-fast"></i></td>
+                <td>2022/03/25</td>
+              </tr>
             </tbody>
           </table>
+        </form>
+      </div>
+      <!-- 圖表 -->
+      <div class="container">
+        <form action="" class="chart_area">
+          <section class="title">
+            <i class="fa-solid fa-circle fa-fade" style="color: darkgray"></i>
+            <h2>圖表</h2>
+          </section>
+
+          <div class="chart_show_button">
+            <!-- 圖表按鈕 -->
+            <section class="chart_button" id="chart_button">
+              <label for="mixed" title="混合圖表">
+                <input
+                  type="radio"
+                  name="chartType"
+                  id="mixed"
+                  onclick="changeChartType('mixed')"
+                />
+                <span>
+                  <div>
+                    <p>混合圖表</p>
+                    <i class="fa-solid fa-chart-mixed"></i>
+                  </div>
+                </span>
+              </label>
+
+              <label for="pie" title="圓餅圖">
+                <input
+                  type="radio"
+                  name="chartType"
+                  id="pie"
+                  onclick="changeChartType('pie')"
+                />
+                <span>
+                  <div>
+                    <p>圓餅圖</p>
+                    <i class="fa-solid fa-circle"></i>
+                  </div>
+                </span>
+              </label>
+
+              <label for="line" title="折線圖">
+                <input
+                  type="radio"
+                  name="chartType"
+                  id="line"
+                  onclick="changeChartType('line')"
+                />
+                <span>
+                  <div>
+                    <p>折線圖</p>
+                    <i class="fa-solid fa-chart-line"></i>
+                  </div>
+                </span>
+              </label>
+            </section>
+            <!-- 圖表顯示 -->
+            <section class="show_chart">
+              <canvas id="myChart" width="500" height="300"></canvas>
+            </section>
+          </div>
         </form>
       </div>
     </main>

@@ -354,6 +354,9 @@ footer p {
   header button {
     padding: 0 15px;
   }
+  #today_total {
+    animation: none;
+  }
   /* 隱藏「類別」和「消費型態」欄位 */
   #myTable th:nth-child(5),
   #myTable th:nth-child(6),
@@ -393,6 +396,15 @@ footer p {
     margin: 5px 0;
     letter-spacing: 0.15rem;
     text-align: center;
+  }
+  .chart_show_button {
+    flex-direction: column;
+  }
+  .chart_show_button #chart_button {
+    flex-direction: row;
+  }
+  .chart_show_button #chart_button label {
+    margin: 5px;
   }
 }
 .container {
@@ -616,4 +628,39 @@ main .tableDate_bth div input[type=date] {
   margin: 5px 0;
   letter-spacing: 0.15rem;
   text-align: center;
+}
+main .chart_area .chart_show_button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 10px 20px;
+}
+main .chart_area .chart_show_button .chart_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .chart_area .chart_show_button .chart_button label {
+  margin: 5px 0;
+}
+main .chart_area .chart_show_button .chart_button label input[type=radio] {
+  display: none;
+}
+main .chart_area .chart_show_button .chart_button label input[type=radio] + span {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+main .chart_area .chart_show_button .chart_button label input[type=radio] + span:hover {
+  background-color: gray;
+}
+main .chart_area .chart_show_button .chart_button label input[type=radio]:checked + span {
+  border: none;
+  background-color: gray;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

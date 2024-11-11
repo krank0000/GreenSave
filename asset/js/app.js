@@ -298,3 +298,208 @@ document.getElementById("delButton").addEventListener("click", function (e) {
     });
   }
 });
+
+// 歷史紀錄的圖表--------------------------------------------------------------
+// 取得類別碳排量與金額資料
+function getCarbonEmissionsAndAmountByCategory() {
+  const table = document.getElementById("myTable");
+  const rows = table.querySelectorAll("tbody tr");
+  const categoryData = {
+    食: { emissions: 0, amount: 0 },
+    衣: { emissions: 0, amount: 0 },
+    住: { emissions: 0, amount: 0 },
+    行: { emissions: 0, amount: 0 },
+    其他: { emissions: 0, amount: 0 },
+  };
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const categoryIcon = cells[4].querySelector("i").className;
+    const carbonEmission = parseFloat(cells[3].querySelector("span").innerText);
+    const amount = parseFloat(cells[2].innerText.replace("$", ""));
+
+    let categoryName;
+    if (categoryIcon.includes("fa-utensils")) categoryName = "食";
+    else if (categoryIcon.includes("fa-shirt")) categoryName = "衣";
+    else if (categoryIcon.includes("fa-house-user")) categoryName = "住";
+    else if (categoryIcon.includes("fa-car")) categoryName = "行";
+    else if (categoryIcon.includes("fa-ellipsis")) categoryName = "其他";
+
+    categoryData[categoryName].emissions += carbonEmission;
+    categoryData[categoryName].amount += amount;
+  });
+
+  return {
+    categories: Object.keys(categoryData),
+    emissions: Object.values(categoryData).map((data) => data.emissions),
+    amounts: Object.values(categoryData).map((data) => data.amount),
+  };
+}
+
+// 初始化圖表
+const ctx = document.getElementById("myChart").getContext("2d");
+const initialData = getCarbonEmissionsAndAmountByCategory();
+
+let myChart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: initialData.categories,
+    datasets: [
+      {
+        type: "bar",
+        label: "碳排量 (kg)",
+        data: initialData.emissions,
+        backgroundColor: "rgba(54, 162, 235, 0.5)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
+        yAxisID: "y",
+      },
+      {
+        type: "line",
+        label: "金額 (NT$)",
+        data: initialData.amounts,
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgba(255, 99, 132, 1)",
+        borderWidth: 2,
+        fill: false,
+        yAxisID: "y1",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        position: "left",
+        title: { display: true, text: "碳排量 (kg)" },
+      },
+      y1: {
+        beginAtZero: true,
+        position: "right",
+        title: { display: true, text: "金額 (NT$)" },
+        grid: { drawOnChartArea: false },
+      },
+    },
+  },
+});
+
+// 切換圖表類型並改變尺寸
+function changeChartType(type) {
+  const canvas = document.getElementById("myChart");
+  const ctx = canvas.getContext("2d");
+
+  // 重新取得數據
+  const data = getCarbonEmissionsAndAmountByCategory();
+
+  // 清除原先圖表
+  myChart.destroy();
+
+  // 設定畫布大小
+  if (type === "mixed") {
+    canvas.width = 500;
+    canvas.height = 300;
+    myChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: initialData.categories,
+        datasets: [
+          {
+            type: "bar",
+            label: "碳排量 (kg)",
+            data: initialData.emissions,
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+            yAxisID: "y",
+          },
+          {
+            type: "line",
+            label: "金額 (NT$)",
+            data: initialData.amounts,
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 2,
+            fill: false,
+            yAxisID: "y1",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            position: "left",
+            title: { display: true, text: "碳排量 (kg)" },
+          },
+          y1: {
+            beginAtZero: true,
+            position: "right",
+            title: { display: true, text: "金額 (NT$)" },
+            grid: { drawOnChartArea: false },
+          },
+        },
+      },
+    });
+  } else if (type === "pie") {
+    canvas.width = 350;
+    canvas.height = 250;
+    myChart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: initialData.categories,
+        datasets: [
+          {
+            label: "碳排量",
+            data: initialData.emissions,
+            backgroundColor: [
+              "rgba(54, 162, 235, 0.5)",
+              "rgba(255, 99, 132, 0.5)",
+              "rgba(75, 192, 192, 0.5)",
+              "rgba(153, 102, 255, 0.5)",
+              "rgba(255, 159, 64, 0.5)",
+            ],
+            borderColor: [
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 99, 132, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: { responsive: true },
+    });
+  } else if (type === "line") {
+    canvas.width = 500;
+    canvas.height = 350;
+    myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: initialData.categories,
+        datasets: [
+          {
+            label: "碳排量 (kg)",
+            data: initialData.emissions,
+            backgroundColor: "rgba(54, 162, 235, 0.5)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 2,
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: "碳排量 (kg)" },
+          },
+        },
+      },
+    });
+  }
+}
