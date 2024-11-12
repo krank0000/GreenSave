@@ -80,7 +80,7 @@
 
     <main>
       <!-- 輸入記帳區 -->
-      <div class="container row-reverse">
+      <div class="container row-reverse accounting_page">
         <!-- 本日累積 -->
         <form action="" class="today_total" id="today_total">
           <section class="title">
@@ -119,6 +119,11 @@
             </div>
             <p>kg</p>
           </section>
+          <br />
+          <button class="btn" onclick="showGift()">
+            <i class="fa-solid fa-gift"></i>
+            贈送碳權
+          </button>
         </form>
         <!-- 開始記帳表單 -->
         <form action="">
@@ -264,7 +269,7 @@
                 <i class="fa fa-minus"></i>
               </div>
             </button>
-            <button type="submit" class="btn" id="btn_add">
+            <button type="submit" class="btn" id="btn_add" onclick="addData()">
               <div class="visible">新增</div>
               <div class="hidden">
                 <i class="fa fa-plus"></i>
@@ -274,7 +279,7 @@
         </form>
       </div>
       <!-- 碳排量紀錄 --------------------->
-      <div class="container">
+      <div class="container accounting_page">
         <!-- 表格 ------------------------->
         <form action="" class="table_area">
           <section class="title">
@@ -538,7 +543,7 @@
         </form>
       </div>
       <!-- 圖表 -->
-      <div class="container">
+      <div class="container accounting_page">
         <form action="" class="chart_area">
           <section class="title">
             <i class="fa-solid fa-circle fa-fade" style="color: darkgray"></i>
@@ -599,6 +604,30 @@
             </section>
           </div>
         </form>
+      </div>
+      <!-- 背景動畫 -->
+      <div class="bg_anime">
+        <div class="wave-container">
+          <!-- 使用SVG來產生波浪 -->
+          <svg
+            class="wave wave1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              d="M0,96L48,122.7C96,149,192,203,288,213.3C384,224,480,192,576,170.7C672,149,768,139,864,133.3C960,128,1056,128,1152,144C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <svg
+            class="wave wave2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+          >
+            <path
+              d="M0,64L48,90.7C96,117,192,171,288,186.7C384,203,480,181,576,149.3C672,117,768,75,864,80C960,85,1056,139,1152,165.3C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
       </div>
     </main>
 

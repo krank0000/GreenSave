@@ -37,7 +37,7 @@ document.getElementById("topBtn").onclick = function () {
 };
 
 // 導覽列效果--------------------------------------------------------------
-/*
+
 let lastScrollTop = 0; // 記錄上次滾動位置
 const header = document.querySelector("header");
 
@@ -55,7 +55,6 @@ window.addEventListener("scroll", function () {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // 防止滾動過頭
 });
-*/
 
 // 設定日期欄位為今日的日期-----------------------------------------------
 function setTodayAsDefaultDate() {
@@ -272,6 +271,24 @@ function calculateCO2() {
 
   // 顯示碳排量結果
   co2Display.textContent = co2Emission.toFixed(2); // 顯示碳排量
+}
+
+//記帳資料新增按鈕碳排量超標提示---------------------
+function addData() {
+  const co2Display = document.querySelector(".co2").textContent;
+
+  // 檢查碳排量是否超過 27kg
+  if (parseFloat(co2Display) > 27) {
+    alert("此紀錄碳足跡量已超標!!");
+  }
+}
+
+//本日累積，贈送碳權--------------------------------------------------------------
+function showGift() {
+  y = window.prompt("輸入贈與人會員編號");
+  if (y != null) {
+    alert("已贈送碳權給會員編號：" + y);
+  }
 }
 
 // 表格顯示--------------------------------------------------------------

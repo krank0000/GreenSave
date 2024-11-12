@@ -9,6 +9,12 @@ $black: #000;
   padding: 0;
   box-sizing: border-box;
   font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
+  a {
+    text-decoration: none;
+  }
+  input {
+    color: $black;
+  }
 }
 
 //動畫設定
@@ -17,10 +23,10 @@ $black: #000;
     transform: translate3d(0, 0%, 0);
   }
   25% {
-    transform: translate3d(0, 5%, 0);
+    transform: translate3d(0, 2%, 0);
   }
   75% {
-    transform: translate3d(0, -5%, 0);
+    transform: translate3d(0, -2%, 0);
   }
   100% {
     transform: translate3d(0, 0%, 0);
@@ -36,7 +42,7 @@ body {
     border-radius: 100px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    width: 5rem;
+    width: auto;
     transition: 0.5s ease-in-out;
     overflow: hidden;
 
@@ -58,6 +64,7 @@ body {
     background-color: $green;
     color: $white;
     transition: 0.5s;
+    width: 5rem;
 
     &:hover {
       background-color: $white;
@@ -70,7 +77,7 @@ body {
   .delbtn {
     color: $black;
     transition: 0.5s;
-
+    width: 5rem;
     &:hover {
       background-color: #3d3d3d;
       color: #f3f3f3;
@@ -160,13 +167,13 @@ $fatness: 2px; // 調整fatness為較小值
 }
 
 // 背景動畫
-/*
+
 .bg_anime {
   // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: -1;
   .wave-container {
     position: fixed;
     bottom: 0;
@@ -180,10 +187,10 @@ $fatness: 2px; // 調整fatness為較小值
       bottom: 0;
       fill: #aeaeae3a;
       opacity: 0.7;
-      animation: moveWave 13s linear infinite alternate-reverse;
+      animation: moveWave 15s linear infinite alternate-reverse;
 
       &.wave2 {
-        animation-duration: 15s;
+        animation-duration: 18s;
         opacity: 0.5;
       }
     }
@@ -198,7 +205,6 @@ $fatness: 2px; // 調整fatness為較小值
     }
   }
 }
-  */
 
 // 通用設定
 body {
@@ -414,70 +420,83 @@ footer {
       padding: 0 15px;
     }
   }
-
-  // 本日累積不要動畫
-  #today_total {
-    animation: none;
-  }
-
-  // 表格設定---------------------
-  /* 隱藏「類別」和「消費型態」欄位 */
-  #myTable th:nth-child(5),  /* 類別欄位 */
-  #myTable th:nth-child(6),  /* 消費型態欄位 */
-  #myTable td:nth-child(5),  /* 類別欄位 */
-  #myTable td:nth-child(6) {
-    /* 消費型態欄位 */
-    display: none;
-  }
-
-  /* 調整字體大小和內邊距 */
-  #myTable {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    font-size: 12px; /* 更小字體 */
-  }
-
-  // 調整表格大小
-  .table_area {
-    overflow: hidden;
-    .tableDate_bth {
-      div.tableDate {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        #caret-down {
-          display: block;
-        }
-
-        .fa-caret-right {
-          display: none;
-        }
-
-        input[type="date"] {
-          border: 1px solid #ccc;
-          padding: 5px;
-          border-radius: 50px;
-          margin: 5px 0;
-          letter-spacing: 0.15rem;
-          text-align: center;
+  // 綠色帳本----------------------------------------------------------
+  main {
+    div.accounting_page {
+      form {
+        &:hover {
+          outline: none;
         }
       }
-    }
-  }
+      // 本日累積不要動畫
+      #today_total {
+        animation: none;
+      }
 
-  // 調整圖表大小
-  .chart_show_button {
-    flex-direction: column;
+      // 表格設定---------------------
+      /* 隱藏「類別」和「消費型態」欄位 */
+      #myTable th:nth-child(5),  /* 類別欄位 */
+      #myTable th:nth-child(6),  /* 消費型態欄位 */
+      #myTable td:nth-child(5),  /* 類別欄位 */
+      #myTable td:nth-child(6) {
+        /* 消費型態欄位 */
+        display: none;
+      }
 
-    #chart_button {
-      flex-direction: row;
-      label {
-        margin: 5px;
+      /* 調整字體大小和內邊距 */
+      #myTable {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        font-size: 12px; /* 更小字體 */
+      }
+
+      // 調整表格大小
+      .table_area {
+        overflow: hidden;
+        .tableDate_bth {
+          div.tableDate {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            #caret-down {
+              display: block;
+            }
+
+            .fa-caret-right {
+              display: none;
+            }
+
+            input[type="date"] {
+              border: 1px solid #ccc;
+              padding: 5px;
+              border-radius: 50px;
+              margin: 5px 0;
+              letter-spacing: 0.15rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      // 調整圖表大小
+      .chart_show_button {
+        flex-direction: column;
+
+        #chart_button {
+          flex-direction: row;
+          label {
+            margin: 5px;
+          }
+          // 隱藏圖示
+          i {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -500,196 +519,201 @@ footer {
 
 // 首頁
 
-// 綠色帳本
+// 綠色帳本----------------------------------------------------------
 main {
   // 開始記帳表單
-  form {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5vh 2vw 2vh 2vw; //可刪除
-    background-color: $white;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-    transition: outline 0.5s;
-
-    &:hover {
-      outline: 0.5px solid $green; /* 改變外框線 */
-    }
-
-    // 每行區塊
-    section {
-      margin: 8px 0;
+  div.accounting_page {
+    form {
+      padding: 30px;
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin: 5vh 2vw 2vh 2vw; //可刪除
+      background-color: $white;
+      border-radius: 15px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+      transition: outline 0.5s;
 
-      label {
-        overflow: hidden;
-        border-radius: 5px;
+      &:hover {
+        outline: 0.5px solid $green; /* 改變外框線 */
+      }
 
-        span {
-          div {
-            display: flex;
-            align-items: center;
+      // 每行區塊
+      section {
+        margin: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        label {
+          overflow: hidden;
+          border-radius: 5px;
+
+          span {
+            div {
+              display: flex;
+              align-items: center;
+            }
+
+            &:hover {
+              transform: scale(1.1);
+              transition: 0.5s;
+              background-color: $green;
+              color: $white;
+            }
+          }
+        }
+
+        input {
+          font-family: "cwTeXYen", sans-serif; //圓體字體
+
+          &#date {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+            color: $black;
           }
 
-          &:hover {
-            transform: scale(1.1);
+          &:focus {
+            outline: none;
+          }
+        }
+
+        // 改變radio按鈕樣式
+        input[type="radio"] {
+          display: none;
+
+          & + span {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
             transition: 0.5s;
+
+            &:hover {
+              background-color: $green;
+            }
+          }
+
+          &:checked + span {
+            border: none;
             background-color: $green;
             color: $white;
           }
         }
-      }
 
-      input {
-        font-family: "cwTeXYen", sans-serif; //圓體字體
+        // 標題
+        &.title {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-bottom: 20px;
 
-        &#date {
-          border: none;
-          outline: none;
-          background: transparent;
+          i {
+            margin-right: 0.5rem;
+            color: $green;
+          }
+        }
+
+        // 金額區塊
+        &.item_amount {
+          display: flex;
+          align-items: center;
+          padding: 5px;
           font-size: 1rem;
-          color: $black;
-        }
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      // 改變radio按鈕樣式
-      input[type="radio"] {
-        display: none;
-
-        & + span {
-          display: inline-block;
-          padding: 10px 15px;
           border: 1px solid #ccc;
           border-radius: 5px;
-          cursor: pointer;
-          transition: 0.5s;
 
-          &:hover {
-            background-color: $green;
+          label {
+            border-radius: 0;
+            padding-right: 0.5rem;
+            border-right: #ccc 1px solid;
+          }
+
+          input {
+            width: 105px;
+            border: none;
+            outline: none;
+            background: transparent;
+            text-align: center;
+            font-size: 1rem;
           }
         }
 
-        &:checked + span {
-          border: none;
-          background-color: $green;
-          color: $white;
-        }
-      }
-
-      // 標題
-      &.title {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 20px;
-
-        i {
-          margin-right: 0.5rem;
-          color: $green;
-        }
-      }
-
-      // 金額區塊
-      &.item_amount {
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-
-        label {
-          border-radius: 0;
-          padding-right: 0.5rem;
-          border-right: #ccc 1px solid;
-        }
-
-        input {
-          width: 105px;
-          border: none;
-          outline: none;
-          background: transparent;
-          text-align: center;
+        // 細項改變區塊
+        &.change {
+          display: flex;
+          align-items: center;
+          padding: 5px;
           font-size: 1rem;
-        }
-      }
+          border: 1px solid #ccc;
+          border-radius: 5px;
 
-      // 細項改變區塊
-      &.change {
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+          select,
+          input {
+            width: 120px;
+            border: none;
+            outline: none;
+            background: transparent;
+            text-align: center;
+            font-size: 1rem;
+            color: $black;
+          }
 
-        select,
-        input {
-          width: 120px;
-          border: none;
-          outline: none;
-          background: transparent;
-          text-align: center;
-          font-size: 1rem;
-          color: $black;
+          p {
+            width: 50px;
+            text-align: center;
+          }
         }
 
-        p {
-          width: 50px;
-          text-align: center;
+        // 產生碳排放區塊
+        &.CO2_area {
+          display: flex;
+          align-items: center;
+          padding: 5px 50px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
         }
-      }
 
-      // 產生碳排放區塊
-      &.CO2_area {
-        display: flex;
-        align-items: center;
-        padding: 5px 50px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+        // 按鈕區塊
+        &.btn_area {
+          margin-top: 40px;
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+        }
 
-      // 按鈕區塊
-      &.btn_area {
-        margin-top: 40px;
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-      }
+        // 本日累積區塊---------------------
+        &.total_area {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 5px 10px;
+          // border: 1px solid #ccc;
+          border-radius: 5px;
+          margin: 2px 0;
 
-      // 本日累積區塊---------------------
-      &.total_area {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 5px 10px;
-        // border: 1px solid #ccc;
-        border-radius: 5px;
-        margin: 2px 0;
-
-        p {
-          &.save_carbon {
-            margin: 0 10px;
+          p {
+            &.save_carbon {
+              margin: 0 10px;
+            }
           }
         }
       }
-    }
-
-    &.today_total {
-      animation: float 2.5s infinite linear;
-      overflow: hidden;
-      hr {
-        width: 100%;
-        margin: 5px 0;
+      // 本日累積---------------------
+      &.today_total {
+        animation: float 2.5s infinite linear;
+        overflow: hidden;
+        hr {
+          width: 100%;
+          margin: 5px 0;
+        }
+        &:hover {
+          animation: none;
+        }
       }
     }
   }
@@ -721,7 +745,7 @@ main {
     }
   }
 
-  // 表格微調---------------
+  // 表格微調
   // 品項標號&checkbox
   td.sorting_1 {
     display: flex;

@@ -5,16 +5,22 @@
   box-sizing: border-box;
   font-family: "cwTeXYen", sans-serif;
 }
+* a {
+  text-decoration: none;
+}
+* input {
+  color: #000;
+}
 
 @keyframes float {
   0% {
     transform: translate3d(0, 0%, 0);
   }
   25% {
-    transform: translate3d(0, 5%, 0);
+    transform: translate3d(0, 2%, 0);
   }
   75% {
-    transform: translate3d(0, -5%, 0);
+    transform: translate3d(0, -2%, 0);
   }
   100% {
     transform: translate3d(0, 0%, 0);
@@ -27,7 +33,7 @@ body .btn {
   border-radius: 100px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  width: 5rem;
+  width: auto;
   transition: 0.5s ease-in-out;
   overflow: hidden;
 }
@@ -48,6 +54,7 @@ body #btn_add {
   background-color: rgb(0, 159, 65);
   color: #fff;
   transition: 0.5s;
+  width: 5rem;
 }
 html #btn_add:hover,
 body #btn_add:hover {
@@ -60,6 +67,7 @@ html .delbtn,
 body .delbtn {
   color: #000;
   transition: 0.5s;
+  width: 5rem;
 }
 html .delbtn:hover,
 body .delbtn:hover {
@@ -133,45 +141,40 @@ body .top_btn:hover {
   background: rgb(0, 159, 65);
 }
 
-/*
 .bg_anime {
-  // height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
-  .wave-container {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-
-    .wave {
-      position: fixed;
-      height: 100%;
-      bottom: 0;
-      fill: #aeaeae3a;
-      opacity: 0.7;
-      animation: moveWave 13s linear infinite alternate-reverse;
-
-      &.wave2 {
-        animation-duration: 15s;
-        opacity: 0.5;
-      }
-    }
+  z-index: -1;
+}
+.bg_anime .wave-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.bg_anime .wave-container .wave {
+  position: fixed;
+  height: 100%;
+  bottom: 0;
+  fill: rgba(174, 174, 174, 0.2274509804);
+  opacity: 0.7;
+  animation: moveWave 15s linear infinite alternate-reverse;
+}
+.bg_anime .wave-container .wave.wave2 {
+  animation-duration: 18s;
+  opacity: 0.5;
+}
+@keyframes moveWave {
+  0% {
+    transform: translateX(-5%);
   }
-
-  @keyframes moveWave {
-    0% {
-      transform: translateX(-5%);
-    }
-    100% {
-      transform: translateX(-45%);
-    }
+  100% {
+    transform: translateX(-45%);
   }
 }
-  */
+
 body {
   background-color: #f3f3f3;
   margin-top: 60px;
@@ -354,42 +357,47 @@ footer p {
   header button {
     padding: 0 15px;
   }
-  #today_total {
+  main div.accounting_page {
+    /* 隱藏「類別」和「消費型態」欄位 */
+    /* 調整字體大小和內邊距 */
+  }
+  main div.accounting_page form:hover {
+    outline: none;
+  }
+  main div.accounting_page #today_total {
     animation: none;
   }
-  /* 隱藏「類別」和「消費型態」欄位 */
-  #myTable th:nth-child(5),
-  #myTable th:nth-child(6),
-  #myTable td:nth-child(5),
-  #myTable td:nth-child(6) {
+  main div.accounting_page #myTable th:nth-child(5),
+  main div.accounting_page #myTable th:nth-child(6),
+  main div.accounting_page #myTable td:nth-child(5),
+  main div.accounting_page #myTable td:nth-child(6) {
     /* 消費型態欄位 */
     display: none;
   }
-  /* 調整字體大小和內邊距 */
-  #myTable {
+  main div.accounting_page #myTable {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     font-size: 12px; /* 更小字體 */
   }
-  .table_area {
+  main div.accounting_page .table_area {
     overflow: hidden;
   }
-  .table_area .tableDate_bth div.tableDate {
+  main div.accounting_page .table_area .tableDate_bth div.tableDate {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .table_area .tableDate_bth div.tableDate #caret-down {
+  main div.accounting_page .table_area .tableDate_bth div.tableDate #caret-down {
     display: block;
   }
-  .table_area .tableDate_bth div.tableDate .fa-caret-right {
+  main div.accounting_page .table_area .tableDate_bth div.tableDate .fa-caret-right {
     display: none;
   }
-  .table_area .tableDate_bth div.tableDate input[type=date] {
+  main div.accounting_page .table_area .tableDate_bth div.tableDate input[type=date] {
     border: 1px solid #ccc;
     padding: 5px;
     border-radius: 50px;
@@ -397,14 +405,17 @@ footer p {
     letter-spacing: 0.15rem;
     text-align: center;
   }
-  .chart_show_button {
+  main div.accounting_page .chart_show_button {
     flex-direction: column;
   }
-  .chart_show_button #chart_button {
+  main div.accounting_page .chart_show_button #chart_button {
     flex-direction: row;
   }
-  .chart_show_button #chart_button label {
+  main div.accounting_page .chart_show_button #chart_button label {
     margin: 5px;
+  }
+  main div.accounting_page .chart_show_button #chart_button i {
+    display: none;
   }
 }
 .container {
@@ -426,7 +437,7 @@ main {
   /* 調整分頁按鈕樣式 */
   /* 搜尋框的樣式 */
 }
-main form {
+main div.accounting_page form {
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -437,46 +448,46 @@ main form {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   transition: outline 0.5s;
 }
-main form:hover {
+main div.accounting_page form:hover {
   outline: 0.5px solid rgb(0, 159, 65); /* 改變外框線 */
 }
-main form section {
+main div.accounting_page form section {
   margin: 8px 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-main form section label {
+main div.accounting_page form section label {
   overflow: hidden;
   border-radius: 5px;
 }
-main form section label span div {
+main div.accounting_page form section label span div {
   display: flex;
   align-items: center;
 }
-main form section label span:hover {
+main div.accounting_page form section label span:hover {
   transform: scale(1.1);
   transition: 0.5s;
   background-color: rgb(0, 159, 65);
   color: #fff;
 }
-main form section input {
+main div.accounting_page form section input {
   font-family: "cwTeXYen", sans-serif;
 }
-main form section input#date {
+main div.accounting_page form section input#date {
   border: none;
   outline: none;
   background: transparent;
   font-size: 1rem;
   color: #000;
 }
-main form section input:focus {
+main div.accounting_page form section input:focus {
   outline: none;
 }
-main form section input[type=radio] {
+main div.accounting_page form section input[type=radio] {
   display: none;
 }
-main form section input[type=radio] + span {
+main div.accounting_page form section input[type=radio] + span {
   display: inline-block;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -484,25 +495,25 @@ main form section input[type=radio] + span {
   cursor: pointer;
   transition: 0.5s;
 }
-main form section input[type=radio] + span:hover {
+main div.accounting_page form section input[type=radio] + span:hover {
   background-color: rgb(0, 159, 65);
 }
-main form section input[type=radio]:checked + span {
+main div.accounting_page form section input[type=radio]:checked + span {
   border: none;
   background-color: rgb(0, 159, 65);
   color: #fff;
 }
-main form section.title {
+main div.accounting_page form section.title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
 }
-main form section.title i {
+main div.accounting_page form section.title i {
   margin-right: 0.5rem;
   color: rgb(0, 159, 65);
 }
-main form section.item_amount {
+main div.accounting_page form section.item_amount {
   display: flex;
   align-items: center;
   padding: 5px;
@@ -510,12 +521,12 @@ main form section.item_amount {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-main form section.item_amount label {
+main div.accounting_page form section.item_amount label {
   border-radius: 0;
   padding-right: 0.5rem;
   border-right: #ccc 1px solid;
 }
-main form section.item_amount input {
+main div.accounting_page form section.item_amount input {
   width: 105px;
   border: none;
   outline: none;
@@ -523,7 +534,7 @@ main form section.item_amount input {
   text-align: center;
   font-size: 1rem;
 }
-main form section.change {
+main div.accounting_page form section.change {
   display: flex;
   align-items: center;
   padding: 5px;
@@ -531,8 +542,8 @@ main form section.change {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-main form section.change select,
-main form section.change input {
+main div.accounting_page form section.change select,
+main div.accounting_page form section.change input {
   width: 120px;
   border: none;
   outline: none;
@@ -541,24 +552,24 @@ main form section.change input {
   font-size: 1rem;
   color: #000;
 }
-main form section.change p {
+main div.accounting_page form section.change p {
   width: 50px;
   text-align: center;
 }
-main form section.CO2_area {
+main div.accounting_page form section.CO2_area {
   display: flex;
   align-items: center;
   padding: 5px 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-main form section.btn_area {
+main div.accounting_page form section.btn_area {
   margin-top: 40px;
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
-main form section.total_area {
+main div.accounting_page form section.total_area {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -567,16 +578,19 @@ main form section.total_area {
   border-radius: 5px;
   margin: 2px 0;
 }
-main form section.total_area p.save_carbon {
+main div.accounting_page form section.total_area p.save_carbon {
   margin: 0 10px;
 }
-main form.today_total {
+main div.accounting_page form.today_total {
   animation: float 2.5s infinite linear;
   overflow: hidden;
 }
-main form.today_total hr {
+main div.accounting_page form.today_total hr {
   width: 100%;
   margin: 5px 0;
+}
+main div.accounting_page form.today_total:hover {
+  animation: none;
 }
 main .dataTables_length,
 main .dataTables_info {
