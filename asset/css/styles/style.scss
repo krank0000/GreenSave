@@ -3,6 +3,7 @@ $bg_color: #f3f3f3;
 $green: rgb(0, 159, 65);
 $white: #fff;
 $black: #000;
+$gray: #ccc;
 
 * {
   margin: 0;
@@ -40,6 +41,7 @@ body {
     padding: 5px 20px;
     border: none;
     border-radius: 100px;
+    color: $black;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     width: auto;
@@ -828,5 +830,153 @@ main {
         }
       }
     }
+  }
+}
+
+// 會員中心----------------------------------------------------------
+main {
+  .member_center_page {
+    // 側邊功能列
+    aside {
+      width: 15vw;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 5vh 2vw 2vh 2vw;
+
+      .user-info {
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .user_icon {
+          margin-right: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: gray;
+        }
+        .user_nameid {
+          color: gray;
+          .user_id {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        li {
+          list-style: none;
+          margin: 5px 0;
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            border-radius: 5px;
+            color: $black;
+            transition: 0.5s;
+            i {
+              margin-right: 10px;
+            }
+            &:hover {
+              background-color: $gray;
+              color: $white;
+            }
+          }
+          //登出按鈕
+          &.sign_out {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+    // 主要內容-切換區域-------------------
+    main.content_area {
+      width: 70vw;
+      border-radius: 15px;
+      padding: 20px;
+
+      .content {
+        width: 100%;
+        section {
+          // 標題
+          article {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+            i {
+              color: $green;
+              margin-right: 0.5rem;
+            }
+          }
+          // 資料填寫
+          div {
+            background-color: $white;
+            border-radius: 15px;
+            padding: 30px 40px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            label {
+              display: flex;
+              align-items: center;
+              margin-bottom: 10px;
+              input {
+                width: 50%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+                &:focus {
+                  outline: none;
+                }
+              }
+              //驗證按鈕
+              button {
+                cursor: pointer;
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+                margin-left: 5px;
+                &:focus {
+                  outline: none;
+                }
+                &:hover {
+                  transition: 0.5s;
+                  background-color: $black;
+                  color: $white;
+                }
+              }
+              //驗證文字
+              span {
+                margin-left: 5px;
+                i {
+                  margin-right: 2px;
+                }
+                &.successful {
+                  color: $green;
+                }
+                &.error {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //個人帳戶
   }
 }

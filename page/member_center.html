@@ -69,7 +69,122 @@
     </div>
 
     <main>
-      <div class="container"></div>
+      <div class="container member_center_page">
+        <!-- 側邊功能列 -->
+        <aside class="sidebar">
+          <div class="user-info">
+            <div class="user_icon">
+              <i class="fas fa-user-circle fa-2xl"></i>
+            </div>
+            <div class="user_nameid">
+              <p>使用者</p>
+              <p class="user_id">ID : abcd123</p>
+            </div>
+          </div>
+          <ul class="menu">
+            <li>
+              <a href="#"><i class="fa-solid fa-user"></i>個人帳戶</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fa-solid fa-clock-rotate-left"></i>歷史記錄</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-star"></i>獎勵點數</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-flag"></i>目標設定</a>
+            </li>
+            <li class="sign_out">
+              <a href="#" onclick="signOut()"
+                ><i class="fa-solid fa-arrow-right-from-bracket"></i>登出</a
+              >
+            </li>
+          </ul>
+        </aside>
+        <!-- 主要內容 -->
+        <main class="content_area">
+          <!-- 個人帳戶 -->
+          <div class="content">
+            <form action="">
+              <section class="basic-info">
+                <article class="title">
+                  <i class="fa-regular fa-user fa-lg"></i>
+                  <h2>基本資訊</h2>
+                </article>
+                <div id="userForm">
+                  <label>
+                    姓名：
+                    <input type="text" id="name" placeholder="王曉明" />
+                  </label>
+                  <label>
+                    電子郵箱：
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="abcd123@gmail.com"
+                    />
+                    <button type="button" onclick="sendVerificationEmail()">
+                      發送驗證信
+                    </button>
+                    <span class="verify successful">
+                      <i class="fa-solid fa-check"></i>已驗證
+                    </span>
+                  </label>
+                  <label>
+                    手機號碼：
+                    <input type="tel" id="phone" placeholder="---" />
+                    <button type="button" onclick="sendVerificationSMS()">
+                      發送驗證碼
+                    </button>
+                    <span class="verify error">
+                      <i class="fa-solid fa-xmark"></i>尚未驗證
+                    </span>
+                  </label>
+
+                  <label>生日：<input type="date" id="birthday" /></label>
+                  <!-- <label>性別：<input type="text" id="gender" /></label> -->
+                  <label
+                    >通訊地址：
+                    <input
+                      type="text"
+                      id="address"
+                      placeholder="110台北市信義區松山路123號12樓"
+                    />
+                  </label>
+                </div>
+              </section>
+              <section class="account-settings">
+                <article class="title">
+                  <i class="fa-solid fa-lock fa-lg"></i>
+                  <h2>帳戶設定</h2>
+                </article>
+
+                <div id="accountForm">
+                  <label
+                    >帳號ID：<input
+                      type="text"
+                      id="accountId"
+                      placeholder="abcd123"
+                      disabled
+                  /></label>
+                  <label
+                    >密碼：<input type="password" id="password" disabled />
+                    <button type="button" onclick="changePassword()">
+                      修改密碼
+                    </button>
+                  </label>
+                </div>
+              </section>
+              <div class="actions_btn">
+                <button onclick="cancelChanges()" class="btn">取消</button>
+                <button onclick="saveChanges()" class="btn">儲存變更</button>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
     </main>
 
     <!-- footer -->

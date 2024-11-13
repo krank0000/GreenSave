@@ -279,7 +279,7 @@ function addData() {
 
   // 檢查碳排量是否超過 27kg
   if (parseFloat(co2Display) > 27) {
-    alert("此紀錄碳足跡量已超標!!");
+    alert("注意！此紀錄碳足跡量已超標!!");
   }
 }
 
@@ -518,5 +518,13 @@ function changeChartType(type) {
         },
       },
     });
+  }
+}
+
+// 會員中心--------------------------------------------------------------
+//會員登出提示
+function signOut() {
+  if (confirm("確定要登出嗎？")) {
+    alert("已登出！");
   }
 }

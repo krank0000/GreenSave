@@ -31,6 +31,7 @@ body .btn {
   padding: 5px 20px;
   border: none;
   border-radius: 100px;
+  color: #000;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   width: auto;
@@ -677,4 +678,134 @@ main .chart_area .chart_show_button .chart_button label input[type=radio]:checke
   border: none;
   background-color: gray;
   color: #fff;
+}
+
+main .member_center_page aside {
+  width: 15vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 5vh 2vw 2vh 2vw;
+}
+main .member_center_page aside .user-info {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .member_center_page aside .user-info .user_icon {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+main .member_center_page aside .user-info .user_nameid {
+  color: gray;
+}
+main .member_center_page aside .user-info .user_nameid .user_id {
+  font-size: 0.75rem;
+}
+main .member_center_page aside ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+main .member_center_page aside ul li {
+  list-style: none;
+  margin: 5px 0;
+}
+main .member_center_page aside ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  border-radius: 5px;
+  color: #000;
+  transition: 0.5s;
+}
+main .member_center_page aside ul li a i {
+  margin-right: 10px;
+}
+main .member_center_page aside ul li a:hover {
+  background-color: #ccc;
+  color: #fff;
+}
+main .member_center_page aside ul li.sign_out {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+main .member_center_page main.content_area {
+  width: 70vw;
+  border-radius: 15px;
+  padding: 20px;
+}
+main .member_center_page main.content_area .content {
+  width: 100%;
+}
+main .member_center_page main.content_area .content section article {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+main .member_center_page main.content_area .content section article i {
+  color: rgb(0, 159, 65);
+  margin-right: 0.5rem;
+}
+main .member_center_page main.content_area .content section div {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+main .member_center_page main.content_area .content section div label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+main .member_center_page main.content_area .content section div label input {
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+main .member_center_page main.content_area .content section div label input:focus {
+  outline: none;
+}
+main .member_center_page main.content_area .content section div label button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 5px;
+}
+main .member_center_page main.content_area .content section div label button:focus {
+  outline: none;
+}
+main .member_center_page main.content_area .content section div label button:hover {
+  transition: 0.5s;
+  background-color: #000;
+  color: #fff;
+}
+main .member_center_page main.content_area .content section div label span {
+  margin-left: 5px;
+}
+main .member_center_page main.content_area .content section div label span i {
+  margin-right: 2px;
+}
+main .member_center_page main.content_area .content section div label span.successful {
+  color: rgb(0, 159, 65);
+}
+main .member_center_page main.content_area .content section div label span.error {
+  color: red;
 }/*# sourceMappingURL=style.css.map */
