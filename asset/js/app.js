@@ -528,3 +528,118 @@ function signOut() {
     alert("已登出！");
   }
 }
+
+// 頁面切換------------
+function showContent(sectionId) {
+  // 隱藏所有內容區域
+  const contents = document.querySelectorAll(".content");
+  contents.forEach((content) => (content.style.display = "none"));
+
+  // 顯示所選區域
+  const selectedContent = document.getElementById(sectionId);
+  if (selectedContent) {
+    selectedContent.style.display = "block";
+  }
+
+  // 移除所有選單項目的 current 類別
+  const menuItems = document.querySelectorAll(".menu a");
+  menuItems.forEach((item) => item.classList.remove("current"));
+
+  // 為當前點擊的選單項目添加 current 類別
+  const activeLink = document.querySelector(
+    `.menu a[onclick="showContent('${sectionId}')"]`
+  );
+  if (activeLink) {
+    activeLink.classList.add("current");
+  }
+}
+
+// 修改密碼
+// 切換顯示或隱藏修改密碼的表單
+function togglePasswordChange() {
+  // 隱藏密碼顯示區塊
+  document.getElementById("passwordLabel").style.display = "none";
+
+  // 顯示修改密碼表單
+  document.getElementById("passwordChangeForm").style.display = "block";
+}
+
+// 取消修改，隱藏修改密碼表單，顯示原來的密碼區塊
+function cancelPasswordChange() {
+  // 顯示密碼顯示區塊
+  document.getElementById("passwordLabel").style.display = "block";
+
+  // 隱藏修改密碼表單
+  document.getElementById("passwordChangeForm").style.display = "none";
+}
+
+// 顯示/隱藏密碼的可見性
+function togglePasswordVisibility(passwordFieldId) {
+  const passwordField = document.getElementById(passwordFieldId);
+  const icon = passwordField.nextElementSibling; // 獲取相鄰的<i>標籤
+
+  // 切換密碼的顯示方式
+  const currentType = passwordField.type;
+  passwordField.type = currentType === "password" ? "text" : "password";
+
+  // 切換圖示
+  if (passwordField.type === "password") {
+    // 密碼隱藏，顯示「眼睛斜線」圖示
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    // 密碼顯示，顯示「眼睛」圖示
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+
+// 確認密碼修改的處理函數
+function confirmPasswordChange() {
+  const currentPassword = document.getElementById("currentPassword").value;
+  const newPassword = document.getElementById("newPassword").value;
+  const confirmNewPassword =
+    document.getElementById("confirmNewPassword").value;
+
+  if (newPassword !== confirmNewPassword) {
+    alert("新密碼與確認密碼不一致！");
+    return;
+  }
+
+  // 這裡可以進行更多的密碼驗證操作，例如驗證原密碼是否正確
+
+  alert("密碼修改成功！");
+
+  // 隱藏修改密碼區塊
+  document.getElementById("passwordChangeForm").style.display = "none";
+
+  // 顯示密碼顯示區塊（即顯示原本的密碼欄位）
+  document.getElementById("passwordLabel").style.display = "block";
+}
+
+// 取消更改
+function cancelChanges() {
+  // 有一個表單，這裡將重置表單到初始狀態
+  const form = document.querySelector("form");
+  form.reset(); // 重設表單欄位
+
+  alert("變更已取消！");
+}
+
+// 儲存變更
+function saveChanges() {
+  // 從表單中獲取資料並儲存
+  const form = document.querySelector("form");
+  const formData = new FormData(form);
+
+  // 這裡可以把資料儲存到伺服器或本地存儲
+  // 例如，使用 fetch API 發送資料到伺服器
+  // fetch('/save', {
+  //   method: 'POST',
+  //   body: formData
+  // }).then(response => response.json())
+  //   .then(data => alert('變更已儲存！'))
+  //   .catch(error => alert('儲存失敗！'));
+
+  alert("變更已儲存！");
+}

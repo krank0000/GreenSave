@@ -345,8 +345,54 @@ footer p {
   main .row-reverse {
     flex-direction: column-reverse;
   }
-  form {
+  div.accounting_page form {
     width: 90vw;
+  }
+  #member_center_page {
+    width: 95vw;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  #member_center_page aside#sidebar {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0vh 2vw 2vh 2vw;
+  }
+  #member_center_page aside#sidebar .user-info {
+    width: 100px;
+    margin-bottom: 0;
+  }
+  #member_center_page aside#sidebar .user-info .user_icon {
+    display: none;
+  }
+  #member_center_page aside#sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #member_center_page aside#sidebar ul li {
+    margin: 0;
+  }
+  #member_center_page aside#sidebar ul li a {
+    padding: 5px 10px;
+  }
+  #member_center_page aside#sidebar ul li.sign_out {
+    border-top: none;
+    padding-top: 0;
+  }
+  #member_center_page main.content_area {
+    width: 95vw;
+    padding: 15px;
+  }
+  #member_center_page main.content_area .content section article {
+    margin-bottom: 10px;
+    padding-left: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 @media screen and (max-width: 455px) {
@@ -417,6 +463,76 @@ footer p {
   }
   main div.accounting_page .chart_show_button #chart_button i {
     display: none;
+  }
+  #member_center_page aside#sidebar {
+    width: 90vw;
+    padding: 10px;
+  }
+  #member_center_page aside#sidebar .user-info {
+    font-size: 0.75rem;
+    margin-right: 1rem;
+  }
+  #member_center_page aside#sidebar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #member_center_page aside#sidebar ul li a {
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+  #member_center_page aside#sidebar ul li a i {
+    display: none;
+  }
+  #member_center_page aside#sidebar ul li.sign_out {
+    border-left: 1px solid #ccc;
+  }
+  #member_center_page main.content_area {
+    width: 95vw;
+    padding: 10px;
+  }
+  #member_center_page main.content_area .content section div {
+    padding: 15px;
+  }
+  #member_center_page main.content_area .content section div label {
+    width: 100%;
+    margin: 5px;
+    font-size: 0.75rem;
+  }
+  #member_center_page main.content_area .content section div label P {
+    min-width: 65px;
+  }
+  #member_center_page main.content_area .content section div label input {
+    width: 80%;
+    padding: 2px;
+    font-size: 0.75rem;
+  }
+  #member_center_page main.content_area .content section div label button {
+    margin-left: 1px;
+    padding: 2px;
+    font-size: 0.6rem;
+    width: 5rem;
+  }
+  #member_center_page main.content_area .content section div label span {
+    font-size: 0.6rem;
+    margin-left: 2px;
+  }
+  #member_center_page main.content_area .content section div label span i {
+    margin-right: 1px;
+  }
+  #member_center_page main.content_area .content section div label span b {
+    display: none;
+  }
+  #member_center_page main.content_area .content section div #birthday {
+    font-size: 0.6rem;
+    padding: 0 2px;
+  }
+  #member_center_page main.content_area .content section #passwordChangeForm {
+    padding: 0px;
+  }
+  #member_center_page main.content_area .content .actions_btn .btn_save {
+    margin-left: 0.5rem;
   }
 }
 .container {
@@ -680,6 +796,11 @@ main .chart_area .chart_show_button .chart_button label input[type=radio]:checke
   color: #fff;
 }
 
+main .member_center_page {
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+}
 main .member_center_page aside {
   width: 15vw;
   background-color: #fff;
@@ -688,7 +809,7 @@ main .member_center_page aside {
   justify-content: center;
   border-radius: 15px;
   padding: 20px;
-  margin: 5vh 2vw 2vh 2vw;
+  margin: 10vh 2vw 2vh 2vw;
 }
 main .member_center_page aside .user-info {
   width: 100%;
@@ -736,6 +857,10 @@ main .member_center_page aside ul li a:hover {
   background-color: #ccc;
   color: #fff;
 }
+main .member_center_page aside ul li a.current {
+  background-color: gray;
+  color: #fff;
+}
 main .member_center_page aside ul li.sign_out {
   border-top: 1px solid #ccc;
   padding-top: 10px;
@@ -753,6 +878,7 @@ main .member_center_page main.content_area .content section article {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
+  padding-left: 1rem;
 }
 main .member_center_page main.content_area .content section article i {
   color: rgb(0, 159, 65);
@@ -783,6 +909,7 @@ main .member_center_page main.content_area .content section div label input:focu
 }
 main .member_center_page main.content_area .content section div label button {
   cursor: pointer;
+  color: #000;
   padding: 5px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -803,9 +930,34 @@ main .member_center_page main.content_area .content section div label span {
 main .member_center_page main.content_area .content section div label span i {
   margin-right: 2px;
 }
+main .member_center_page main.content_area .content section div label span b {
+  font-weight: 100;
+}
 main .member_center_page main.content_area .content section div label span.successful {
   color: rgb(0, 159, 65);
 }
 main .member_center_page main.content_area .content section div label span.error {
   color: red;
+}
+main .member_center_page main.content_area .content section #passwordChangeForm {
+  background-color: none;
+  border-radius: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+main .member_center_page main.content_area .content .actions_btn {
+  display: flex;
+  justify-content: right;
+}
+main .member_center_page main.content_area .content .actions_btn .btn_save {
+  margin-left: 1rem;
+  background-color: rgb(0, 159, 65);
+  color: #fff;
+  transition: 0.5s;
+}
+main .member_center_page main.content_area .content .actions_btn .btn_save:hover {
+  background-color: #fff;
+  color: rgb(0, 159, 65);
+  outline: rgb(0, 159, 65) 1px solid;
+  transform: translateY(-5px);
 }/*# sourceMappingURL=style.css.map */

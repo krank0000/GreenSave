@@ -404,9 +404,67 @@ footer {
       flex-direction: column-reverse;
     }
   }
-
-  form {
-    width: 90vw;
+  // 綠色帳本----------------------------------------------------------
+  div.accounting_page {
+    form {
+      width: 90vw;
+    }
+  }
+  // 會員中心----------------------------------------------------------
+  #member_center_page {
+    width: 95vw;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    // 側邊功能列
+    aside#sidebar {
+      width: 90vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 0vh 2vw 2vh 2vw;
+      .user-info {
+        width: 100px;
+        margin-bottom: 0;
+        .user_icon {
+          display: none;
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        li {
+          margin: 0;
+          a {
+            padding: 5px 10px;
+          }
+          //登出
+          &.sign_out {
+            border-top: none;
+            padding-top: 0;
+          }
+        }
+      }
+    }
+    main.content_area {
+      width: 95vw;
+      padding: 15px;
+      //個人帳戶------------------------
+      .content {
+        section {
+          // 標題
+          article {
+            margin-bottom: 10px;
+            padding-left: 0.5rem;
+            font-size: 0.75rem;
+          }
+          // 資料填寫
+        }
+      }
+    }
   }
 }
 @media screen and (max-width: 455px) {
@@ -497,6 +555,98 @@ footer {
           // 隱藏圖示
           i {
             display: none;
+          }
+        }
+      }
+    }
+  }
+  // 會員中心----------------------------------------------------------
+  #member_center_page {
+    // 側邊功能列
+    aside#sidebar {
+      width: 90vw;
+      padding: 10px;
+      .user-info {
+        font-size: 0.75rem;
+        margin-right: 1rem;
+      }
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        li {
+          a {
+            text-align: center;
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            //隱藏圖示
+            i {
+              display: none;
+            }
+          }
+          //登出
+          &.sign_out {
+            border-left: 1px solid #ccc;
+          }
+        }
+      }
+    }
+    // 主要內容-切換區域-------------------------------
+    main.content_area {
+      width: 95vw;
+      padding: 10px;
+      //個人帳戶------------------------
+      .content {
+        section {
+          // 資料填寫
+          div {
+            padding: 15px;
+            label {
+              width: 100%;
+              margin: 5px;
+              font-size: 0.75rem;
+              P {
+                min-width: 65px;
+              }
+              input {
+                width: 80%;
+                padding: 2px;
+                font-size: 0.75rem;
+              }
+              //驗證按鈕
+              button {
+                margin-left: 1px;
+                padding: 2px;
+                font-size: 0.6rem;
+                width: 5rem;
+              }
+              //驗證文字
+              span {
+                font-size: 0.6rem;
+                margin-left: 2px;
+                i {
+                  margin-right: 1px;
+                }
+                b {
+                  display: none;
+                }
+              }
+            }
+            //生日input
+            #birthday {
+              font-size: 0.6rem;
+              padding: 0 2px;
+            }
+          }
+          // 修改密碼區塊
+          #passwordChangeForm {
+            padding: 0px;
+          }
+        }
+        // 操作按鈕
+        .actions_btn {
+          .btn_save {
+            margin-left: 0.5rem;
           }
         }
       }
@@ -836,6 +986,9 @@ main {
 // 會員中心----------------------------------------------------------
 main {
   .member_center_page {
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
     // 側邊功能列
     aside {
       width: 15vw;
@@ -845,7 +998,7 @@ main {
       justify-content: center;
       border-radius: 15px;
       padding: 20px;
-      margin: 5vh 2vw 2vh 2vw;
+      margin: 10vh 2vw 2vh 2vw;
 
       .user-info {
         width: 100%;
@@ -891,6 +1044,10 @@ main {
               background-color: $gray;
               color: $white;
             }
+            &.current {
+              background-color: gray;
+              color: $white;
+            }
           }
           //登出按鈕
           &.sign_out {
@@ -905,7 +1062,7 @@ main {
       width: 70vw;
       border-radius: 15px;
       padding: 20px;
-
+      //個人帳戶------------------------
       .content {
         width: 100%;
         section {
@@ -915,6 +1072,7 @@ main {
             justify-content: flex-start;
             align-items: center;
             margin-bottom: 20px;
+            padding-left: 1rem;
             i {
               color: $green;
               margin-right: 0.5rem;
@@ -931,6 +1089,7 @@ main {
             label {
               display: flex;
               align-items: center;
+
               margin-bottom: 10px;
               input {
                 width: 50%;
@@ -945,6 +1104,7 @@ main {
               //驗證按鈕
               button {
                 cursor: pointer;
+                color: $black;
                 padding: 5px 10px;
                 border: 1px solid #ccc;
                 border-radius: 5px;
@@ -965,6 +1125,9 @@ main {
                 i {
                   margin-right: 2px;
                 }
+                b {
+                  font-weight: 100;
+                }
                 &.successful {
                   color: $green;
                 }
@@ -972,6 +1135,31 @@ main {
                   color: red;
                 }
               }
+            }
+          }
+          // 修改密碼區塊
+          #passwordChangeForm {
+            background-color: none;
+            border-radius: none;
+            padding: 0;
+            margin-bottom: 0;
+          }
+        }
+        // 操作按鈕
+        .actions_btn {
+          display: flex;
+          justify-content: right;
+          //儲存按鈕
+          .btn_save {
+            margin-left: 1rem;
+            background-color: $green;
+            color: $white;
+            transition: 0.5s;
+            &:hover {
+              background-color: $white;
+              color: $green;
+              outline: $green 1px solid;
+              transform: translateY(-5px);
             }
           }
         }

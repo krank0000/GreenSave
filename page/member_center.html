@@ -69,9 +69,9 @@
     </div>
 
     <main>
-      <div class="container member_center_page">
+      <div class="container member_center_page" id="member_center_page">
         <!-- 側邊功能列 -->
-        <aside class="sidebar">
+        <aside id="sidebar">
           <div class="user-info">
             <div class="user_icon">
               <i class="fas fa-user-circle fa-2xl"></i>
@@ -83,18 +83,24 @@
           </div>
           <ul class="menu">
             <li>
-              <a href="#"><i class="fa-solid fa-user"></i>個人帳戶</a>
+              <a href="#" class="current" onclick="showContent('account')"
+                ><i class="fa-solid fa-user"></i>個人帳戶</a
+              >
             </li>
             <li>
-              <a href="#"
+              <a href="#" onclick="showContent('history')"
                 ><i class="fa-solid fa-clock-rotate-left"></i>歷史記錄</a
               >
             </li>
             <li>
-              <a href="#"><i class="fa-solid fa-star"></i>獎勵點數</a>
+              <a href="#" onclick="showContent('rewards')"
+                ><i class="fa-solid fa-star"></i>獎勵點數</a
+              >
             </li>
             <li>
-              <a href="#"><i class="fa-solid fa-flag"></i>目標設定</a>
+              <a href="#" onclick="showContent('goals')"
+                ><i class="fa-solid fa-flag"></i>目標設定</a
+              >
             </li>
             <li class="sign_out">
               <a href="#" onclick="signOut()"
@@ -106,20 +112,23 @@
         <!-- 主要內容 -->
         <main class="content_area">
           <!-- 個人帳戶 -->
-          <div class="content">
+          <div class="content" id="account" style="display: block">
             <form action="">
+              <!-- 基本資訊 -->
               <section class="basic-info">
+                <!-- 標題 -->
                 <article class="title">
                   <i class="fa-regular fa-user fa-lg"></i>
                   <h2>基本資訊</h2>
                 </article>
+                <!-- 基本資訊-填寫 -->
                 <div id="userForm">
                   <label>
-                    姓名：
+                    <p>姓名：</p>
                     <input type="text" id="name" placeholder="王曉明" />
                   </label>
                   <label>
-                    電子郵箱：
+                    <p>電子郵箱：</p>
                     <input
                       type="email"
                       id="email"
@@ -129,24 +138,27 @@
                       發送驗證信
                     </button>
                     <span class="verify successful">
-                      <i class="fa-solid fa-check"></i>已驗證
+                      <i class="fa-solid fa-check"></i>
+                      <b>已驗證</b>
                     </span>
                   </label>
                   <label>
-                    手機號碼：
+                    <p>手機號碼：</p>
                     <input type="tel" id="phone" placeholder="---" />
                     <button type="button" onclick="sendVerificationSMS()">
                       發送驗證碼
                     </button>
                     <span class="verify error">
-                      <i class="fa-solid fa-xmark"></i>尚未驗證
+                      <i class="fa-solid fa-xmark"></i><b>尚未驗證</b>
                     </span>
                   </label>
 
-                  <label>生日：<input type="date" id="birthday" /></label>
-                  <!-- <label>性別：<input type="text" id="gender" /></label> -->
-                  <label
-                    >通訊地址：
+                  <label>
+                    <p>生日：</p>
+                    <input type="date" id="birthday" />
+                  </label>
+                  <label>
+                    <p>通訊地址：</p>
                     <input
                       type="text"
                       id="address"
@@ -155,34 +167,87 @@
                   </label>
                 </div>
               </section>
+              <!-- 帳戶設定 -->
               <section class="account-settings">
+                <!-- 標題 -->
                 <article class="title">
                   <i class="fa-solid fa-lock fa-lg"></i>
                   <h2>帳戶設定</h2>
                 </article>
-
+                <!-- 帳戶設定-填寫 -->
                 <div id="accountForm">
-                  <label
-                    >帳號ID：<input
+                  <label>
+                    <p>帳號ID：</p>
+                    <input
                       type="text"
                       id="accountId"
                       placeholder="abcd123"
                       disabled
                   /></label>
-                  <label
-                    >密碼：<input type="password" id="password" disabled />
-                    <button type="button" onclick="changePassword()">
+                  <label id="passwordLabel">
+                    <p>密碼：</p>
+                    <input type="password" id="password" disabled />
+                    <button type="button" onclick="togglePasswordChange()">
                       修改密碼
                     </button>
                   </label>
+
+                  <!-- 修改密碼表單 -->
+                  <div id="passwordChangeForm" style="display: none">
+                    <label for="currentPassword">
+                      <p>原密碼：</p>
+                      <input type="password" id="currentPassword" />
+                      <i
+                        class="fa-solid fa-eye-slash"
+                        onclick="togglePasswordVisibility('currentPassword')"
+                      ></i>
+                      <button type="button" onclick="cancelPasswordChange()">
+                        取消修改
+                      </button>
+                    </label>
+
+                    <label for="newPassword">
+                      <p>新密碼：</p>
+                      <input type="password" id="newPassword" />
+                      <i
+                        class="fa-solid fa-eye-slash"
+                        onclick="togglePasswordVisibility('newPassword')"
+                      ></i>
+                    </label>
+
+                    <label for="confirmNewPassword">
+                      <p>確認新密碼：</p>
+                      <input type="password" id="confirmNewPassword" />
+                      <i
+                        class="fa-solid fa-eye-slash"
+                        onclick="togglePasswordVisibility('confirmNewPassword')"
+                      ></i
+                      ><button type="button" onclick="confirmPasswordChange()">
+                        確認修改
+                      </button>
+                    </label>
+                  </div>
                 </div>
               </section>
+              <!-- 操作按鈕 -->
               <div class="actions_btn">
                 <button onclick="cancelChanges()" class="btn">取消</button>
-                <button onclick="saveChanges()" class="btn">儲存變更</button>
+                <button
+                  onclick="saveChanges()"
+                  class="btn btn_save"
+                  type="submit"
+                >
+                  儲存變更
+                </button>
               </div>
             </form>
           </div>
+          <!-- 歷史記錄 -->
+          <div class="content" id="history" style="display: none"></div>
+          <!-- 獎勵點數 -->
+          <div class="content" id="rewards" style="display: none"></div>
+          <!-- 目標設定 -->
+          <div class="content" id="goals" style="display: none"></div>
         </main>
       </div>
     </main>
