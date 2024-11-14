@@ -554,47 +554,65 @@ function showContent(sectionId) {
   }
 }
 
-// 修改密碼
-// 切換顯示或隱藏修改密碼的表單
+// 個人帳戶--修改密碼
+// 切換顯示或隱藏修改密碼的表單，並更改文字與欄位禁用狀態
 function togglePasswordChange() {
-  // 隱藏密碼顯示區塊
-  document.getElementById("passwordLabel").style.display = "none";
+  const passwordLabel = document.getElementById("passwordLabel");
+  const passwordLabelText = passwordLabel.querySelector("p");
+  const toggleButton = passwordLabel.querySelector("button");
+  const passwordInput = document.getElementById("password");
+  const passwordChangeForm = document.getElementById("passwordChangeForm");
 
-  // 顯示修改密碼表單
-  document.getElementById("passwordChangeForm").style.display = "block";
+  if (passwordChangeForm.style.display === "none") {
+    // 顯示修改密碼表單，更新文字並取消禁用密碼欄位
+    passwordLabelText.textContent = "原密碼：";
+    toggleButton.textContent = "取消修改";
+    passwordChangeForm.style.display = "block";
+    passwordInput.disabled = false; // 取消禁用
+    passwordInput.value = ""; // 清空內容
+  } else {
+    // 隱藏修改密碼表單，恢復文字並禁用密碼欄位
+    passwordLabelText.textContent = "密碼：";
+    toggleButton.textContent = "修改密碼";
+    passwordChangeForm.style.display = "none";
+    passwordInput.disabled = true; // 恢復禁用
+    passwordInput.value = ""; // 清空內容
+  }
 }
 
-// 取消修改，隱藏修改密碼表單，顯示原來的密碼區塊
+// 取消修改，隱藏修改密碼表單，恢復原文字並禁用密碼欄位
 function cancelPasswordChange() {
-  // 顯示密碼顯示區塊
-  document.getElementById("passwordLabel").style.display = "block";
+  const passwordLabel = document.getElementById("passwordLabel");
+  const passwordLabelText = passwordLabel.querySelector("p");
+  const toggleButton = passwordLabel.querySelector("button");
+  const passwordInput = document.getElementById("password");
 
-  // 隱藏修改密碼表單
+  // 恢復文字、禁用狀態和顯示狀態
+  passwordLabelText.textContent = "密碼：";
+  toggleButton.textContent = "修改密碼";
+  passwordInput.disabled = true; // 恢復禁用
   document.getElementById("passwordChangeForm").style.display = "none";
 }
 
-// 顯示/隱藏密碼的可見性
+// 顯示或隱藏密碼的可見性
 function togglePasswordVisibility(passwordFieldId) {
   const passwordField = document.getElementById(passwordFieldId);
-  const icon = passwordField.nextElementSibling; // 獲取相鄰的<i>標籤
+  const icon = passwordField.nextElementSibling; // 獲取<i>標籤
 
-  // 切換密碼的顯示方式
-  const currentType = passwordField.type;
-  passwordField.type = currentType === "password" ? "text" : "password";
+  // 切換密碼顯示
+  passwordField.type = passwordField.type === "password" ? "text" : "password";
 
   // 切換圖示
   if (passwordField.type === "password") {
-    // 密碼隱藏，顯示「眼睛斜線」圖示
     icon.classList.remove("fa-eye");
     icon.classList.add("fa-eye-slash");
   } else {
-    // 密碼顯示，顯示「眼睛」圖示
     icon.classList.remove("fa-eye-slash");
     icon.classList.add("fa-eye");
   }
 }
 
-// 確認密碼修改的處理函數
+// 確認密碼修改
 function confirmPasswordChange() {
   const currentPassword = document.getElementById("currentPassword").value;
   const newPassword = document.getElementById("newPassword").value;
@@ -606,15 +624,17 @@ function confirmPasswordChange() {
     return;
   }
 
-  // 這裡可以進行更多的密碼驗證操作，例如驗證原密碼是否正確
+  // 可以在這裡進行更多密碼驗證操作
 
   alert("密碼修改成功！");
 
-  // 隱藏修改密碼區塊
+  // 隱藏修改密碼表單並恢復文字與禁用狀態
   document.getElementById("passwordChangeForm").style.display = "none";
-
-  // 顯示密碼顯示區塊（即顯示原本的密碼欄位）
-  document.getElementById("passwordLabel").style.display = "block";
+  document.getElementById("passwordLabel").querySelector("p").textContent =
+    "密碼：";
+  document.getElementById("passwordLabel").querySelector("button").textContent =
+    "修改密碼";
+  document.getElementById("password").disabled = true; // 恢復禁用
 }
 
 // 取消更改

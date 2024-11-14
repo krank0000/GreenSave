@@ -31,6 +31,16 @@
     </style>
     <!-- jquery -->
     <script src="../asset/js/jquery-3.7.1.min.js"></script>
+    <!-- jquery DataTabels-->
+
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link
+      href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>存碳養綠｜會員中心</title>
   </head>
   <body>
@@ -102,6 +112,7 @@
                 ><i class="fa-solid fa-flag"></i>目標設定</a
               >
             </li>
+
             <li class="sign_out">
               <a href="#" onclick="signOut()"
                 ><i class="fa-solid fa-arrow-right-from-bracket"></i>登出</a
@@ -122,7 +133,7 @@
                   <h2>基本資訊</h2>
                 </article>
                 <!-- 基本資訊-填寫 -->
-                <div id="userForm">
+                <div class="area" id="userForm">
                   <label>
                     <p>姓名：</p>
                     <input type="text" id="name" placeholder="王曉明" />
@@ -155,7 +166,12 @@
 
                   <label>
                     <p>生日：</p>
-                    <input type="date" id="birthday" />
+                    <input
+                      type="date"
+                      id="birthday"
+                      value="1999-01-01"
+                      disabled
+                    />
                   </label>
                   <label>
                     <p>通訊地址：</p>
@@ -175,7 +191,7 @@
                   <h2>帳戶設定</h2>
                 </article>
                 <!-- 帳戶設定-填寫 -->
-                <div id="accountForm">
+                <div id="accountForm" class="area">
                   <label>
                     <p>帳號ID：</p>
                     <input
@@ -191,36 +207,24 @@
                       修改密碼
                     </button>
                   </label>
-
                   <!-- 修改密碼表單 -->
                   <div id="passwordChangeForm" style="display: none">
-                    <label for="currentPassword">
-                      <p>原密碼：</p>
-                      <input type="password" id="currentPassword" />
-                      <i
-                        class="fa-solid fa-eye-slash"
-                        onclick="togglePasswordVisibility('currentPassword')"
-                      ></i>
-                      <button type="button" onclick="cancelPasswordChange()">
-                        取消修改
-                      </button>
-                    </label>
-
                     <label for="newPassword">
                       <p>新密碼：</p>
                       <input type="password" id="newPassword" />
                       <i
                         class="fa-solid fa-eye-slash"
                         onclick="togglePasswordVisibility('newPassword')"
+                        style="color: gray"
                       ></i>
                     </label>
-
                     <label for="confirmNewPassword">
                       <p>確認新密碼：</p>
                       <input type="password" id="confirmNewPassword" />
                       <i
                         class="fa-solid fa-eye-slash"
                         onclick="togglePasswordVisibility('confirmNewPassword')"
+                        style="color: gray"
                       ></i
                       ><button type="button" onclick="confirmPasswordChange()">
                         確認修改
@@ -230,7 +234,7 @@
                 </div>
               </section>
               <!-- 操作按鈕 -->
-              <div class="actions_btn">
+              <div class="area actions_btn">
                 <button onclick="cancelChanges()" class="btn">取消</button>
                 <button
                   onclick="saveChanges()"
@@ -243,9 +247,419 @@
             </form>
           </div>
           <!-- 歷史記錄 -->
-          <div class="content" id="history" style="display: none"></div>
+          <div class="content" id="history" style="display: none">
+            <form action="">
+              <!-- 歷史紀錄 -->
+              <section>
+                <!-- 標題 -->
+                <article class="title">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <h2>歷史紀錄</h2>
+                </article>
+                <!-- 歷史紀錄-表格 -->
+                <div class="area">
+                  <!-- 日期按鈕 -->
+                  <section class="tableDate_bth">
+                    <div class="tableDate">
+                      <input type="date" name="" value="2022-03-01" />
+                      <i class="fa-solid fa-caret-right"></i>
+                      <i class="fa-solid fa-caret-down" id="caret-down"></i>
+                      <input type="date" name="" value="2022-03-31" />
+                    </div>
+                  </section>
+                  <!-- 表格 -->
+                  <table id="example" class="display">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>品名</th>
+                        <th>金額</th>
+                        <th>碳排</th>
+                        <th>類別</th>
+                        <th>消費</th>
+                        <th>日期</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>咖啡</td>
+                        <td>$99</td>
+                        <td><span>2.4</span>kg</td>
+                        <td><i class="fa-solid fa-utensils"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/01</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>牛奶</td>
+                        <td>$150</td>
+                        <td><span>1.5</span>kg</td>
+                        <td><i class="fa-solid fa-utensils"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/02</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>運動鞋</td>
+                        <td>$2299</td>
+                        <td><span>30</span>kg</td>
+                        <td><i class="fa-solid fa-shirt"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/03</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>牛仔褲</td>
+                        <td>$1299</td>
+                        <td><span>33</span>kg</td>
+                        <td><i class="fa-solid fa-shirt"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/04</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>外套</td>
+                        <td>$1599</td>
+                        <td><span>13</span>kg</td>
+                        <td><i class="fa-solid fa-shirt"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/05</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>雨傘</td>
+                        <td>$120</td>
+                        <td><span>0.4</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/06</td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>水瓶</td>
+                        <td>$100</td>
+                        <td><span>0.2</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/07</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>手機殼</td>
+                        <td>$300</td>
+                        <td><span>2</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/08</td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td>背包</td>
+                        <td>$799</td>
+                        <td><span>8</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/09</td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td>手錶</td>
+                        <td>$1999</td>
+                        <td><span>5</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/10</td>
+                      </tr>
+                      <tr>
+                        <td>11</td>
+                        <td>筆記本</td>
+                        <td>$150</td>
+                        <td><span>0.3</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/11</td>
+                      </tr>
+                      <tr>
+                        <td>12</td>
+                        <td>墨鏡</td>
+                        <td>$350</td>
+                        <td><span>0.7</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/12</td>
+                      </tr>
+                      <tr>
+                        <td>13</td>
+                        <td>帽子</td>
+                        <td>$200</td>
+                        <td><span>0.6</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/13</td>
+                      </tr>
+                      <tr>
+                        <td>14</td>
+                        <td>零食</td>
+                        <td>$50</td>
+                        <td><span>0.5</span>kg</td>
+                        <td><i class="fa-solid fa-utensils"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/14</td>
+                      </tr>
+                      <tr>
+                        <td>15</td>
+                        <td>雞肉</td>
+                        <td>$200</td>
+                        <td><span>3.5</span>kg</td>
+                        <td><i class="fa-solid fa-utensils"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/15</td>
+                      </tr>
+                      <tr>
+                        <td>16</td>
+                        <td>油費</td>
+                        <td>$1200</td>
+                        <td><span>185.13</span>kg</td>
+                        <td><i class="fa-solid fa-car"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/16</td>
+                      </tr>
+                      <tr>
+                        <td>17</td>
+                        <td>電費</td>
+                        <td>$5000</td>
+                        <td><span>664</span>kg</td>
+                        <td><i class="fa-solid fa-house-user"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/17</td>
+                      </tr>
+                      <tr>
+                        <td>18</td>
+                        <td>水費</td>
+                        <td>$1200</td>
+                        <td><span>220</span>kg</td>
+                        <td><i class="fa-solid fa-house-user"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/18</td>
+                      </tr>
+                      <tr>
+                        <td>19</td>
+                        <td>瓦斯費</td>
+                        <td>$1000</td>
+                        <td><span>1500</span>kg</td>
+                        <td><i class="fa-solid fa-house-user"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/19</td>
+                      </tr>
+                      <tr>
+                        <td>20</td>
+                        <td>飛機</td>
+                        <td>$3200</td>
+                        <td><span>1980</span>kg</td>
+                        <td><i class="fa-solid fa-car"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/20</td>
+                      </tr>
+                      <tr>
+                        <td>21</td>
+                        <td>公車</td>
+                        <td>$50</td>
+                        <td><span>0.5</span>kg</td>
+                        <td><i class="fa-solid fa-car"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/21</td>
+                      </tr>
+                      <tr>
+                        <td>22</td>
+                        <td>飛機</td>
+                        <td>$2500</td>
+                        <td><span>495</span>kg</td>
+                        <td><i class="fa-solid fa-car"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/22</td>
+                      </tr>
+                      <tr>
+                        <td>23</td>
+                        <td>筆電</td>
+                        <td>$18000</td>
+                        <td><span>200</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/23</td>
+                      </tr>
+                      <tr>
+                        <td>24</td>
+                        <td>藍牙耳機</td>
+                        <td>$3500</td>
+                        <td><span>5</span>kg</td>
+                        <td><i class="fa-solid fa-ellipsis"></i></td>
+                        <td><i class="fa-solid fa-person-running"></i></td>
+                        <td>2022/03/24</td>
+                      </tr>
+                      <tr>
+                        <td>25</td>
+                        <td>吃到飽</td>
+                        <td>$20000</td>
+                        <td><span>500</span>kg</td>
+                        <td><i class="fa-solid fa-utensils"></i></td>
+                        <td><i class="fa-solid fa-truck-fast"></i></td>
+                        <td>2022/03/25</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </form>
+          </div>
           <!-- 獎勵點數 -->
-          <div class="content" id="rewards" style="display: none"></div>
+          <div class="content" id="rewards" style="display: none">
+            <form action="">
+              <!-- 獎勵點數 -->
+              <section>
+                <!-- 標題 -->
+                <article class="title">
+                  <i class="fa-solid fa-star"></i>
+                  <h2>獎勵點數</h2>
+                </article>
+                <!-- 獎勵點數-表格 -->
+                <div class="area">
+                  <!-- 點數顯示區塊 -->
+                  <section class="point_show_area">
+                    <i
+                      class="fa-light fa-bullhorn fa-fade fa-3x"
+                      style="color: #ffffff"
+                    ></i>
+                    <div class="point_area">
+                      <p>現持有點數</p>
+                      <div class="point">
+                        <h3>120</h3>
+                        <p>點</p>
+                      </div>
+                    </div>
+                    <div class="text_area">
+                      <p>透過減少碳排放或進行環保行為，獲得點數</p>
+                      <a
+                        href="#"
+                        id="openDialogBtn"
+                        onclick="myDialog.showModal()"
+                        >查看點數核發方式</a
+                      >
+                    </div>
+                    <button class="" title="兌換禮品">
+                      <i class="fa-solid fa-gift"></i>
+                      <span>兌換禮品</span>
+                    </button>
+                    <!-- 點數核發方式彈窗 -->
+                    <dialog id="myDialog">
+                      <div class="dialog-content">
+                        <h3>點數核發方式</h3>
+                        <ol>
+                          <li>與合作之綠色商店不限金額消費即可獲得50點</li>
+                          <li>植物養到新的循環就送50點</li>
+                          <li>
+                            參與大型環保活動(海灘撿塑膠袋/寶特瓶、參與回收場回收工作等)可換500點(一場)
+                          </li>
+                          <li>參與實體快閃活動抽獎有機會獲得50點</li>
+                          <li>
+                            照片核發(Line/FB/IG私訊照片)，上傳綠色標章產品電子發票+產品圖，一份可換50點
+                          </li>
+                          <li>昨日綠色帳本碳排量小於20kg可獲得50點</li>
+                          <li>
+                            使用環保餐具用餐，(Line/FB/IG私訊照片)上傳電子發票+產品圖，一份可換50點
+                          </li>
+                        </ol>
+                      </div>
+                      <span>
+                        <button id="closeDialogBtn" onclick="myDialog.close()">
+                          關閉
+                        </button>
+                      </span>
+                    </dialog>
+                  </section>
+                  <!-- 表格 -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>日期</th>
+                        <th>點數更動原因</th>
+                        <th>點數</th>
+                        <th>現有點數</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2024-11-12</td>
+                        <td>使用環保餐具用餐</td>
+                        <td>+50</td>
+                        <td>800</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-11</td>
+                        <td>昨日綠色帳本碳排量小於20kg</td>
+                        <td>+50</td>
+                        <td>750</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-10</td>
+                        <td>照片核發，綠色標章產品電子發票</td>
+                        <td>+50</td>
+                        <td>700</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-09</td>
+                        <td>參與實體快閃活動抽獎</td>
+                        <td>+50</td>
+                        <td>650</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-08</td>
+                        <td>參與大型環保活動(回收場回收工作)</td>
+                        <td>+500</td>
+                        <td>600</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-07</td>
+                        <td>與合作之綠色商店不限金額消費</td>
+                        <td>+50</td>
+                        <td>100</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-06</td>
+                        <td>植物養到新的循環</td>
+                        <td>+50</td>
+                        <td>150</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-05</td>
+                        <td>昨日綠色帳本碳排量小於20kg</td>
+                        <td>+50</td>
+                        <td>200</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-04</td>
+                        <td>使用環保餐具用餐</td>
+                        <td>+50</td>
+                        <td>250</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-03</td>
+                        <td>與合作之綠色商店不限金額消費</td>
+                        <td>+50</td>
+                        <td>300</td>
+                      </tr>
+                      <tr>
+                        <td>2024-11-02</td>
+                        <td>照片核發，綠色標章產品電子發票</td>
+                        <td>+50</td>
+                        <td>350</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </form>
+          </div>
           <!-- 目標設定 -->
           <div class="content" id="goals" style="display: none"></div>
         </main>
@@ -257,5 +671,6 @@
       <p>&copy;存碳養綠 2022 | 中原大學資訊管理系專題製作</p>
     </footer>
   </body>
+  <script src="../asset/js/add.js"></script>
   <script src="../asset/js/app.js"></script>
 </html>
