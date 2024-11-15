@@ -361,7 +361,7 @@ footer p {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 0vh 2vw 2vh 2vw;
+    margin: 5vh 2vw 2vh 2vw;
   }
   #member_center_page aside#sidebar .user-info {
     width: 100px;
@@ -389,10 +389,115 @@ footer p {
     width: 95vw;
     padding: 15px;
   }
+  #member_center_page main.content_area .content {
+    min-height: 70vh;
+  }
   #member_center_page main.content_area .content section article {
     margin-bottom: 10px;
     padding-left: 0.5rem;
     font-size: 0.75rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area {
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    padding: 10px;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area i.fa-bullhorn {
+    display: none;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.point_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 1rem;
+    border-right: 1.5px solid #ccc;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.point_area p {
+    font-size: 0.75rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.point_area .point {
+    display: flex;
+    align-items: end;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.point_area .point h3 {
+    font-size: 1.5rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.text_area {
+    margin: 0 1rem;
+    font-size: 0.5rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.text_area p {
+    margin-bottom: 0.25rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area div.text_area a {
+    font-size: 0.75rem;
+    color: #000;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  #member_center_page main.content_area .content#rewards div.area .point_show_area .goto_point {
+    margin-left: 1rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area table {
+    margin-top: 20px;
+    font-size: 0.75rem;
+  }
+  #member_center_page main.content_area .content#rewards div.area table th {
+    font-weight: normal;
+  }
+  #member_center_page main.content_area .content#rewards div.area table tbody tr td {
+    padding: 5px 0;
+  }
+}
+@media screen and (max-width: 580px) {
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #myTable th:nth-child(5),
+  #myTable th:nth-child(6),
+  #myTable td:nth-child(5),
+  #myTable td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #example th:nth-child(6),
+  #example td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  /* 調整字體大小和內邊距 */
+  #myTable,
+  #example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 12px; /* 更小字體 */
+  }
+  .table_area {
+    overflow: hidden;
+  }
+  .table_area .tableDate_bth div.tableDate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .table_area .tableDate_bth div.tableDate #caret-down {
+    display: block;
+  }
+  .table_area .tableDate_bth div.tableDate .fa-caret-right {
+    display: none;
+  }
+  .table_area .tableDate_bth div.tableDate input[type=date] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 5px 0;
+    letter-spacing: 0.15rem;
+    text-align: center;
   }
 }
 @media screen and (max-width: 455px) {
@@ -403,11 +508,6 @@ footer p {
   }
   header button {
     padding: 0 15px;
-  }
-  main {
-    /* 隱藏「類別」和「消費型態」欄位 */
-    /* 隱藏「類別」和「消費型態」欄位 */
-    /* 調整字體大小和內邊距 */
   }
   main div.accounting_page form:hover {
     outline: none;
@@ -427,52 +527,7 @@ footer p {
   main div.accounting_page .chart_show_button #chart_button i {
     display: none;
   }
-  main #myTable th:nth-child(5),
-  main #myTable th:nth-child(6),
-  main #myTable td:nth-child(5),
-  main #myTable td:nth-child(6) {
-    /* 消費型態欄位 */
-    display: none;
-  }
-  main #example th:nth-child(6),
-  main #example td:nth-child(6) {
-    /* 消費型態欄位 */
-    display: none;
-  }
-  main #myTable,
-  main #example {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    font-size: 12px; /* 更小字體 */
-  }
-  main .table_area {
-    overflow: hidden;
-  }
-  main .table_area .tableDate_bth div.tableDate {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  main .table_area .tableDate_bth div.tableDate #caret-down {
-    display: block;
-  }
-  main .table_area .tableDate_bth div.tableDate .fa-caret-right {
-    display: none;
-  }
-  main .table_area .tableDate_bth div.tableDate input[type=date] {
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 50px;
-    margin: 5px 0;
-    letter-spacing: 0.15rem;
-    text-align: center;
-  }
   #member_center_page aside#sidebar {
-    margin-top: 5vh;
     width: 90vw;
     padding: 10px;
   }
@@ -552,13 +607,6 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-  }
-  #member_center_page main.content_area .content div.area .tableDate_bth div.tableDate #caret-down {
-    display: block;
-  }
-  #member_center_page main.content_area .content div.area .tableDate_bth div.tableDate .fa-caret-right {
-    display: none;
   }
   #member_center_page main.content_area .content div.area .tableDate_bth div.tableDate input[type=date] {
     border: 1px solid #ccc;
@@ -569,17 +617,13 @@ footer p {
     text-align: center;
   }
   #member_center_page main.content_area .content#rewards div.area .point_show_area {
-    background-color: #f3f3f3;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     min-height: 50px;
     padding: 10px;
-    overflow: hidden;
   }
   #member_center_page main.content_area .content#rewards div.area .point_show_area i.fa-bullhorn {
-    transform: rotate(-10deg);
-    font-size: larger;
+    display: none;
   }
   #member_center_page main.content_area .content#rewards div.area .point_show_area div.point_area {
     display: flex;
@@ -600,7 +644,7 @@ footer p {
     font-size: 1.5rem;
   }
   #member_center_page main.content_area .content#rewards div.area .point_show_area div.text_area {
-    margin-left: 1rem;
+    margin: 0 1rem;
     font-size: 0.5rem;
   }
   #member_center_page main.content_area .content#rewards div.area .point_show_area div.text_area p {
@@ -612,32 +656,24 @@ footer p {
     cursor: pointer;
     text-decoration: underline;
   }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area button {
+  #member_center_page main.content_area .content#rewards div.area .point_show_area .goto_point {
     margin-left: 1rem;
-    padding: 5px 10px;
   }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area button span {
+  #member_center_page main.content_area .content#rewards div.area .point_show_area .goto_point span {
     display: none;
-  }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area dialog {
-    padding: 20px;
-  }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area dialog .dialog-content {
-    font-size: small;
-  }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area dialog .dialog-content ol {
-    padding-left: 1rem;
-  }
-  #member_center_page main.content_area .content#rewards div.area .point_show_area dialog .dialog-content ol li {
-    margin: 5px 0;
   }
   #member_center_page main.content_area .content#rewards div.area table {
     margin-top: 20px;
     font-size: 0.75rem;
   }
+  #member_center_page main.content_area .content#rewards div.area table th {
+    font-weight: normal;
+  }
   #member_center_page main.content_area .content#rewards div.area table tbody tr td {
-    font-size: 0.5rem;
     padding: 5px 0;
+  }
+  #member_center_page main.content_area .content#rewards div.area table tbody tr td:nth-child(1) {
+    padding-right: 0.5rem;
   }
 }
 .container {
@@ -973,7 +1009,7 @@ main .member_center_page aside ul li.sign_out {
 main .member_center_page main.content_area {
   width: 70vw;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10vh 20px 20px 20px;
 }
 main .member_center_page main.content_area .content {
   width: 100%;
@@ -1059,9 +1095,36 @@ main .member_center_page main.content_area .content section #passwordChangeForm 
   padding: 0;
   margin-bottom: 0;
 }
+main .member_center_page main.content_area .content section #passwordChangeForm label div {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  padding: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+main .member_center_page main.content_area .content section #passwordChangeForm label div input {
+  width: 100%;
+  border: none;
+}
 main .member_center_page main.content_area .content .actions_btn {
   display: flex;
   justify-content: right;
+}
+main .member_center_page main.content_area .content .actions_btn button {
+  background-color: #4e4e4e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+main .member_center_page main.content_area .content .actions_btn button:hover {
+  background-color: #fff;
+  color: #4e4e4e;
+  outline: #4e4e4e 1px solid;
 }
 main .member_center_page main.content_area .content .actions_btn .btn_save {
   margin-left: 1rem;
@@ -1125,7 +1188,7 @@ main .member_center_page main.content_area .content#rewards div.area .point_show
   cursor: pointer;
   text-decoration: underline;
 }
-main .member_center_page main.content_area .content#rewards div.area .point_show_area button {
+main .member_center_page main.content_area .content#rewards div.area .point_show_area .goto_point {
   background-color: #4e4e4e;
   color: #fff;
   border: none;
@@ -1134,7 +1197,7 @@ main .member_center_page main.content_area .content#rewards div.area .point_show
   cursor: pointer;
   transition: 0.5s;
 }
-main .member_center_page main.content_area .content#rewards div.area .point_show_area button:hover {
+main .member_center_page main.content_area .content#rewards div.area .point_show_area .goto_point:hover {
   background-color: #fff;
   color: #4e4e4e;
   outline: #4e4e4e 1px solid;

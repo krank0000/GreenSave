@@ -211,22 +211,27 @@
                   <div id="passwordChangeForm" style="display: none">
                     <label for="newPassword">
                       <p>新密碼：</p>
-                      <input type="password" id="newPassword" />
-                      <i
-                        class="fa-solid fa-eye-slash"
-                        onclick="togglePasswordVisibility('newPassword')"
-                        style="color: gray"
-                      ></i>
+                      <div>
+                        <input type="password" id="newPassword" />
+                        <i
+                          class="fa-solid fa-eye-slash"
+                          onclick="togglePasswordVisibility('newPassword')"
+                          style="color: gray"
+                        ></i>
+                      </div>
                     </label>
                     <label for="confirmNewPassword">
                       <p>確認新密碼：</p>
-                      <input type="password" id="confirmNewPassword" />
-                      <i
-                        class="fa-solid fa-eye-slash"
-                        onclick="togglePasswordVisibility('confirmNewPassword')"
-                        style="color: gray"
-                      ></i
-                      ><button type="button" onclick="confirmPasswordChange()">
+                      <div>
+                        <input type="password" id="confirmNewPassword" />
+                        <i
+                          class="fa-solid fa-eye-slash"
+                          onclick="togglePasswordVisibility('confirmNewPassword')"
+                          style="color: gray"
+                        >
+                        </i>
+                      </div>
+                      <button type="button" onclick="confirmPasswordChange()">
                         確認修改
                       </button>
                     </label>
@@ -235,12 +240,8 @@
               </section>
               <!-- 操作按鈕 -->
               <div class="area actions_btn">
-                <button onclick="cancelChanges()" class="btn">取消</button>
-                <button
-                  onclick="saveChanges()"
-                  class="btn btn_save"
-                  type="submit"
-                >
+                <button onclick="cancelChanges()">取消</button>
+                <button onclick="saveChanges()" class="btn_save" type="submit">
                   儲存變更
                 </button>
               </div>
@@ -546,10 +547,11 @@
                         >查看點數核發方式</a
                       >
                     </div>
-                    <button class="" title="兌換禮品">
+                    <a href="points_shop.html" class="goto_point">
                       <i class="fa-solid fa-gift"></i>
                       <span>兌換禮品</span>
-                    </button>
+                    </a>
+
                     <!-- 點數核發方式彈窗 -->
                     <dialog id="myDialog">
                       <div class="dialog-content">

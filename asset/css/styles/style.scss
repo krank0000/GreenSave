@@ -424,7 +424,7 @@ footer {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin: 0vh 2vw 2vh 2vw;
+      margin: 5vh 2vw 2vh 2vw;
       .user-info {
         width: 100px;
         margin-bottom: 0;
@@ -452,6 +452,10 @@ footer {
     main.content_area {
       width: 95vw;
       padding: 15px;
+      //統一設定
+      .content {
+        min-height: 70vh;
+      }
       //個人帳戶------------------------
       .content {
         section {
@@ -462,6 +466,132 @@ footer {
             font-size: 0.75rem;
           }
           // 資料填寫
+        }
+      }
+      //獎勵點數------------------------
+      .content#rewards {
+        div.area {
+          // 點數顯示區塊
+          .point_show_area {
+            display: flex;
+            justify-content: center;
+            min-height: 50px;
+            padding: 10px;
+            //隱藏公告圖示
+            i.fa-bullhorn {
+              display: none;
+            }
+            div {
+              &.point_area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0 1rem;
+                border-right: 1.5px solid #ccc;
+                p {
+                  font-size: 0.75rem;
+                }
+                .point {
+                  display: flex;
+                  align-items: end;
+                  h3 {
+                    font-size: 1.5rem;
+                  }
+                }
+              }
+              &.text_area {
+                margin: 0 1rem;
+                font-size: 0.5rem;
+                p {
+                  margin-bottom: 0.25rem;
+                }
+                a {
+                  font-size: 0.75rem;
+                  color: $black;
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+            .goto_point {
+              margin-left: 1rem;
+            }
+          }
+          // 表格
+          table {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            th {
+              font-weight: normal;
+            }
+            tbody {
+              tr {
+                td {
+                  padding: 5px 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 580px) {
+  //表格設定
+  // 表格設定---------------------
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #myTable th:nth-child(5),  /* 類別欄位 */
+    #myTable th:nth-child(6),  /* 消費型態欄位 */
+    #myTable td:nth-child(5),  /* 類別欄位 */
+    #myTable td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  // 歷史紀錄--表格設定---------------------
+  /* 隱藏「類別」和「消費型態」欄位 */
+  #example th:nth-child(6),  /* 消費型態欄位 */
+    #example td:nth-child(6) {
+    /* 消費型態欄位 */
+    display: none;
+  }
+  /* 調整字體大小和內邊距 */
+  #myTable,
+  #example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 12px; /* 更小字體 */
+  }
+
+  // 調整表格大小
+  .table_area {
+    overflow: hidden;
+    .tableDate_bth {
+      div.tableDate {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        #caret-down {
+          display: block;
+        }
+
+        .fa-caret-right {
+          display: none;
+        }
+
+        input[type="date"] {
+          border: 1px solid #ccc;
+          padding: 5px;
+          border-radius: 50px;
+          margin: 5px 0;
+          letter-spacing: 0.15rem;
+          text-align: center;
         }
       }
     }
@@ -509,68 +639,11 @@ footer {
         }
       }
     }
-    // 表格設定---------------------
-    /* 隱藏「類別」和「消費型態」欄位 */
-    #myTable th:nth-child(5),  /* 類別欄位 */
-    #myTable th:nth-child(6),  /* 消費型態欄位 */
-    #myTable td:nth-child(5),  /* 類別欄位 */
-    #myTable td:nth-child(6) {
-      /* 消費型態欄位 */
-      display: none;
-    }
-    // 歷史紀錄--表格設定---------------------
-    /* 隱藏「類別」和「消費型態」欄位 */
-    #example th:nth-child(6),  /* 消費型態欄位 */
-    #example td:nth-child(6) {
-      /* 消費型態欄位 */
-      display: none;
-    }
-    /* 調整字體大小和內邊距 */
-    #myTable,
-    #example {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      font-size: 12px; /* 更小字體 */
-    }
-
-    // 調整表格大小
-    .table_area {
-      overflow: hidden;
-      .tableDate_bth {
-        div.tableDate {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-
-          #caret-down {
-            display: block;
-          }
-
-          .fa-caret-right {
-            display: none;
-          }
-
-          input[type="date"] {
-            border: 1px solid #ccc;
-            padding: 5px;
-            border-radius: 50px;
-            margin: 5px 0;
-            letter-spacing: 0.15rem;
-            text-align: center;
-          }
-        }
-      }
-    }
   }
   // 會員中心----------------------------------------------------------
   #member_center_page {
     // 側邊功能列
     aside#sidebar {
-      margin-top: 5vh;
       width: 90vw;
       padding: 10px;
       .user-info {
@@ -670,15 +743,6 @@ footer {
               display: flex;
               justify-content: center;
               align-items: center;
-              flex-direction: column;
-
-              #caret-down {
-                display: block;
-              }
-
-              .fa-caret-right {
-                display: none;
-              }
 
               input[type="date"] {
                 border: 1px solid #ccc;
@@ -690,9 +754,6 @@ footer {
               }
             }
           }
-          //表格
-          table {
-          }
         }
       }
       //獎勵點數------------------------
@@ -700,16 +761,13 @@ footer {
         div.area {
           // 點數顯示區塊
           .point_show_area {
-            background-color: $bg_color;
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
             min-height: 50px;
             padding: 10px;
-            overflow: hidden;
+            //隱藏公告圖示
             i.fa-bullhorn {
-              transform: rotate(-10deg);
-              font-size: larger;
+              display: none;
             }
             div {
               &.point_area {
@@ -731,7 +789,7 @@ footer {
                 }
               }
               &.text_area {
-                margin-left: 1rem;
+                margin: 0 1rem;
                 font-size: 0.5rem;
                 p {
                   margin-bottom: 0.25rem;
@@ -744,25 +802,10 @@ footer {
                 }
               }
             }
-            button {
+            .goto_point {
               margin-left: 1rem;
-              padding: 5px 10px;
               span {
                 display: none;
-              }
-            }
-            // 點數核發方式彈窗
-            dialog {
-              padding: 20px;
-
-              .dialog-content {
-                font-size: small;
-                ol {
-                  padding-left: 1rem;
-                  li {
-                    margin: 5px 0;
-                  }
-                }
               }
             }
           }
@@ -770,11 +813,18 @@ footer {
           table {
             margin-top: 20px;
             font-size: 0.75rem;
+            th {
+              font-weight: normal;
+            }
             tbody {
               tr {
                 td {
-                  font-size: 0.5rem;
                   padding: 5px 0;
+                  //日期欄位
+                  &:nth-child(1) {
+                    // font-size: 0.5rem;
+                    padding-right: 0.5rem;
+                  }
                 }
               }
             }
@@ -1192,7 +1242,7 @@ main {
     main.content_area {
       width: 70vw;
       border-radius: 15px;
-      padding: 20px;
+      padding: 10vh 20px 20px 20px;
       //個人帳戶------------------------
       .content {
         width: 100%;
@@ -1279,12 +1329,41 @@ main {
             border-radius: none;
             padding: 0;
             margin-bottom: 0;
+            label {
+              div {
+                display: flex;
+                align-items: center;
+                width: 70%;
+                padding: 0 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+                input {
+                  width: 100%;
+                  border: none;
+                }
+              }
+            }
           }
         }
         // 操作按鈕
         .actions_btn {
           display: flex;
           justify-content: right;
+          button {
+            background-color: #4e4e4e;
+            color: $white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover {
+              background-color: $white;
+              color: #4e4e4e;
+              outline: #4e4e4e 1px solid;
+            }
+          }
           //儲存按鈕
           .btn_save {
             margin-left: 1rem;
@@ -1363,7 +1442,7 @@ main {
                 }
               }
             }
-            button {
+            .goto_point {
               background-color: #4e4e4e;
               color: $white;
               border: none;
