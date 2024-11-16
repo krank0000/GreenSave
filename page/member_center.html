@@ -93,30 +93,35 @@
           </div>
           <ul class="menu">
             <li>
-              <a href="#" class="current" onclick="showContent('account')"
-                ><i class="fa-solid fa-user"></i>個人帳戶</a
-              >
+              <a href="#" class="current" onclick="showContent('account')">
+                <i class="fa-solid fa-user"></i>
+                <span>個人帳戶</span>
+              </a>
             </li>
             <li>
-              <a href="#" onclick="showContent('history')"
-                ><i class="fa-solid fa-clock-rotate-left"></i>歷史記錄</a
-              >
+              <a href="#" onclick="showContent('history')">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>歷史記錄</span>
+              </a>
             </li>
             <li>
-              <a href="#" onclick="showContent('rewards')"
-                ><i class="fa-solid fa-star"></i>獎勵點數</a
-              >
+              <a href="#" onclick="showContent('rewards')">
+                <i class="fa-solid fa-star"></i>
+                <span>獎勵點數</span>
+              </a>
             </li>
             <li>
-              <a href="#" onclick="showContent('goals')"
-                ><i class="fa-solid fa-flag"></i>目標設定</a
-              >
+              <a href="#" onclick="showContent('goals')">
+                <i class="fa-solid fa-flag"></i>
+                <span>目標設定</span>
+              </a>
             </li>
 
             <li class="sign_out">
-              <a href="#" onclick="signOut()"
-                ><i class="fa-solid fa-arrow-right-from-bracket"></i>登出</a
-              >
+              <a href="#" onclick="signOut()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>登出</span>
+              </a>
             </li>
           </ul>
         </aside>
@@ -135,51 +140,65 @@
                 <!-- 基本資訊-填寫 -->
                 <div class="area" id="userForm">
                   <label>
-                    <p>姓名：</p>
-                    <input type="text" id="name" placeholder="王曉明" />
+                    <p>姓名</p>
+                    <section>
+                      <input type="text" id="name" placeholder="王曉明" />
+                    </section>
                   </label>
                   <label>
-                    <p>電子郵箱：</p>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="abcd123@gmail.com"
-                    />
-                    <button type="button" onclick="sendVerificationEmail()">
-                      發送驗證信
-                    </button>
-                    <span class="verify successful">
-                      <i class="fa-solid fa-check"></i>
-                      <b>已驗證</b>
-                    </span>
+                    <p>電子郵箱</p>
+                    <section>
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="abcd123@gmail.com"
+                      />
+                      <button type="button" onclick="sendVerificationEmail()">
+                        <span>發送</span>驗證信
+                      </button>
+                      <span class="verify successful">
+                        <i class="fa-solid fa-check"></i>
+                        <b>已驗證</b>
+                      </span>
+                    </section>
                   </label>
                   <label>
-                    <p>手機號碼：</p>
-                    <input type="tel" id="phone" placeholder="---" />
-                    <button type="button" onclick="sendVerificationSMS()">
-                      發送驗證碼
-                    </button>
-                    <span class="verify error">
-                      <i class="fa-solid fa-xmark"></i><b>尚未驗證</b>
-                    </span>
+                    <p>手機號碼</p>
+                    <section>
+                      <input
+                        type="tel"
+                        id="phone"
+                        placeholder="輸入號碼並驗證"
+                      />
+                      <button type="button" onclick="sendVerificationSMS()">
+                        <span>發送</span>驗證碼
+                      </button>
+                      <span class="verify error">
+                        <i class="fa-solid fa-xmark"></i><b>尚未驗證</b>
+                      </span>
+                    </section>
                   </label>
 
                   <label>
-                    <p>生日：</p>
-                    <input
-                      type="date"
-                      id="birthday"
-                      value="1999-01-01"
-                      disabled
-                    />
+                    <p>生日</p>
+                    <section>
+                      <input
+                        type="date"
+                        id="birthday"
+                        value="1999-01-01"
+                        disabled
+                      />
+                    </section>
                   </label>
                   <label>
-                    <p>通訊地址：</p>
-                    <input
-                      type="text"
-                      id="address"
-                      placeholder="110台北市信義區松山路123號12樓"
-                    />
+                    <p>通訊地址</p>
+                    <section>
+                      <input
+                        type="text"
+                        id="address"
+                        placeholder="110台北市信義區松山路123號12樓"
+                      />
+                    </section>
                   </label>
                 </div>
               </section>
@@ -193,55 +212,70 @@
                 <!-- 帳戶設定-填寫 -->
                 <div id="accountForm" class="area">
                   <label>
-                    <p>帳號ID：</p>
-                    <input
-                      type="text"
-                      id="accountId"
-                      placeholder="abcd123"
-                      disabled
-                  /></label>
+                    <p>帳號ID</p>
+                    <section>
+                      <input
+                        type="text"
+                        id="accountId"
+                        placeholder="abcd123"
+                        disabled
+                      />
+                    </section>
+                  </label>
                   <label id="passwordLabel">
-                    <p>密碼：</p>
-                    <input type="password" id="password" disabled />
-                    <button type="button" onclick="togglePasswordChange()">
-                      修改密碼
-                    </button>
+                    <p>密碼</p>
+                    <section>
+                      <input type="password" id="password" disabled />
+                      <button type="button" onclick="togglePasswordChange()">
+                        修改<span class="passwordChange">密碼</span>
+                      </button>
+                    </section>
                   </label>
                   <!-- 修改密碼表單 -->
                   <div id="passwordChangeForm" style="display: none">
                     <label for="newPassword">
-                      <p>新密碼：</p>
-                      <div>
-                        <input type="password" id="newPassword" />
-                        <i
-                          class="fa-solid fa-eye-slash"
-                          onclick="togglePasswordVisibility('newPassword')"
-                          style="color: gray"
-                        ></i>
-                      </div>
+                      <p>新密碼</p>
+                      <section>
+                        <div>
+                          <input type="password" id="newPassword" />
+                          <i
+                            class="fa-solid fa-eye-slash"
+                            onclick="togglePasswordVisibility('newPassword')"
+                            style="color: gray"
+                          ></i>
+                        </div>
+                      </section>
                     </label>
                     <label for="confirmNewPassword">
-                      <p>確認新密碼：</p>
-                      <div>
-                        <input type="password" id="confirmNewPassword" />
-                        <i
-                          class="fa-solid fa-eye-slash"
-                          onclick="togglePasswordVisibility('confirmNewPassword')"
-                          style="color: gray"
-                        >
-                        </i>
-                      </div>
-                      <button type="button" onclick="confirmPasswordChange()">
-                        確認修改
-                      </button>
+                      <p>確認新密碼</p>
+                      <section>
+                        <div>
+                          <input type="password" id="confirmNewPassword" />
+                          <i
+                            class="fa-solid fa-eye-slash"
+                            onclick="togglePasswordVisibility('confirmNewPassword')"
+                            style="color: gray"
+                          >
+                          </i>
+                        </div>
+                        <button type="button" onclick="confirmPasswordChange()">
+                          確認修改
+                        </button>
+                      </section>
                     </label>
                   </div>
                 </div>
               </section>
               <!-- 操作按鈕 -->
               <div class="area actions_btn">
-                <button onclick="cancelChanges()">取消</button>
-                <button onclick="saveChanges()" class="btn_save" type="submit">
+                <button onclick="cancelChanges()" class="btn_style">
+                  取消
+                </button>
+                <button
+                  onclick="saveChanges()"
+                  class="btn_style btn_save"
+                  type="submit"
+                >
                   儲存變更
                 </button>
               </div>
@@ -573,7 +607,11 @@
                         </ol>
                       </div>
                       <span>
-                        <button id="closeDialogBtn" onclick="myDialog.close()">
+                        <button
+                          id="closeDialogBtn"
+                          onclick="myDialog.close()"
+                          class="btn_style"
+                        >
                           關閉
                         </button>
                       </span>

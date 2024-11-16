@@ -566,14 +566,14 @@ function togglePasswordChange() {
   if (passwordChangeForm.style.display === "none") {
     // 顯示修改密碼表單，更新文字並取消禁用密碼欄位
     passwordLabelText.textContent = "原密碼：";
-    toggleButton.textContent = "取消修改";
+    toggleButton.innerHTML = '取消<span class="passwordChange">修改</span>';
     passwordChangeForm.style.display = "block";
     passwordInput.disabled = false; // 取消禁用
     passwordInput.value = ""; // 清空內容
   } else {
     // 隱藏修改密碼表單，恢復文字並禁用密碼欄位
     passwordLabelText.textContent = "密碼：";
-    toggleButton.textContent = "修改密碼";
+    toggleButton.innerHTML = '修改<span class="passwordChange">密碼</span>';
     passwordChangeForm.style.display = "none";
     passwordInput.disabled = true; // 恢復禁用
     passwordInput.value = ""; // 清空內容
@@ -589,7 +589,7 @@ function cancelPasswordChange() {
 
   // 恢復文字、禁用狀態和顯示狀態
   passwordLabelText.textContent = "密碼：";
-  toggleButton.textContent = "修改密碼";
+  toggleButton.innerHTML = '修改<span class="passwordChange">密碼</span>';
   passwordInput.disabled = true; // 恢復禁用
   document.getElementById("passwordChangeForm").style.display = "none";
 }
