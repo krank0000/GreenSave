@@ -446,9 +446,6 @@ footer {
       justify-content: center;
       align-items: center;
     }
-    .row-reverse {
-      flex-direction: column-reverse;
-    }
   }
   // 綠色帳本----------------------------------------------------------
   div.accounting_page {
@@ -589,6 +586,52 @@ footer {
               }
             }
           }
+        }
+      }
+    }
+  }
+  //合作店家----------------------------------------------------------
+  #partner_stores_page {
+    margin-top: 0rem;
+    form {
+      //選擇合作商店
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90vw;
+      position: relative;
+      aside#partner_store {
+        width: 90vw;
+        section {
+          //搜尋店家
+          &.search_store {
+            i.fa-map-location-dot {
+              color: $white;
+              margin-left: 0.5rem;
+              display: inline;
+            }
+          }
+        }
+      }
+      //googleMap
+      div#store_map {
+        position: fixed;
+        top: 130px;
+        right: -100%; // 初始位置，隱藏在右側
+        width: 90vw;
+        opacity: 0; // 初始隱藏，透明度為 0
+        transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        z-index: 9999;
+        iframe {
+          border-radius: 0;
+          width: 90vw;
+          height: 70vh;
+          position: absolute;
+          top: 35px;
+        }
+        &.show {
+          right: 5vw; // 顯示並滑入
+          opacity: 1; // 顯示，透明度為 1
         }
       }
     }
@@ -923,6 +966,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -938,6 +982,7 @@ footer {
 main {
   // 開始記帳表單
   div.accounting_page {
+    flex-wrap: wrap-reverse;
     form {
       padding: 30px;
       display: flex;
@@ -1330,7 +1375,7 @@ main {
         width: 100%;
         section {
           // 標題
-          article {
+          article.title {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -1370,7 +1415,7 @@ main {
                   padding: 5px;
                   border: 1px solid #ccc;
                   border-radius: 5px;
-                  text-align: right;
+                  text-align: left;
                   font-size: 1rem;
                   &:focus {
                     outline: none;
@@ -1627,6 +1672,160 @@ main {
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+//合作店家
+main {
+  div.partner_stores_page {
+    margin-top: 1rem;
+    form {
+      display: flex;
+      justify-content: space-around;
+      align-items: self-start;
+      flex-wrap: wrap;
+      //選擇合作商店
+      aside {
+        min-width: 265px;
+        width: 25vw;
+        min-height: 75vh;
+        section {
+          display: flex;
+          width: 100%;
+          margin-bottom: 5px;
+          padding: 5px;
+          background-color: #fff;
+
+          //搜尋店家
+          &.search_store {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #00bf4a;
+            div.search_store_area {
+              padding: 4px;
+              border: 1px solid #067534;
+              background-color: #067534;
+              border-radius: 5px;
+              width: 90%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: $white;
+              i {
+                margin-right: 1rem;
+              }
+              input {
+                border: none;
+                outline: none;
+                color: $white;
+                background-color: #067534;
+                &::placeholder {
+                  color: $white;
+                }
+              }
+            }
+            i.fa-map-location-dot {
+              color: $white;
+              margin-left: 0.5rem;
+              display: none;
+            }
+          }
+          //選擇類別
+          &.store_select {
+            select {
+              width: 100%;
+              padding: 5px;
+              // border: 1px solid #ccc;
+              // border-radius: 5px;
+              border: none;
+              outline: none;
+            }
+          }
+          //店家列表
+          &.store_list {
+            background-color: $bg_color;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            max-height: 66vh;
+            overflow: hidden;
+            overflow-y: auto;
+            //店家
+            article.store {
+              width: 100%;
+              background-color: #fff;
+              padding: 10px 3px;
+              cursor: pointer;
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 0.3rem;
+              // 店家圖片&類別區域
+              div.store_img_categoryinfo {
+                width: 60%;
+                display: flex;
+                align-items: center;
+                img {
+                  width: 60px;
+                  height: 60px;
+                  margin: 0 10px 0 5px;
+                }
+                div.store_categoryinfo {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  p.categoryinfo {
+                    color: #666;
+                  }
+                  .store_star {
+                    display: flex;
+                    align-items: center;
+                    color: orange;
+                    i {
+                      margin-right: 5px;
+                    }
+                  }
+                }
+              }
+              // 店家資訊
+              div.store_info_base {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 40%;
+                // margin-left: 3rem;
+                div {
+                  overflow: hidden;
+                  font-size: small;
+                  width: 100%;
+                  height: 80%;
+                  color: #666;
+                  display: flex;
+                  align-items: self-start;
+                  i {
+                    margin-right: 5px;
+                  }
+                }
+              }
+              &:hover {
+                background-color: #f0f0f0;
+                transition: all 0.5s;
+              }
+            }
+          }
+        }
+      }
+      //googleMap
+      div.map_area {
+        iframe {
+          border-radius: 10px;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+          width: 60vw;
+          height: 75vh;
         }
       }
     }

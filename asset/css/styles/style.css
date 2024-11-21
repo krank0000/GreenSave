@@ -376,9 +376,6 @@ footer p {
     justify-content: center;
     align-items: center;
   }
-  main .row-reverse {
-    flex-direction: column-reverse;
-  }
   div.accounting_page form {
     width: 90vw;
   }
@@ -491,6 +488,44 @@ footer p {
   }
   #member_center_page main.content_area .content#rewards div.area table tbody tr td {
     padding: 5px 0;
+  }
+  #partner_stores_page {
+    margin-top: 0rem;
+  }
+  #partner_stores_page form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    position: relative;
+  }
+  #partner_stores_page form aside#partner_store {
+    width: 90vw;
+  }
+  #partner_stores_page form aside#partner_store section.search_store i.fa-map-location-dot {
+    color: #fff;
+    margin-left: 0.5rem;
+    display: inline;
+  }
+  #partner_stores_page form div#store_map {
+    position: fixed;
+    top: 130px;
+    right: -100%;
+    width: 90vw;
+    opacity: 0;
+    transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 9999;
+  }
+  #partner_stores_page form div#store_map iframe {
+    border-radius: 0;
+    width: 90vw;
+    height: 70vh;
+    position: absolute;
+    top: 35px;
+  }
+  #partner_stores_page form div#store_map.show {
+    right: 5vw;
+    opacity: 1;
   }
 }
 @media screen and (max-width: 580px) {
@@ -748,6 +783,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -761,6 +797,9 @@ main {
   /* 隱藏 "顯示條目" 下拉選單和 "顯示第 X 到 Y 筆，共 Z 筆" 的文字 */
   /* 調整分頁按鈕樣式 */
   /* 搜尋框的樣式 */
+}
+main div.accounting_page {
+  flex-wrap: wrap-reverse;
 }
 main div.accounting_page form {
   padding: 30px;
@@ -1081,14 +1120,14 @@ main .member_center_page main.content_area {
 main .member_center_page main.content_area .content {
   width: 100%;
 }
-main .member_center_page main.content_area .content section article {
+main .member_center_page main.content_area .content section article.title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
   padding-left: 1rem;
 }
-main .member_center_page main.content_area .content section article i {
+main .member_center_page main.content_area .content section article.title i {
   color: rgb(0, 159, 65);
   margin-right: 0.5rem;
 }
@@ -1122,7 +1161,7 @@ main .member_center_page main.content_area .content section div.area label secti
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  text-align: right;
+  text-align: left;
   font-size: 1rem;
 }
 main .member_center_page main.content_area .content section div.area label section input:focus {
@@ -1336,4 +1375,142 @@ main .member_center_page main.content_area .content#rewards div.area table tbody
 main .member_center_page main.content_area .content#rewards div.area table tbody tr td:last-child {
   text-align: right;
   color: #666;
+}
+
+main div.partner_stores_page {
+  margin-top: 1rem;
+}
+main div.partner_stores_page form {
+  display: flex;
+  justify-content: space-around;
+  align-items: self-start;
+  flex-wrap: wrap;
+}
+main div.partner_stores_page form aside {
+  min-width: 265px;
+  width: 25vw;
+  min-height: 75vh;
+}
+main div.partner_stores_page form aside section {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #fff;
+}
+main div.partner_stores_page form aside section.search_store {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00bf4a;
+}
+main div.partner_stores_page form aside section.search_store div.search_store_area {
+  padding: 4px;
+  border: 1px solid #067534;
+  background-color: #067534;
+  border-radius: 5px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+main div.partner_stores_page form aside section.search_store div.search_store_area i {
+  margin-right: 1rem;
+}
+main div.partner_stores_page form aside section.search_store div.search_store_area input {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #067534;
+}
+main div.partner_stores_page form aside section.search_store div.search_store_area input::-moz-placeholder {
+  color: #fff;
+}
+main div.partner_stores_page form aside section.search_store div.search_store_area input::placeholder {
+  color: #fff;
+}
+main div.partner_stores_page form aside section.search_store i.fa-map-location-dot {
+  color: #fff;
+  margin-left: 0.5rem;
+  display: none;
+}
+main div.partner_stores_page form aside section.store_select select {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+main div.partner_stores_page form aside section.store_list {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  max-height: 66vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+main div.partner_stores_page form aside section.store_list article.store {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo img {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px 0 5px;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo p.categoryinfo {
+  color: #666;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo .store_star {
+  display: flex;
+  align-items: center;
+  color: orange;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo .store_star i {
+  margin-right: 5px;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_info_base {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_info_base div {
+  overflow: hidden;
+  font-size: small;
+  width: 100%;
+  height: 80%;
+  color: #666;
+  display: flex;
+  align-items: self-start;
+}
+main div.partner_stores_page form aside section.store_list article.store div.store_info_base div i {
+  margin-right: 5px;
+}
+main div.partner_stores_page form aside section.store_list article.store:hover {
+  background-color: #f0f0f0;
+  transition: all 0.5s;
+}
+main div.partner_stores_page form div.map_area iframe {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  width: 60vw;
+  height: 75vh;
 }/*# sourceMappingURL=style.css.map */

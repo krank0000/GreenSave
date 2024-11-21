@@ -69,7 +69,277 @@
     </div>
 
     <main>
-      <div class="container"></div>
+      <div class="container partner_stores_page" id="partner_stores_page">
+        <form action="">
+          <!-- 選擇合作商店 -->
+          <aside id="partner_store">
+            <!-- 搜尋店家 -->
+            <section class="search_store">
+              <div class="search_store_area">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="搜尋店家" />
+              </div>
+              <i class="fa-regular fa-map-location-dot"></i>
+            </section>
+            <!-- 選擇類別 -->
+            <section class="store_select">
+              <!-- 店家類別 -->
+              <select name="store_category" id="">
+                <option value="all">所有類別</option>
+                <option value="餐飲">餐飲</option>
+                <option value="購物">購物</option>
+                <option value="生活服務">生活服務</option>
+                <option value="遊樂體驗">遊樂體驗</option>
+                <option value="其他">其他</option>
+              </select>
+              <!-- 店家排序 -->
+              <select name="store_sort" id="">
+                <option value="default">預設排序</option>
+                <option value="distance">距離最近</option>
+                <option value="score">評分最高</option>
+              </select>
+            </section>
+            <!-- 店家列表 -->
+            <section class="store_list">
+              <!-- 店家 -->
+              <article class="store" onclick="store1()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/Delisu.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>得來素-中壢中原店</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.5</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區弘揚路77號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034367111</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store2()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/yuanyuan.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>圓緣通吃館</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.8</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區環中東路708巷68號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034373033</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store3()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/Vegetarian.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>綠野鮮蹤</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.5</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區弘揚路85號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034163090</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store4()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/Dongxing.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>東興蔬食</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.3</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區大仁三街12號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>925001659</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store5()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/sushi.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>素怡園素食自助餐</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.5</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區大仁四街20號1樓</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034562163</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store6()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/wufang.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>吾芳素食</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.3</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區新中北路124號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>0988947869</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store7()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/yanwu.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>老牌素食水煎包</h4>
+                    <p class="categoryinfo">餐飲</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.3</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區中北路85-1號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034372756</p>
+                  </div>
+                </div>
+              </article>
+              <article class="store" onclick="store8()">
+                <div class="store_img_categoryinfo">
+                  <img src="../asset/img/carpenter_house.jpg" />
+                  <div class="store_categoryinfo">
+                    <h4>木匠的家公益二手店</h4>
+                    <p class="categoryinfo">購物</p>
+                    <!-- 星等 -->
+                    <div class="store_star">
+                      <i class="fa-solid fa-star"></i>
+                      <p>4.1</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="store_info_base">
+                  <div>
+                    <i class="fa-solid fa-route"></i>
+                    <p>距離 500m</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>桃園市中壢區中北路二段387號</p>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>034683836</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </aside>
+          <!-- googleMap -->
+          <div class="map_area" id="store_map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.2564638210224!2d121.23819611212919!3d24.95738754127776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468221447a0f021%3A0x2b86d2650bb8bcff!2z5Lit5Y6f5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1732170576194!5m2!1szh-TW!2stw"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </form>
+      </div>
     </main>
 
     <!-- footer -->
@@ -77,5 +347,6 @@
       <p>&copy;存碳養綠 2022 | 中原大學資訊管理系專題製作</p>
     </footer>
   </body>
+  <script src="../asset/js/add.js"></script>
   <script src="../asset/js/app.js"></script>
 </html>
