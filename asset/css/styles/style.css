@@ -59,6 +59,7 @@ body .btn_style {
   padding: 5px 15px;
   cursor: pointer;
   transition: 0.5s;
+  outline: none;
 }
 html .btn_style:hover,
 body .btn_style:hover {
@@ -502,10 +503,40 @@ footer p {
   #partner_stores_page form aside#partner_store {
     width: 90vw;
   }
+  #partner_stores_page form aside#partner_store section.search_store {
+    background-color: #fff;
+  }
+  #partner_stores_page form aside#partner_store section.search_store div.search_store_area {
+    border: 1px solid #f3f3f3;
+    background-color: #f3f3f3;
+    color: #000;
+  }
+  #partner_stores_page form aside#partner_store section.search_store div.search_store_area input {
+    font-size: 1.25rem;
+    color: #000;
+    background-color: #f3f3f3;
+  }
+  #partner_stores_page form aside#partner_store section.search_store div.search_store_area input::-moz-placeholder {
+    color: #000;
+  }
+  #partner_stores_page form aside#partner_store section.search_store div.search_store_area input::placeholder {
+    color: #000;
+  }
   #partner_stores_page form aside#partner_store section.search_store i.fa-map-location-dot {
-    color: #fff;
+    color: #000;
     margin-left: 0.5rem;
     display: inline;
+  }
+  #partner_stores_page form aside#partner_store section.store_select {
+    display: flex;
+    justify-content: space-around;
+  }
+  #partner_stores_page form aside#partner_store section.store_select select {
+    width: 30%;
+    padding: 5px;
+    font-size: 1rem;
+    color: #000;
+    background-color: #fff;
   }
   #partner_stores_page form div#store_map {
     position: fixed;
@@ -514,14 +545,14 @@ footer p {
     width: 90vw;
     opacity: 0;
     transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 9999;
+    z-index: 3;
   }
   #partner_stores_page form div#store_map iframe {
     border-radius: 0;
     width: 90vw;
-    height: 70vh;
+    height: 65vh;
     position: absolute;
-    top: 35px;
+    top: 6vh;
   }
   #partner_stores_page form div#store_map.show {
     right: 5vw;
@@ -1403,6 +1434,7 @@ main div.partner_stores_page form aside section.search_store {
   justify-content: center;
   align-items: center;
   background-color: #00bf4a;
+  font-size: 1.25rem;
 }
 main div.partner_stores_page form aside section.search_store div.search_store_area {
   padding: 4px;
@@ -1435,11 +1467,16 @@ main div.partner_stores_page form aside section.search_store i.fa-map-location-d
   margin-left: 0.5rem;
   display: none;
 }
+main div.partner_stores_page form aside section.store_select {
+  display: flex;
+  justify-content: space-around;
+}
 main div.partner_stores_page form aside section.store_select select {
-  width: 100%;
+  width: 30%;
   padding: 5px;
   border: none;
   outline: none;
+  color: #000;
 }
 main div.partner_stores_page form aside section.store_list {
   background-color: #f3f3f3;
@@ -1499,7 +1536,7 @@ main div.partner_stores_page form aside section.store_list article.store div.sto
   height: 80%;
   color: #666;
   display: flex;
-  align-items: self-start;
+  align-items: center;
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_info_base div i {
   margin-right: 5px;

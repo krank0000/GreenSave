@@ -70,6 +70,7 @@ body {
     padding: 5px 15px;
     cursor: pointer;
     transition: 0.5s;
+    outline: none;
     &:hover {
       background-color: $white;
       color: #4e4e4e;
@@ -605,10 +606,37 @@ footer {
         section {
           //搜尋店家
           &.search_store {
+            background-color: $white;
+            div.search_store_area {
+              border: 1px solid $bg_color;
+              background-color: $bg_color;
+              color: $black;
+
+              input {
+                font-size: 1.25rem;
+                color: $black;
+                background-color: $bg_color;
+                &::placeholder {
+                  color: $black;
+                }
+              }
+            }
             i.fa-map-location-dot {
-              color: $white;
+              color: $black;
               margin-left: 0.5rem;
               display: inline;
+            }
+          }
+          //選擇類別
+          &.store_select {
+            display: flex;
+            justify-content: space-around;
+            select {
+              width: 30%;
+              padding: 5px;
+              font-size: 1rem;
+              color: $black;
+              background-color: $white;
             }
           }
         }
@@ -621,13 +649,13 @@ footer {
         width: 90vw;
         opacity: 0; // 初始隱藏，透明度為 0
         transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        z-index: 9999;
+        z-index: 3;
         iframe {
           border-radius: 0;
           width: 90vw;
-          height: 70vh;
+          height: 65vh;
           position: absolute;
-          top: 35px;
+          top: 6vh;
         }
         &.show {
           right: 5vw; // 顯示並滑入
@@ -1705,6 +1733,7 @@ main {
             justify-content: center;
             align-items: center;
             background-color: #00bf4a;
+            font-size: 1.25rem;
             div.search_store_area {
               padding: 4px;
               border: 1px solid #067534;
@@ -1736,13 +1765,14 @@ main {
           }
           //選擇類別
           &.store_select {
+            display: flex;
+            justify-content: space-around;
             select {
-              width: 100%;
+              width: 30%;
               padding: 5px;
-              // border: 1px solid #ccc;
-              // border-radius: 5px;
               border: none;
               outline: none;
+              color: $black;
             }
           }
           //店家列表
@@ -1805,7 +1835,7 @@ main {
                   height: 80%;
                   color: #666;
                   display: flex;
-                  align-items: self-start;
+                  align-items: center;
                   i {
                     margin-right: 5px;
                   }
