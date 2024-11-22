@@ -606,13 +606,15 @@ footer {
         section {
           //搜尋店家
           &.search_store {
+            width: 100%;
             background-color: $white;
             div.search_store_area {
               border: 1px solid $bg_color;
               background-color: $bg_color;
               color: $black;
-
+              width: 80%;
               input {
+                width: 80%;
                 font-size: 1.25rem;
                 color: $black;
                 background-color: $bg_color;

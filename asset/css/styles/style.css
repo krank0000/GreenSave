@@ -504,14 +504,17 @@ footer p {
     width: 90vw;
   }
   #partner_stores_page form aside#partner_store section.search_store {
+    width: 100%;
     background-color: #fff;
   }
   #partner_stores_page form aside#partner_store section.search_store div.search_store_area {
     border: 1px solid #f3f3f3;
     background-color: #f3f3f3;
     color: #000;
+    width: 80%;
   }
   #partner_stores_page form aside#partner_store section.search_store div.search_store_area input {
+    width: 80%;
     font-size: 1.25rem;
     color: #000;
     background-color: #f3f3f3;
