@@ -708,7 +708,20 @@ footer {
           // 搜尋
           section.search_product {
             div.search_product_area {
-              width: 90%;
+              width: 100%;
+            }
+          }
+          section.filters {
+            label {
+              cursor: pointer;
+            }
+            article {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s ease;
+            }
+            &.active article {
+              max-height: 200px; /* 根據內容調整 */
             }
           }
         }
@@ -1090,26 +1103,19 @@ footer {
         div.points {
           width: 100%;
           min-width: 140px;
+          section.point_amount {
+            p {
+              font-size: 2rem;
+              font-weight: bolder;
+            }
+          }
         }
         div.more {
           width: 100%;
           // 搜尋
           section.search_product {
             div.search_product_area {
-              width: 90%;
-            }
-          }
-          section.filters {
-            label {
-              cursor: pointer;
-            }
-            article {
-              max-height: 0;
-              overflow: hidden;
-              transition: max-height 0.3s ease;
-            }
-            &.active article {
-              max-height: 200px; /* 根據內容調整 */
+              width: 100%;
             }
           }
         }
@@ -2092,7 +2098,7 @@ main {
                 margin-left: 0.75rem;
               }
               input {
-                width: 45%;
+                width: 80%;
                 border: none;
                 outline: none;
                 &:focus {
@@ -2113,6 +2119,7 @@ main {
               width: 90%;
               border: none;
               outline: none;
+              background: transparent;
               &:focus {
                 outline: none;
               }
@@ -2190,10 +2197,13 @@ main {
               section {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 font-size: 0.75rem;
                 padding: 0.75rem 0.5rem 0.25rem 0.5rem;
                 p.price {
                   color: $green;
+                  font-size: 0.9rem;
+                  font-weight: 600;
                 }
                 p.quantity {
                   color: gray;

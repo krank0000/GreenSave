@@ -600,7 +600,18 @@ footer p {
     width: 70%;
   }
   #points_shop_page form.point_area aside div.more section.search_product div.search_product_area {
-    width: 90%;
+    width: 100%;
+  }
+  #points_shop_page form.point_area aside div.more section.filters label {
+    cursor: pointer;
+  }
+  #points_shop_page form.point_area aside div.more section.filters article {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  #points_shop_page form.point_area aside div.more section.filters.active article {
+    max-height: 200px; /* 根據內容調整 */
   }
   #points_shop_page form.point_area .point_show_area {
     width: 100%;
@@ -892,22 +903,15 @@ footer p {
     width: 100%;
     min-width: 140px;
   }
+  #points_shop_page form.point_area aside div.points section.point_amount p {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
   #points_shop_page form.point_area aside div.more {
     width: 100%;
   }
   #points_shop_page form.point_area aside div.more section.search_product div.search_product_area {
-    width: 90%;
-  }
-  #points_shop_page form.point_area aside div.more section.filters label {
-    cursor: pointer;
-  }
-  #points_shop_page form.point_area aside div.more section.filters article {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  #points_shop_page form.point_area aside div.more section.filters.active article {
-    max-height: 200px; /* 根據內容調整 */
+    width: 100%;
   }
   #points_shop_page form.point_area .point_show_area {
     padding: 0 0.5rem;
@@ -1736,7 +1740,7 @@ main div.points_shop_page form.point_area aside div.more section.search_product 
   margin-left: 0.75rem;
 }
 main div.points_shop_page form.point_area aside div.more section.search_product div.search_product_area input {
-  width: 45%;
+  width: 80%;
   border: none;
   outline: none;
 }
@@ -1755,6 +1759,7 @@ main div.points_shop_page form.point_area aside div.more section.product_sort se
   width: 90%;
   border: none;
   outline: none;
+  background: transparent;
 }
 main div.points_shop_page form.point_area aside div.more section.product_sort select:focus {
   outline: none;
@@ -1826,11 +1831,14 @@ main div.points_shop_page form.point_area .point_show_area div.products div.prod
 main div.points_shop_page form.point_area .point_show_area div.products div.product div.product-card section {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.75rem;
   padding: 0.75rem 0.5rem 0.25rem 0.5rem;
 }
 main div.points_shop_page form.point_area .point_show_area div.products div.product div.product-card section p.price {
   color: rgb(0, 159, 65);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 main div.points_shop_page form.point_area .point_show_area div.products div.product div.product-card section p.quantity {
   color: gray;
