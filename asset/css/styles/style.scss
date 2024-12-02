@@ -9,7 +9,8 @@ $gray: #ccc;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
+  font-family: Microsoft JhengHei;
+  // font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
   a {
     text-decoration: none;
   }
@@ -75,6 +76,21 @@ body {
       background-color: $white;
       color: #4e4e4e;
       outline: #4e4e4e 1px solid;
+    }
+  }
+  .btn_style_green {
+    background-color: $green;
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: none;
+    &:hover {
+      background-color: $white;
+      color: green;
+      outline: green 1px solid;
     }
   }
   // 新增按鈕
@@ -268,6 +284,7 @@ header {
           margin-right: 10px;
         }
         h3 {
+          font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
           font-size: 1.5rem;
           letter-spacing: 0.25rem;
           font-weight: 550;
@@ -296,6 +313,8 @@ header {
           color: $black;
           font-size: 1.25rem;
           transition: 0.5s;
+          font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
+
           &:hover {
             color: $green;
           }
@@ -327,6 +346,7 @@ header {
 
     p {
       font-size: 1.25rem;
+      font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
     }
     &:hover {
       transform: translateY(-5px);
@@ -666,6 +686,70 @@ footer {
       }
     }
   }
+  //點數商店---------------------------------------------------
+  #points_shop_page {
+    form.point_area {
+      flex-direction: column;
+      justify-content: center;
+      width: 90vw;
+      // 側邊功能列
+      aside {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        // 持有點數
+        div.points {
+          width: 23%;
+          min-width: 140px;
+        }
+        div.more {
+          width: 70%;
+          // 搜尋
+          section.search_product {
+            div.search_product_area {
+              width: 90%;
+            }
+          }
+        }
+      }
+      // 點數兌換區
+      .point_show_area {
+        width: 100%;
+        // 標題
+        section.title {
+        }
+        div.products {
+          display: flex;
+          align-content: space-around;
+          flex-wrap: wrap;
+          div.product {
+            // 商品
+            div.product-card {
+              padding-bottom: 0.5rem;
+            }
+            //彈窗
+            dialog {
+              div.dialog_content {
+                flex-direction: column;
+                justify-content: center;
+                //商品圖片
+                aside {
+                  width: 230px;
+                  height: 230px;
+                  margin-bottom: 0.5rem;
+                }
+                //商品內容
+                div.product_content {
+                  min-width: 230px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 //DataTabels 表格調整
 @media screen and (max-width: 580px) {
@@ -988,6 +1072,86 @@ footer {
       }
     }
   }
+  //點數商店---------------------------------------------------
+  #points_shop_page {
+    form.point_area {
+      padding: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      width: 90vw;
+      // 側邊功能列
+      aside {
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        // 持有點數
+        div.points {
+          width: 100%;
+          min-width: 140px;
+        }
+        div.more {
+          width: 100%;
+          // 搜尋
+          section.search_product {
+            div.search_product_area {
+              width: 90%;
+            }
+          }
+          section.filters {
+            label {
+              cursor: pointer;
+            }
+            article {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.3s ease;
+            }
+            &.active article {
+              max-height: 200px; /* 根據內容調整 */
+            }
+          }
+        }
+      }
+      // 點數兌換區
+      .point_show_area {
+        padding: 0 0.5rem;
+        width: 100%;
+        // 標題
+        section.title {
+        }
+        div.products {
+          display: flex;
+          align-content: space-around;
+          flex-wrap: wrap;
+          div.product {
+            // 商品
+            div.product-card {
+              padding-bottom: 0.5rem;
+            }
+            //彈窗
+            dialog {
+              div.dialog_content {
+                flex-direction: column;
+                justify-content: center;
+                //商品圖片
+                aside {
+                  width: 230px;
+                  height: 230px;
+                  margin-bottom: 0.5rem;
+                }
+                //商品內容
+                div.product_content {
+                  min-width: 230px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // 頁面設定----------------------------------
@@ -1055,7 +1219,7 @@ main {
         }
 
         input {
-          font-family: "cwTeXYen", sans-serif; //圓體字體
+          font-family: Microsoft JhengHei; //圓體字體
 
           &#date {
             border: none;
@@ -1858,6 +2022,304 @@ main {
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
           width: 60vw;
           height: 75vh;
+        }
+      }
+    }
+  }
+}
+
+//點數商店
+main {
+  div.points_shop_page {
+    // 點數兌換區
+    form.point_area {
+      display: flex;
+      justify-content: space-around;
+      background-color: $white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 5vh 2vw 2vh 2vw;
+      width: 75vw;
+      min-height: 75vh;
+      // 側邊功能列
+      aside {
+        width: 23%;
+        // 持有點數
+        div.points {
+          background: linear-gradient(to left, #fdff79, #88ffac);
+          border-radius: 10px;
+          padding: 1rem;
+          margin-bottom: 0.75rem;
+          section.point_have {
+            font-size: small;
+            padding-bottom: 0.25rem;
+            i {
+              color: rgb(156, 156, 156);
+              cursor: pointer;
+              transition: 0.5s;
+              &:hover {
+                color: black;
+              }
+            }
+          }
+          section.point_amount {
+            display: flex;
+            align-items: center;
+            font-size: large;
+            margin-left: 0.5rem;
+            p {
+              font-size: 1.75rem;
+              font-weight: bold;
+              padding-left: 0.5rem;
+            }
+          }
+        }
+        div.more {
+          // 搜尋
+          section.search_product {
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            border: rgb(169, 169, 169) 1px solid;
+
+            div.search_product_area {
+              padding: 4px;
+              border-radius: 5px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              i {
+                margin-left: 0.75rem;
+              }
+              input {
+                width: 45%;
+                border: none;
+                outline: none;
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+          }
+          // 排序
+          section.product_sort {
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            border: rgb(169, 169, 169) 1px solid;
+            margin: 0.5rem 0;
+            padding: 4px;
+            select {
+              width: 90%;
+              border: none;
+              outline: none;
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+          // 篩選條件
+          section.filters {
+            margin: 1rem 0;
+            // 數值範圍
+            label {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            div {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+              padding: 0.5rem 0;
+              input {
+                width: 33%;
+                outline: none;
+                text-align: center;
+                padding: 2px;
+                &:focus {
+                  outline: none;
+                }
+              }
+              span {
+                width: 20%;
+                height: 1px;
+                border-radius: 1px;
+                margin: 0 0.5rem;
+                background-color: black;
+              }
+            }
+            button {
+              width: 100%;
+            }
+          }
+        }
+      }
+      // 點數兌換區
+      .point_show_area {
+        width: 70%;
+        // 標題
+        section.title {
+          padding: 0 0 0.5rem 0;
+          margin-bottom: 0.75rem;
+          border-bottom: black 1px solid;
+        }
+        div.products {
+          display: flex;
+          align-content: space-around;
+          flex-wrap: wrap;
+          div.product {
+            // 商品
+            div.product-card {
+              cursor: pointer;
+              border-radius: 5px;
+              overflow: hidden;
+              box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+              margin: 0.45rem;
+              img {
+                width: 130px;
+                height: 130px;
+              }
+              h4 {
+                font-size: 0.9rem;
+                margin: 0.25rem 0;
+                padding: 0 0.5rem;
+              }
+              section {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.75rem;
+                padding: 0.75rem 0.5rem 0.25rem 0.5rem;
+                p.price {
+                  color: $green;
+                }
+                p.quantity {
+                  color: gray;
+                }
+              }
+            }
+            //彈窗
+            dialog {
+              padding: 20px;
+              // 置中
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              margin: auto;
+              border: none;
+              border-radius: 15px;
+              &:focus {
+                outline: none;
+              }
+              div.dialog_content {
+                display: flex;
+                justify-content: space-between;
+                //商品圖片
+                aside {
+                  width: 200px;
+                  height: 200px;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+                //商品內容
+                div.product_content {
+                  min-width: 20vw;
+                  max-width: 30vw;
+                  padding: 0 1rem;
+                  h3 {
+                  }
+                  section {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 0.5rem 0;
+                    //商品描述
+                    &.product_description {
+                      margin: 0.25rem 0 0 0;
+                      p {
+                        font-size: 0.75rem;
+                        color: gray;
+                      }
+                      // &::before {
+                      //   content: "　";
+                      //   font-weight: bold;
+                      // }
+                    }
+                    //點數
+                    &.product_points {
+                      align-items: end;
+                      padding: 0.25rem 0;
+                      p {
+                        font-size: 1.25rem;
+                        font-weight: bolder;
+                        color: $green;
+                      }
+                    }
+                    //兌換數量
+                    &.product_quantity {
+                      .quantity-control {
+                        span {
+                          display: inline-flex;
+                          justify-content: center;
+                          align-items: center;
+                          width: 40px;
+                          height: 20px;
+                          background-color: #f1f1f1;
+                          border: 1px solid #ccc;
+                          font-size: 18px;
+                          font-weight: bold;
+                          text-align: center;
+                          cursor: pointer;
+                          user-select: none; /* 防止文字被選取 */
+                          &:hover {
+                            background-color: #e2e2e2;
+                          }
+                        }
+                        input {
+                          text-align: center;
+                          width: 60px;
+                          height: 20px;
+                          border: 1px solid #ccc;
+                          font-size: 16px;
+                          &:focus {
+                            outline: none;
+                          }
+                        }
+                        /* 隱藏數字輸入框箭頭 */
+                        input[type="number"]::-webkit-inner-spin-button,
+                        input[type="number"]::-webkit-outer-spin-button {
+                          -webkit-appearance: none;
+                          margin: 0;
+                        }
+
+                        input[type="number"] {
+                          -moz-appearance: textfield;
+                          appearance: none;
+                        }
+                      }
+                    }
+                    //剩餘庫存
+                    &.product_stock {
+                      justify-content: end;
+                      font-size: small;
+                    }
+                    //按鈕區塊
+                    &.product_btn_area {
+                      margin-top: 0.5rem;
+                      padding-top: 1rem;
+                      border-top: gray 1px solid;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

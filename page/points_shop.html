@@ -69,7 +69,393 @@
     </div>
 
     <main>
-      <div class="container"></div>
+      <div class="container points_shop_page" id="points_shop_page">
+        <!-- 點數兌換區 -->
+        <form class="point_area">
+          <!-- 側邊功能列 -->
+          <aside>
+            <!-- 持有點數 -->
+            <div class="points">
+              <section class="point_have">
+                <span>目前持有點數</span>
+                <i
+                  class="fa-solid fa-circle-exclamation"
+                  title="點擊查看詳細資訊"
+                  onclick="window.location.href='../page/member_center.html'"
+                >
+                </i>
+              </section>
+              <section class="point_amount">
+                <i class="fa-solid fa-star"></i>
+                <p id="points">120</p>
+              </section>
+            </div>
+            <div class="more">
+              <!-- 搜尋 -->
+              <section class="search_product">
+                <div class="search_product_area">
+                  <input type="text" placeholder="搜尋商品" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </section>
+              <!-- 排序 -->
+              <section class="product_sort">
+                <select name="product_sort" id="">
+                  <option value="default">最佳排序</option>
+                  <option value="new">最新上架</option>
+                  <option value="points_max">點數最多</option>
+                  <option value="points_min">點數最少</option>
+                </select>
+              </section>
+              <!-- 篩選條件 -->
+              <section class="filters">
+                <label for="range">
+                  點數範圍
+                  <i class="fa-regular fa-filter"></i>
+                </label>
+
+                <article>
+                  <div>
+                    <input type="number" placeholder="最小值" min="0" />
+                    <span></span>
+                    <input type="number" placeholder="最大值" min="1" />
+                  </div>
+                  <button class="btn_style_green">應用</button>
+                </article>
+              </section>
+            </div>
+          </aside>
+          <!-- 點數兌換區 -->
+          <div class="point_show_area">
+            <section class="title">
+              <h2>點數兌換</h2>
+            </section>
+            <!-- 商品展示區域 -->
+            <div class="products">
+              <!-- 商品 1 -->
+              <div class="product">
+                <div class="product-card" onclick="openDialog('dialog1')">
+                  <img src="../asset/img/book.png" alt="商品圖片" />
+                  <h4>中原筆記本</h4>
+                  <section>
+                    <p class="price">
+                      <i class="fa-solid fa-star"></i>
+                      80
+                    </p>
+                    <p class="quantity">剩餘：10</p>
+                  </section>
+                </div>
+                <!-- 彈窗 -->
+                <dialog id="dialog1">
+                  <div class="dialog_content">
+                    <aside>
+                      <img src="../asset/img/book.png" alt="商品圖片" />
+                    </aside>
+                    <div class="product_content">
+                      <h3>中原筆記本</h3>
+                      <!-- 商品描述 -->
+                      <section class="product_description">
+                        <p>中原大學提供，學習腳蹤筆記本。</p>
+                      </section>
+                      <!-- 點數 -->
+                      <section class="product_points">
+                        <label for="">點數</label>
+                        <p>80</p>
+                      </section>
+                      <!-- 數量 -->
+                      <section class="product_quantity">
+                        <label for="quantity">數量</label>
+                        <div class="quantity-control">
+                          <span class="decrease">−</span>
+                          <input
+                            type="number"
+                            class="quantity-input"
+                            value="1"
+                            min="1"
+                            step="1"
+                          />
+                          <span class="increase">+</span>
+                        </div>
+                      </section>
+                      <!-- 剩餘庫存 -->
+                      <section class="product_stock">
+                        <label for="">剩餘：</label>
+                        <p>10</p>
+                      </section>
+                      <!-- 按鈕區塊 -->
+                      <section class="product_btn_area">
+                        <button
+                          class="btn_style"
+                          onclick="closeDialog('dialog1')"
+                        >
+                          取消返回
+                        </button>
+                        <button class="btn_style_green">確認兌換</button>
+                      </section>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+
+              <!-- 商品 2 -->
+              <div class="product">
+                <div class="product-card" onclick="openDialog('dialog2')">
+                  <img src="../asset/img/shopping-bag.jpg" alt="商品圖片" />
+                  <h4>環保購物袋</h4>
+                  <section>
+                    <p class="price">
+                      <i class="fa-solid fa-star"></i>
+                      50
+                    </p>
+                    <p class="quantity">剩餘：15</p>
+                  </section>
+                </div>
+                <!-- 彈窗 -->
+                <dialog id="dialog2">
+                  <div class="dialog_content">
+                    <aside>
+                      <img src="../asset/img/shopping-bag.jpg" alt="商品圖片" />
+                    </aside>
+                    <div class="product_content">
+                      <h3>環保購物袋</h3>
+                      <!-- 商品描述 -->
+                      <section class="product_description">
+                        <p>可重複使用的環保袋，減少塑膠袋使用。</p>
+                      </section>
+                      <!-- 點數 -->
+                      <section class="product_points">
+                        <label for="">點數</label>
+                        <p>50</p>
+                      </section>
+                      <!-- 數量 -->
+                      <section class="product_quantity">
+                        <label for="quantity">數量</label>
+                        <div class="quantity-control">
+                          <span class="decrease">−</span>
+                          <input
+                            type="number"
+                            class="quantity-input"
+                            value="1"
+                            min="1"
+                          />
+                          <span class="increase">+</span>
+                        </div>
+                      </section>
+                      <!-- 剩餘庫存 -->
+                      <section class="product_stock">
+                        <label for="">剩餘：</label>
+                        <p>15</p>
+                      </section>
+                      <!-- 按鈕區塊 -->
+                      <section class="product_btn_area">
+                        <button
+                          class="btn_style"
+                          onclick="closeDialog('dialog2')"
+                        >
+                          取消返回
+                        </button>
+                        <button class="btn_style_green">確認兌換</button>
+                      </section>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+              <!-- 商品 3 -->
+              <div class="product">
+                <div class="product-card" onclick="openDialog('dialog3')">
+                  <img src="../asset/img/straw.jpg" alt="商品圖片" />
+                  <h4>環保玻璃吸管組</h4>
+                  <section>
+                    <p class="price">
+                      <i class="fa-solid fa-star"></i>
+                      100
+                    </p>
+                    <p class="quantity">剩餘：8</p>
+                  </section>
+                </div>
+                <!-- 彈窗 -->
+                <dialog id="dialog3">
+                  <div class="dialog_content">
+                    <aside>
+                      <img src="../asset/img/straw.jpg" alt="商品圖片" />
+                    </aside>
+                    <div class="product_content">
+                      <h3>環保玻璃吸管組</h3>
+                      <!-- 商品描述 -->
+                      <section class="product_description">
+                        <p>附有清潔刷，減少一次性吸管浪費，實現低碳生活。</p>
+                      </section>
+                      <!-- 點數 -->
+                      <section class="product_points">
+                        <label for="">點數</label>
+                        <p>100</p>
+                      </section>
+                      <!-- 數量 -->
+                      <section class="product_quantity">
+                        <label for="quantity">數量</label>
+                        <div class="quantity-control">
+                          <span class="decrease">−</span>
+                          <input
+                            type="number"
+                            class="quantity-input"
+                            value="1"
+                            min="1"
+                          />
+                          <span class="increase">+</span>
+                        </div>
+                      </section>
+                      <!-- 剩餘庫存 -->
+                      <section class="product_stock">
+                        <label for="">剩餘：</label>
+                        <p>8</p>
+                      </section>
+                      <!-- 按鈕區塊 -->
+                      <section class="product_btn_area">
+                        <button
+                          class="btn_style"
+                          onclick="closeDialog('dialog3')"
+                        >
+                          取消返回
+                        </button>
+                        <button class="btn_style_green">確認兌換</button>
+                      </section>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+              <!-- 商品 4 -->
+              <div class="product">
+                <div class="product-card" onclick="openDialog('dialog4')">
+                  <img src="../asset/img/succulents.jpg" alt="商品圖片" />
+                  <h4>多肉植物盆栽</h4>
+                  <section>
+                    <p class="price">
+                      <i class="fa-solid fa-star"></i>
+                      150
+                    </p>
+                    <p class="quantity">剩餘：3</p>
+                  </section>
+                </div>
+                <!-- 彈窗 -->
+                <dialog id="dialog4">
+                  <div class="dialog_content">
+                    <aside>
+                      <img src="../asset/img/succulents.jpg" alt="商品圖片" />
+                    </aside>
+                    <div class="product_content">
+                      <h3>多肉植物盆栽</h3>
+                      <!-- 商品描述 -->
+                      <section class="product_description">
+                        <p>精緻的多肉植物小盆栽，增添自然氣息，綠化空間。</p>
+                      </section>
+                      <!-- 點數 -->
+                      <section class="product_points">
+                        <label for="">點數</label>
+                        <p>150</p>
+                      </section>
+                      <!-- 數量 -->
+                      <section class="product_quantity">
+                        <label for="quantity">數量</label>
+                        <div class="quantity-control">
+                          <span class="decrease">−</span>
+                          <input
+                            type="number"
+                            class="quantity-input"
+                            value="1"
+                            min="1"
+                          />
+                          <span class="increase">+</span>
+                        </div>
+                      </section>
+                      <!-- 剩餘庫存 -->
+                      <section class="product_stock">
+                        <label for="">剩餘：</label>
+                        <p>3</p>
+                      </section>
+                      <!-- 按鈕區塊 -->
+                      <section class="product_btn_area">
+                        <button
+                          class="btn_style"
+                          onclick="closeDialog('dialog4')"
+                        >
+                          取消返回
+                        </button>
+                        <button class="btn_style_green">確認兌換</button>
+                      </section>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+              <!-- 商品 5 -->
+              <div class="product">
+                <div class="product-card" onclick="openDialog('dialog5')">
+                  <img src="../asset/img/beeswax-wrap.jpg" alt="商品圖片" />
+                  <h4>蜂蠟保鮮布套裝</h4>
+                  <section>
+                    <p class="price">
+                      <i class="fa-solid fa-star"></i>
+                      180
+                    </p>
+                    <p class="quantity">剩餘：5</p>
+                  </section>
+                </div>
+                <!-- 彈窗 -->
+                <dialog id="dialog5">
+                  <div class="dialog_content">
+                    <aside>
+                      <img src="../asset/img/beeswax-wrap.jpg" alt="商品圖片" />
+                    </aside>
+                    <div class="product_content">
+                      <h3>蜂蠟保鮮布套裝</h3>
+                      <!-- 商品描述 -->
+                      <section class="product_description">
+                        <p>
+                          可重複使用的天然保鮮布，替代保鮮膜，減少塑膠浪費。
+                        </p>
+                      </section>
+                      <!-- 點數 -->
+                      <section class="product_points">
+                        <label for="">點數</label>
+                        <p>180</p>
+                      </section>
+                      <!-- 數量 -->
+                      <section class="product_quantity">
+                        <label for="quantity">數量</label>
+                        <div class="quantity-control">
+                          <span class="decrease">−</span>
+                          <input
+                            type="number"
+                            class="quantity-input"
+                            value="1"
+                            min="1"
+                          />
+                          <span class="increase">+</span>
+                        </div>
+                      </section>
+                      <!-- 剩餘庫存 -->
+                      <section class="product_stock">
+                        <label for="">剩餘：</label>
+                        <p>5</p>
+                      </section>
+                      <!-- 按鈕區塊 -->
+                      <section class="product_btn_area">
+                        <button
+                          class="btn_style"
+                          onclick="closeDialog('dialog4')"
+                        >
+                          取消返回
+                        </button>
+                        <button class="btn_style_green">確認兌換</button>
+                      </section>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+            </div>
+          </div>
+          <!-- 兌換列表 -->
+        </form>
+      </div>
     </main>
 
     <!-- footer -->
@@ -77,5 +463,7 @@
       <p>&copy;存碳養綠 2022 | 中原大學資訊管理系專題製作</p>
     </footer>
   </body>
+  <script src="../asset/js/dialog.js"></script>
+  <script src="../asset/js/add.js"></script>
   <script src="../asset/js/app.js"></script>
 </html>
