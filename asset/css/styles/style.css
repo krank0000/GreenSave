@@ -12,6 +12,17 @@
   color: #000;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+}
+
 @keyframes float {
   0% {
     transform: translate3d(0, 0%, 0);
@@ -214,6 +225,18 @@ body .top_btn:hover {
   }
 }
 
+.bg_img {
+  background-image: url("../../img/背景-橫滿版-樹.png");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 body {
   background-color: #f3f3f3;
   margin-top: 60px;
@@ -328,8 +351,8 @@ main {
 footer {
   width: 100%;
   text-align: center;
-  padding: 20px 0;
-  margin-top: 15px;
+  padding: 25px 0 20px 0;
+  margin-top: 7vh;
   color: #fff;
   background: linear-gradient(to top right, #93e880, #4fb980);
 }
@@ -564,6 +587,9 @@ footer p {
     font-size: 1rem;
     color: #000;
     background-color: #fff;
+  }
+  #partner_stores_page form aside#partner_store section.store_list {
+    max-height: 65vh;
   }
   #partner_stores_page form div#store_map {
     position: fixed;
@@ -1637,7 +1663,7 @@ main div.partner_stores_page form aside section.store_list {
   flex-direction: column;
   padding: 0;
   margin: 0;
-  max-height: 66vh;
+  max-height: 368px;
   overflow: hidden;
   overflow-y: auto;
 }
@@ -1667,14 +1693,26 @@ main div.partner_stores_page form aside section.store_list article.store div.sto
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo p.categoryinfo {
   color: #666;
+  font-size: 0.75rem;
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo .store_star {
   display: flex;
   align-items: center;
   color: orange;
+  font-size: 0.75rem;
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo .store_star i {
   margin-right: 5px;
+}
+@media screen and (max-width: 1424px) {
+  main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo h4 {
+    font-size: 0.75rem;
+  }
+}
+@media screen and (max-width: 456px) {
+  main div.partner_stores_page form aside section.store_list article.store div.store_img_categoryinfo div.store_categoryinfo h4 {
+    font-size: 1rem;
+  }
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_info_base {
   display: flex;
@@ -1684,7 +1722,7 @@ main div.partner_stores_page form aside section.store_list article.store div.sto
 }
 main div.partner_stores_page form aside section.store_list article.store div.store_info_base div {
   overflow: hidden;
-  font-size: small;
+  font-size: 0.75rem;
   width: 100%;
   height: 80%;
   color: #666;
@@ -1699,10 +1737,9 @@ main div.partner_stores_page form aside section.store_list article.store:hover {
   transition: all 0.5s;
 }
 main div.partner_stores_page form div.map_area iframe {
-  border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   width: 60vw;
-  height: 75vh;
+  height: 455px;
 }
 
 main div.points_shop_page div.containers {
@@ -1848,13 +1885,14 @@ main div.points_shop_page div.containers.point_area form.point_area .point_show_
 main div.points_shop_page div.containers.point_area form.point_area .point_show_area div.products div.product div.product-card {
   cursor: pointer;
   border-radius: 5px;
+  border: #d0d0d0 1px solid;
   overflow: hidden;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   margin: 0.45rem;
 }
 main div.points_shop_page div.containers.point_area form.point_area .point_show_area div.products div.product div.product-card img {
   width: 130px;
   height: 130px;
+  border-bottom: #d0d0d0 1px solid;
 }
 main div.points_shop_page div.containers.point_area form.point_area .point_show_area div.products div.product div.product-card h4 {
   font-size: 0.9rem;
@@ -2069,7 +2107,7 @@ main div.points_shop_page div.containers.FAQ_area .accordion dd section {
   padding: 1rem;
 }
 main div.points_shop_page div.containers.FAQ_area .accordion dd section p::before {
-  content: " 🠶 ";
+  content: " 🠶  ";
   font-weight: bold;
 }
 main div.points_shop_page div.containers.FAQ_area .accordion dd section p span {
@@ -2129,5 +2167,239 @@ main div.points_shop_page div.containers.FAQ_area .animateOut {
   100% {
     opacity: 0;
     transform: scale(0.9) rotateX(-60deg);
+  }
+}
+
+body.index_page {
+  background-color: #e1feff;
+}
+body.index_page::-webkit-scrollbar {
+  display: none;
+}
+body.index_page {
+  -ms-overflow-style: none;
+}
+body.index_page main div.banner_area {
+  position: relative;
+  top: -70px;
+  width: 100vw;
+  overflow: hidden;
+}
+body.index_page main div.banner_area div.container {
+  overflow: hidden;
+  width: 1920px;
+  height: 100vh;
+  min-height: 650px;
+  position: relative;
+}
+body.index_page main div.banner_area div.container img {
+  position: absolute;
+}
+body.index_page main div.banner_area div.container img.grassland {
+  bottom: 0;
+}
+body.index_page main div.banner_area div.container img.tree_R {
+  right: -250px;
+  bottom: 15vh;
+}
+body.index_page main div.banner_area div.container img.tree_L {
+  left: -150px;
+  bottom: 10vh;
+}
+body.index_page main div.banner_area div.container img.cloud_L {
+  left: -50px;
+  top: 10vh;
+}
+body.index_page main div.banner_area div.container img.cloud_M {
+  top: 5vh;
+}
+body.index_page main div.banner_area div.container img.bird {
+  right: -50px;
+  top: 10vh;
+}
+body.index_page main div.banner_area div.container img.piggy {
+  bottom: 8vh;
+  padding-left: 40vw;
+}
+body.index_page main div.banner_area div.container img.title {
+  top: 25vh;
+  padding-right: 35vw;
+}
+body.index_page main div.banner_area div.container h2 {
+  position: absolute;
+  padding-bottom: 10vh;
+  padding-right: 20vw;
+  font-size: 2rem;
+  color: #21613b;
+  font-weight: bold;
+}
+body.index_page main div.banner_area div.container h1 {
+  position: absolute;
+  margin-top: 20vh;
+  margin-right: 40vw;
+  font-size: 3rem;
+  letter-spacing: 0.75rem;
+  color: white;
+  font-weight: bold;
+  padding: 5px 4rem 5px 3.5rem;
+  background: linear-gradient(to left, #fdff79, #00b336);
+  border-radius: 3rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+body.index_page main div.banner_area div.container a {
+  position: absolute;
+  bottom: 1rem;
+}
+body.index_page main div.banner_area div.container a i.fa-caret-down {
+  font-size: 5rem;
+  color: white;
+}
+@media screen and (max-width: 1440px) {
+  body.index_page main div.banner_area div.container img {
+    transform: scale(0.7);
+  }
+  body.index_page main div.banner_area div.container img.grassland {
+    transform: scale(1);
+  }
+  body.index_page main div.banner_area div.container img.tree_R {
+    right: -250px;
+    bottom: 10vh;
+  }
+  body.index_page main div.banner_area div.container img.tree_L {
+    left: -230px;
+    bottom: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_L {
+    left: -50px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_M {
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.bird {
+    right: -50px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.piggy {
+    bottom: 5vh;
+    padding-left: 50vw;
+  }
+  body.index_page main div.banner_area div.container img.title {
+    top: 25vh;
+    padding-right: 50vw;
+  }
+  body.index_page main div.banner_area div.container h2 {
+    padding-bottom: 10vh;
+    padding-right: 35vw;
+    font-size: 1.5rem;
+  }
+  body.index_page main div.banner_area div.container h1 {
+    margin-top: 20vh;
+    margin-right: 40vw;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    padding: 5px 3rem 5px 2.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body.index_page main div.banner_area div.container img {
+    transform: scale(0.6);
+  }
+  body.index_page main div.banner_area div.container img.grassland {
+    transform: scale(1);
+  }
+  body.index_page main div.banner_area div.container img.tree_R {
+    right: -250px;
+    bottom: 1vh;
+  }
+  body.index_page main div.banner_area div.container img.tree_L {
+    display: none;
+    left: -230px;
+    bottom: 1vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_L {
+    left: -50px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_M {
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.bird {
+    right: -100px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.piggy {
+    transform: scale(0.5);
+    bottom: -7vh;
+    padding-left: 50vw;
+  }
+  body.index_page main div.banner_area div.container img.title {
+    top: 15vh;
+    padding-right: 50vw;
+  }
+  body.index_page main div.banner_area div.container h2 {
+    top: 38vh;
+    padding-bottom: 0;
+    padding-right: 40vw;
+    font-size: 1rem;
+  }
+  body.index_page main div.banner_area div.container h1 {
+    margin-top: 0vh;
+    margin-right: 50vw;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    padding: 5px 2rem 5px 1.5rem;
+  }
+}
+@media screen and (max-width: 455px) {
+  body.index_page main div.banner_area div.container img.grassland {
+    transform: scale(1);
+  }
+  body.index_page main div.banner_area div.container img.tree_R {
+    right: -300px;
+    bottom: -3vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_L {
+    left: -50px;
+    top: 2vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_M {
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.bird {
+    right: -200px;
+    top: 1vh;
+  }
+  body.index_page main div.banner_area div.container img.piggy {
+    transform: scale(0.4);
+    bottom: -10vh;
+    padding-left: 10vw;
+  }
+  body.index_page main div.banner_area div.container img.title {
+    transform: scale(0.4);
+    top: 15vh;
+    padding-right: 0vw;
+  }
+  body.index_page main div.banner_area div.container h2 {
+    top: 30vh;
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+    padding-right: 0;
+    font-size: 1rem;
+  }
+  body.index_page main div.banner_area div.container h1 {
+    top: 30vh;
+    margin-top: 3rem;
+    margin-right: 0vw;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    padding: 5px 2rem 5px 1.5rem;
+  }
+  body.index_page main div.banner_area div.container a {
+    position: absolute;
+    bottom: 0.75rem;
+  }
+  body.index_page main div.banner_area div.container a i.fa-caret-down {
+    font-size: 3.5rem;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -19,6 +19,20 @@ $gray: #ccc;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+// 隱藏滾動條
+body {
+  &::-webkit-scrollbar {
+    display: none; //Chorme
+  }
+  & {
+    -ms-overflow-style: none; //IE
+  }
+}
+
 //動畫設定
 @keyframes float {
   0% {
@@ -244,6 +258,18 @@ $fatness: 2px; // 調整fatness為較小值
   }
 }
 
+//背景圖片
+.bg_img {
+  background-image: url("../../img/背景-橫滿版-樹.png");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
 // 通用設定
 body {
   background-color: $bg_color;
@@ -368,8 +394,8 @@ main {
 footer {
   width: 100%;
   text-align: center;
-  padding: 20px 0;
-  margin-top: 15px;
+  padding: 25px 0 20px 0;
+  margin-top: 7vh;
   color: $white;
   background: linear-gradient(to top right, #93e880, #4fb980);
   p {
@@ -664,6 +690,10 @@ footer {
               color: $black;
               background-color: $white;
             }
+          }
+          //店家列表
+          &.store_list {
+            max-height: 65vh;
           }
         }
       }
@@ -1980,7 +2010,7 @@ main {
             flex-direction: column;
             padding: 0;
             margin: 0;
-            max-height: 66vh;
+            max-height: 368px;
             overflow: hidden;
             overflow-y: auto;
             //店家
@@ -2008,13 +2038,25 @@ main {
                   justify-content: space-between;
                   p.categoryinfo {
                     color: #666;
+                    font-size: 0.75rem;
                   }
                   .store_star {
                     display: flex;
                     align-items: center;
                     color: orange;
+                    font-size: 0.75rem;
                     i {
                       margin-right: 5px;
+                    }
+                  }
+                  @media screen and (max-width: 1424px) {
+                    h4 {
+                      font-size: 0.75rem;
+                    }
+                  }
+                  @media screen and (max-width: 456px) {
+                    h4 {
+                      font-size: 1rem;
                     }
                   }
                 }
@@ -2028,7 +2070,7 @@ main {
                 // margin-left: 3rem;
                 div {
                   overflow: hidden;
-                  font-size: small;
+                  font-size: 0.75rem;
                   width: 100%;
                   height: 80%;
                   color: #666;
@@ -2050,10 +2092,10 @@ main {
       //googleMap
       div.map_area {
         iframe {
-          border-radius: 10px;
+          // border-radius: 10px;
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
           width: 60vw;
-          height: 75vh;
+          height: 455px;
         }
       }
     }
@@ -2216,12 +2258,14 @@ main {
                 div.product-card {
                   cursor: pointer;
                   border-radius: 5px;
+                  border: #d0d0d0 1px solid;
                   overflow: hidden;
-                  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+                  // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
                   margin: 0.45rem;
                   img {
                     width: 130px;
                     height: 130px;
+                    border-bottom: #d0d0d0 1px solid;
                   }
                   h4 {
                     font-size: 0.9rem;
@@ -2470,7 +2514,7 @@ main {
           padding: 1rem; // 內邊距
           p {
             &::before {
-              content: "\00A0\01F836\00A0";
+              content: "\00A0 🠶 \00A0";
               font-weight: bold;
             }
             //點數文字裝飾
@@ -2546,6 +2590,254 @@ main {
           100% {
             opacity: 0; // 最終透明
             transform: scale(0.9) rotateX(-60deg); // 最終縮小並旋轉
+          }
+        }
+      }
+    }
+  }
+}
+
+//首頁
+body.index_page {
+  // 隱藏滾動條
+  &::-webkit-scrollbar {
+    display: none; //Chorme
+  }
+  & {
+    -ms-overflow-style: none; //IE
+  }
+
+  background-color: #e1feff;
+
+  main {
+    // 第一頁 banner
+    div.banner_area {
+      position: relative;
+      top: -70px;
+      width: 100vw;
+      overflow: hidden;
+      div.container {
+        overflow: hidden;
+        width: 1920px;
+        height: 100vh;
+        min-height: 650px;
+        position: relative;
+        img {
+          position: absolute;
+          //圖片位置 X軸:px Y軸:vh
+          &.grassland {
+            bottom: 0;
+          }
+          &.tree_R {
+            right: -250px;
+            bottom: 15vh;
+          }
+          &.tree_L {
+            left: -150px;
+            bottom: 10vh;
+          }
+          &.cloud_L {
+            left: -50px;
+            top: 10vh;
+          }
+          &.cloud_M {
+            top: 5vh;
+          }
+          &.bird {
+            right: -50px;
+            top: 10vh;
+          }
+          &.piggy {
+            bottom: 8vh;
+            padding-left: 40vw;
+          }
+          &.title {
+            top: 25vh;
+            padding-right: 35vw;
+          }
+        }
+        h2 {
+          position: absolute;
+          padding-bottom: 10vh;
+          padding-right: 20vw;
+          font-size: 2rem;
+          color: #21613b;
+          font-weight: bold;
+        }
+        h1 {
+          position: absolute;
+          margin-top: 20vh;
+          margin-right: 40vw;
+          font-size: 3rem;
+          letter-spacing: 0.75rem;
+          color: white;
+          font-weight: bold;
+          padding: 5px 4rem 5px 3.5rem;
+          background: linear-gradient(to left, #fdff79, #00b336);
+          border-radius: 3rem;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+          position: absolute;
+          bottom: 1rem;
+          i.fa-caret-down {
+            font-size: 5rem;
+            color: white;
+          }
+        }
+        @media screen and (max-width: 1440px) {
+          img {
+            transform: scale(0.7);
+            &.grassland {
+              transform: scale(1);
+            }
+            &.tree_R {
+              right: -250px;
+              bottom: 10vh;
+            }
+            &.tree_L {
+              left: -230px;
+              bottom: 5vh;
+            }
+            &.cloud_L {
+              left: -50px;
+              top: 5vh;
+            }
+            &.cloud_M {
+              top: 5vh;
+            }
+            &.bird {
+              right: -50px;
+              top: 5vh;
+            }
+
+            &.piggy {
+              bottom: 5vh;
+              padding-left: 50vw;
+            }
+            &.title {
+              top: 25vh;
+              padding-right: 50vw;
+            }
+          }
+          h2 {
+            padding-bottom: 10vh;
+            padding-right: 35vw;
+            font-size: 1.5rem;
+          }
+          h1 {
+            margin-top: 20vh;
+            margin-right: 40vw;
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            padding: 5px 3rem 5px 2.5rem;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          img {
+            transform: scale(0.6);
+            &.grassland {
+              transform: scale(1);
+            }
+            &.tree_R {
+              right: -250px;
+              bottom: 1vh;
+            }
+            &.tree_L {
+              display: none;
+              left: -230px;
+              bottom: 1vh;
+            }
+            &.cloud_L {
+              left: -50px;
+              top: 5vh;
+            }
+            &.cloud_M {
+              top: 5vh;
+            }
+            &.bird {
+              right: -100px;
+              top: 5vh;
+            }
+
+            &.piggy {
+              transform: scale(0.5);
+              bottom: -7vh;
+              padding-left: 50vw;
+            }
+            &.title {
+              top: 15vh;
+              padding-right: 50vw;
+            }
+          }
+          h2 {
+            top: 38vh;
+            padding-bottom: 0;
+            padding-right: 40vw;
+            font-size: 1rem;
+          }
+          h1 {
+            margin-top: 0vh;
+            margin-right: 50vw;
+            font-size: 1.5rem;
+            letter-spacing: 0.5rem;
+            padding: 5px 2rem 5px 1.5rem;
+          }
+        }
+        @media screen and (max-width: 455px) {
+          img {
+            &.grassland {
+              transform: scale(1);
+            }
+            &.tree_R {
+              right: -300px;
+              bottom: -3vh;
+            }
+
+            &.cloud_L {
+              left: -50px;
+              top: 2vh;
+            }
+            &.cloud_M {
+              top: 5vh;
+            }
+            &.bird {
+              right: -200px;
+              top: 1vh;
+            }
+
+            &.piggy {
+              transform: scale(0.4);
+              bottom: -10vh;
+              padding-left: 10vw;
+            }
+            &.title {
+              transform: scale(0.4);
+              top: 15vh;
+              padding-right: 0vw;
+            }
+          }
+          h2 {
+            top: 30vh;
+            padding-top: 0.5rem;
+            padding-bottom: 0;
+            padding-right: 0;
+            font-size: 1rem;
+          }
+          h1 {
+            top: 30vh;
+            margin-top: 3rem;
+            margin-right: 0vw;
+            font-size: 1.5rem;
+            letter-spacing: 0.5rem;
+            padding: 5px 2rem 5px 1.5rem;
+          }
+          a {
+            position: absolute;
+            bottom: 0.75rem;
+            i.fa-caret-down {
+              font-size: 3.5rem;
+            }
           }
         }
       }

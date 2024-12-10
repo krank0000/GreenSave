@@ -31,9 +31,12 @@
     </style>
     <!-- jquery -->
     <script src="asset/js/jquery-3.7.1.min.js"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <title>存碳養綠｜專案理念</title>
   </head>
-  <body>
+  <body class="index_page">
     <!-- 導覽列 -->
     <header>
       <nav>
@@ -68,8 +71,27 @@
       <i class="fas fa-chevron-up"></i>
     </div>
 
-    <main>
-      <div class="container"></div>
+    <main class="index_page">
+      <!-- 第一頁 banner -->
+      <div class="container banner_area">
+        <div class="container">
+          <img src="/asset/img/banner/樹.png" alt="" class="tree_R" />
+          <img src="/asset/img/banner/樹.png" alt="" class="tree_L" />
+          <img src="/asset/img/banner/草地.png" alt="" class="grassland" />
+          <img src="/asset/img/banner/左雲.png" alt="" class="cloud_L" />
+          <img src="/asset/img/banner/中雲.png" alt="" class="cloud_M" />
+          <img src="/asset/img/banner/飛鳥.png" alt="" class="bird" />
+          <img src="/asset/img/banner/存錢豬豬-2.png" alt="" class="piggy" />
+          <img src="/asset/img/banner/存碳養綠.png" alt="" class="title" />
+          <h2>小舉動，大改變！ 一起減少碳足跡！</h2>
+          <h1><i class="fa-solid fa-fade">立即行動</i></h1>
+          <a href="#index_p2">
+            <i class="fa-solid fa-caret-down fa-bounce"> </i
+          ></a>
+        </div>
+      </div>
+      <!-- 第二頁  -->
+      <div class="container" id="index_p2"></div>
     </main>
 
     <!-- footer -->
@@ -78,4 +100,5 @@
     </footer>
   </body>
   <script src="./asset/js/app.js"></script>
+  <script src="./asset/js/animation.js"></script>
 </html>
