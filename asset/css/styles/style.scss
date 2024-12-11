@@ -260,7 +260,7 @@ $fatness: 2px; // 調整fatness為較小值
 
 //背景圖片
 .bg_img {
-  background-image: url("../../img/背景-橫滿版-樹.png");
+  background-image: url("../../img/background-tree.png");
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -2651,32 +2651,39 @@ body.index_page {
             bottom: 8vh;
             padding-left: 40vw;
           }
-          &.title {
-            top: 25vh;
-            padding-right: 35vw;
+        }
+        div.banner_text {
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          height: 35%;
+          margin-right: 30vw;
+          img {
+            position: relative;
+            width: 100%;
+            padding-right: 10vw;
+          }
+          h2 {
+            padding-bottom: 4rem;
+            font-size: 2rem;
+            color: #21613b;
+            font-weight: bold;
+          }
+          h1 {
+            font-size: 3rem;
+            letter-spacing: 0.75rem;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px 3rem 5px 2.5rem;
+            background: linear-gradient(to left, #fdff79, #00b336);
+            border-radius: 3rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
           }
         }
-        h2 {
-          position: absolute;
-          padding-bottom: 10vh;
-          padding-right: 20vw;
-          font-size: 2rem;
-          color: #21613b;
-          font-weight: bold;
-        }
-        h1 {
-          position: absolute;
-          margin-top: 20vh;
-          margin-right: 40vw;
-          font-size: 3rem;
-          letter-spacing: 0.75rem;
-          color: white;
-          font-weight: bold;
-          padding: 5px 4rem 5px 3.5rem;
-          background: linear-gradient(to left, #fdff79, #00b336);
-          border-radius: 3rem;
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-        }
+
         a {
           position: absolute;
           bottom: 1rem;
@@ -2685,6 +2692,7 @@ body.index_page {
             color: white;
           }
         }
+
         @media screen and (max-width: 1440px) {
           img {
             transform: scale(0.7);
@@ -2715,22 +2723,27 @@ body.index_page {
               bottom: 5vh;
               padding-left: 50vw;
             }
-            &.title {
-              top: 25vh;
-              padding-right: 50vw;
+          }
+          div.banner_text {
+            height: 35%;
+            margin-right: 30vw;
+            margin-bottom: 16vh;
+            img {
+              position: relative;
+              width: 90%;
+              padding-right: 10vw;
             }
-          }
-          h2 {
-            padding-bottom: 10vh;
-            padding-right: 35vw;
-            font-size: 1.5rem;
-          }
-          h1 {
-            margin-top: 20vh;
-            margin-right: 40vw;
-            font-size: 2rem;
-            letter-spacing: 0.5rem;
-            padding: 5px 3rem 5px 2.5rem;
+            h2 {
+              padding-bottom: 4rem;
+              font-size: 1.5rem;
+              color: #21613b;
+              font-weight: bold;
+            }
+            h1 {
+              font-size: 2rem;
+              letter-spacing: 0.5rem;
+              padding: 5px 3rem 5px 2.5rem;
+            }
           }
         }
         @media screen and (max-width: 768px) {
@@ -2765,23 +2778,28 @@ body.index_page {
               bottom: -7vh;
               padding-left: 50vw;
             }
-            &.title {
-              top: 15vh;
-              padding-right: 50vw;
+          }
+          div.banner_text {
+            height: 35%;
+            width: 50%;
+            margin-right: 35vw;
+            margin-bottom: 36vh;
+            img {
+              width: 30rem;
+              padding-right: 0vw;
             }
-          }
-          h2 {
-            top: 38vh;
-            padding-bottom: 0;
-            padding-right: 40vw;
-            font-size: 1rem;
-          }
-          h1 {
-            margin-top: 0vh;
-            margin-right: 50vw;
-            font-size: 1.5rem;
-            letter-spacing: 0.5rem;
-            padding: 5px 2rem 5px 1.5rem;
+            h2 {
+              padding-bottom: 3rem;
+              font-size: 1rem;
+              color: #21613b;
+              font-weight: bold;
+            }
+            h1 {
+              margin-right: 5rem;
+              font-size: 1.25rem;
+              letter-spacing: 0.25rem;
+              padding: 5px 2rem 5px 2rem;
+            }
           }
         }
         @media screen and (max-width: 455px) {
@@ -2799,7 +2817,8 @@ body.index_page {
               top: 2vh;
             }
             &.cloud_M {
-              top: 5vh;
+              transform: scale(0.5);
+              top: 4vh;
             }
             &.bird {
               right: -200px;
@@ -2811,26 +2830,28 @@ body.index_page {
               bottom: -10vh;
               padding-left: 10vw;
             }
-            &.title {
-              transform: scale(0.4);
-              top: 15vh;
+          }
+          div.banner_text {
+            height: 30%;
+            width: 100%;
+            margin-right: 0vw;
+            margin-bottom: 40vh;
+            img {
+              width: 30rem;
               padding-right: 0vw;
             }
-          }
-          h2 {
-            top: 30vh;
-            padding-top: 0.5rem;
-            padding-bottom: 0;
-            padding-right: 0;
-            font-size: 1rem;
-          }
-          h1 {
-            top: 30vh;
-            margin-top: 3rem;
-            margin-right: 0vw;
-            font-size: 1.5rem;
-            letter-spacing: 0.5rem;
-            padding: 5px 2rem 5px 1.5rem;
+            h2 {
+              padding-bottom: 2rem;
+              font-size: 1rem;
+              color: #21613b;
+              font-weight: bold;
+            }
+            h1 {
+              margin-right: 0rem;
+              font-size: 1.25rem;
+              letter-spacing: 0.25rem;
+              padding: 5px 2rem 5px 2rem;
+            }
           }
           a {
             position: absolute;
@@ -2838,6 +2859,530 @@ body.index_page {
             i.fa-caret-down {
               font-size: 3.5rem;
             }
+          }
+        }
+      }
+    }
+    // 第二頁
+    div.index_p2 {
+      position: relative;
+      min-height: 80vh;
+      //背景圖片
+      img.background-tree {
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        z-index: -1;
+      }
+      //主要內容
+      main {
+        display: flex;
+        article {
+          //位置
+          position: absolute;
+          top: 12vh;
+          right: 2vw;
+          .speech-bubble {
+            width: 25vw;
+            position: relative;
+            background: #e1feff;
+            border-radius: 0.75em;
+            padding: 2rem;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+            //文字訊息框-樣式
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 1px;
+              left: 50%;
+              width: 0;
+              height: 0;
+              border: 0.906em solid transparent;
+              border-top-color: #e1feff;
+              border-bottom: 0;
+              margin-left: -0.906em;
+              margin-bottom: -0.906em;
+            }
+            //文字
+            h1.t1 {
+              font-size: 2rem;
+              color: #0e4375;
+              letter-spacing: 0.25rem;
+            }
+            h1.t2 {
+              font-size: 2rem;
+              color: #e52626;
+              letter-spacing: 0.25rem;
+            }
+            h4 {
+              font-weight: normal;
+              text-align: right;
+              margin-top: 1rem;
+              letter-spacing: 0.1rem;
+            }
+            //裝飾圖片
+            img {
+              position: absolute;
+              top: -3rem;
+              right: -3rem;
+              width: 150px;
+            }
+          }
+        }
+        div.block_content_area {
+          position: relative;
+          width: 80vw;
+
+          //樣式
+          section {
+            position: absolute;
+            margin: -2rem 0;
+            .block_content {
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 2.5rem;
+              background-color: rgb(255, 255, 255);
+              border-radius: 15px;
+              border: #00722f 2px solid;
+              transform: skewX(-10deg);
+              width: 35vw;
+              min-width: 350px;
+              min-height: 250px;
+              //線條-圓形首尾
+              .line {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 2px;
+                border-radius: 10px;
+                --color: gray;
+                background-color: var(--color);
+                &::after,
+                &::before {
+                  content: "";
+                  --l: 5px; //使用變數
+                  width: var(--l);
+                  height: var(--l);
+                  background-color: var(--color);
+                  border-radius: 50%;
+                }
+              }
+              //傾斜修正+間隔
+              h2,
+              h4,
+              p,
+              h1,
+              img,
+              .line {
+                transform: skewX(10deg);
+                margin: 0.25rem 0;
+              }
+              h2 {
+                font-size: 2rem;
+                letter-spacing: 0.25rem;
+              }
+              h4 {
+                color: #4f4f4f;
+              }
+              p {
+                padding: 0 1rem;
+              }
+              //裝飾圖片
+              h1.title {
+                position: absolute;
+                top: -4rem;
+                right: -1.8rem;
+                //文字置中
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2.5rem;
+                color: white;
+                --l: 175px;
+                width: var(--l);
+                height: var(--l);
+                background-image: url("../../img/block_leaf.png");
+                background-size: cover;
+              }
+              .img1 {
+                position: absolute;
+                bottom: -4rem;
+                left: -8.5rem;
+                width: 300px;
+              }
+              .img2 {
+                position: absolute;
+                bottom: -4rem;
+                right: -8.5rem;
+                height: 200px;
+              }
+            }
+          }
+          //位置
+          section.block1 {
+            top: -20vh;
+            left: 10vw;
+          }
+          section.block2 {
+            top: 0;
+            right: 50vw;
+          }
+        }
+      }
+      //RWD
+      @media screen and (max-width: 1440px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              width: 30vw;
+              padding: 2rem;
+
+              //文字
+              h1.t1,
+              h1.t2 {
+                font-size: 1.75rem;
+                letter-spacing: 0.25rem;
+              }
+              h4 {
+                font-weight: normal;
+                margin-top: 0.75rem;
+                letter-spacing: 0.1rem;
+              }
+              //裝飾圖片
+              img {
+                position: absolute;
+                top: -1.5rem;
+                right: -1.5rem;
+                width: 120px;
+              }
+            }
+          }
+          div.block_content_area {
+            width: 80vw;
+            //樣式
+            section {
+              margin: -2rem 0;
+              .block_content {
+                padding: 2rem;
+                width: 35vw;
+                min-width: 350px;
+                min-height: 210px;
+
+                h2 {
+                  font-size: 1.5rem;
+                  letter-spacing: 0.25rem;
+                }
+                //裝飾圖片
+                h1.title {
+                  transform: scale(0.8) skew(10deg);
+                  position: absolute;
+                  top: -4.3rem;
+                  right: -3rem;
+                  font-size: 2.5rem;
+                  --l: 175px;
+                  width: var(--l);
+                  height: var(--l);
+                }
+                .img1 {
+                  transform: scale(0.8) skew(10deg);
+                  bottom: -4rem;
+                  left: -8.5rem;
+                  width: 300px;
+                }
+                .img2 {
+                  transform: scale(0.8) skew(10deg);
+                  bottom: -4rem;
+                  right: -8.5rem;
+                  height: 200px;
+                }
+              }
+            }
+            //位置
+            section.block1 {
+              top: -20vh;
+              left: 10vw;
+            }
+            section.block2 {
+              top: 10vh;
+              right: 50vw;
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 8vh;
+            right: 2vw;
+          }
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              width: 30vw;
+              padding: 2rem;
+
+              //文字
+              h1.t1,
+              h1.t2 {
+                font-size: 1.5rem;
+                letter-spacing: 0.1rem;
+              }
+              h4 {
+                font-weight: normal;
+                font-size: 0.75rem;
+                margin-top: 0.75rem;
+                letter-spacing: 0.1rem;
+              }
+              //裝飾圖片
+              img {
+                position: absolute;
+                top: -2rem;
+                right: -2rem;
+                width: 120px;
+              }
+            }
+          }
+          div.block_content_area {
+            width: 80vw;
+            //樣式
+            section {
+              margin: -2rem 0;
+              .block_content {
+                padding: 2rem;
+                width: 35vw;
+                min-width: 350px;
+                min-height: 210px;
+
+                h2 {
+                  font-size: 1.25rem;
+                  letter-spacing: 0.25rem;
+                }
+                h4,
+                p {
+                  font-size: 0.75rem;
+                }
+              }
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 13vh;
+            right: 2vw;
+          }
+        }
+      }
+      @media screen and (max-width: 920px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              transform: scale(0.9);
+              width: 35vw;
+              padding: 2rem;
+            }
+          }
+          div.block_content_area {
+            transform: scale(0.8);
+            width: 80vw;
+            //位置
+            section.block1 {
+              top: -10vh;
+              left: 10vw;
+            }
+            section.block2 {
+              top: 25vh;
+              right: 50vw;
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 10vh;
+            right: 10vw;
+          }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              transform: scale(0.8);
+              width: 40vw;
+              min-width: 350px;
+              padding: 2rem;
+            }
+          }
+          div.block_content_area {
+            transform: scale(0.8);
+            width: 100vw;
+            //位置
+            section.block1 {
+              top: -15vh;
+              left: 15vw;
+            }
+            section.block2 {
+              top: 25vh;
+              left: 15vw;
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 0vh;
+            right: 10vw;
+          }
+        }
+      }
+      @media screen and (max-width: 520px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              transform: scale(0.8);
+              width: 40vw;
+              min-width: 350px;
+              padding: 2rem;
+            }
+          }
+          div.block_content_area {
+            transform: scale(0.7);
+            width: 100vw;
+            //位置
+            section.block1 {
+              top: -15vh;
+              left: 15vw;
+            }
+            section.block2 {
+              top: 25vh;
+              left: 15vw;
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 0vh;
+            right: 10vw;
+          }
+        }
+      }
+      @media screen and (max-width: 475px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              transform: scale(0.8);
+              width: 40vw;
+              min-width: 350px;
+              padding: 2rem;
+            }
+          }
+          div.block_content_area {
+            transform: scale(0.7);
+            width: 100vw;
+
+            .block_content {
+              padding: 1.5rem;
+            }
+            //位置
+            section.block1 {
+              top: -15vh;
+              left: 12vw;
+              h1.title {
+                transform: scale(0.7) skew(10deg);
+                top: -4.7rem;
+                right: -2.3rem;
+              }
+              #Finance {
+                transform: scale(0.7) skew(10deg);
+                bottom: -4rem;
+                left: -8.5rem;
+              }
+            }
+            section.block2 {
+              top: 25vh;
+              left: 12vw;
+              h1.title {
+                transform: scale(0.7) skew(10deg);
+                top: -4.7rem;
+                right: -2.3rem;
+              }
+              #Secure_lock {
+                transform: scale(0.7) skew(10deg);
+                bottom: -4.5rem;
+                left: -8.5rem;
+              }
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 0vh;
+            right: 6vw;
+          }
+        }
+      }
+      @media screen and (max-width: 380px) {
+        min-height: 90vh; //div.index_p2
+        main {
+          article {
+            .speech-bubble {
+              transform: scale(0.8);
+              width: 40vw;
+              min-width: 350px;
+              padding: 2rem;
+            }
+          }
+          div.block_content_area {
+            transform: scale(0.7);
+            width: 100vw;
+
+            .block_content {
+              padding: 1.5rem;
+            }
+            //位置
+            section.block1 {
+              top: -15vh;
+              left: 6vw;
+              h1.title {
+                transform: scale(0.6) skew(10deg);
+                top: -4.7rem;
+                right: -2.3rem;
+              }
+              #Finance {
+                transform: scale(0.5) skew(10deg);
+                bottom: -4rem;
+                left: -8.5rem;
+              }
+            }
+            section.block2 {
+              top: 25vh;
+              left: 6vw;
+              h1.title {
+                transform: scale(0.6) skew(10deg);
+                top: -4.7rem;
+                right: -2.3rem;
+              }
+              #Secure_lock {
+                transform: scale(0.5) skew(10deg);
+                bottom: -4.5rem;
+                left: -8.5rem;
+              }
+            }
+          }
+          //位置
+          article {
+            position: absolute;
+            top: 0vh;
+            right: 3vw;
           }
         }
       }

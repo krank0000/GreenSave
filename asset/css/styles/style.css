@@ -226,7 +226,7 @@ body .top_btn:hover {
 }
 
 .bg_img {
-  background-image: url("../../img/背景-橫滿版-樹.png");
+  background-image: url("../../img/background-tree.png");
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -2221,27 +2221,33 @@ body.index_page main div.banner_area div.container img.piggy {
   bottom: 8vh;
   padding-left: 40vw;
 }
-body.index_page main div.banner_area div.container img.title {
-  top: 25vh;
-  padding-right: 35vw;
+body.index_page main div.banner_area div.container div.banner_text {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 35%;
+  margin-right: 30vw;
 }
-body.index_page main div.banner_area div.container h2 {
-  position: absolute;
-  padding-bottom: 10vh;
-  padding-right: 20vw;
+body.index_page main div.banner_area div.container div.banner_text img {
+  position: relative;
+  width: 100%;
+  padding-right: 10vw;
+}
+body.index_page main div.banner_area div.container div.banner_text h2 {
+  padding-bottom: 4rem;
   font-size: 2rem;
   color: #21613b;
   font-weight: bold;
 }
-body.index_page main div.banner_area div.container h1 {
-  position: absolute;
-  margin-top: 20vh;
-  margin-right: 40vw;
+body.index_page main div.banner_area div.container div.banner_text h1 {
   font-size: 3rem;
   letter-spacing: 0.75rem;
   color: white;
   font-weight: bold;
-  padding: 5px 4rem 5px 3.5rem;
+  text-align: center;
+  padding: 5px 3rem 5px 2.5rem;
   background: linear-gradient(to left, #fdff79, #00b336);
   border-radius: 3rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -2284,18 +2290,23 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     bottom: 5vh;
     padding-left: 50vw;
   }
-  body.index_page main div.banner_area div.container img.title {
-    top: 25vh;
-    padding-right: 50vw;
+  body.index_page main div.banner_area div.container div.banner_text {
+    height: 35%;
+    margin-right: 30vw;
+    margin-bottom: 16vh;
   }
-  body.index_page main div.banner_area div.container h2 {
-    padding-bottom: 10vh;
-    padding-right: 35vw;
+  body.index_page main div.banner_area div.container div.banner_text img {
+    position: relative;
+    width: 90%;
+    padding-right: 10vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h2 {
+    padding-bottom: 4rem;
     font-size: 1.5rem;
+    color: #21613b;
+    font-weight: bold;
   }
-  body.index_page main div.banner_area div.container h1 {
-    margin-top: 20vh;
-    margin-right: 40vw;
+  body.index_page main div.banner_area div.container div.banner_text h1 {
     font-size: 2rem;
     letter-spacing: 0.5rem;
     padding: 5px 3rem 5px 2.5rem;
@@ -2333,22 +2344,27 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     bottom: -7vh;
     padding-left: 50vw;
   }
-  body.index_page main div.banner_area div.container img.title {
-    top: 15vh;
-    padding-right: 50vw;
+  body.index_page main div.banner_area div.container div.banner_text {
+    height: 35%;
+    width: 50%;
+    margin-right: 35vw;
+    margin-bottom: 36vh;
   }
-  body.index_page main div.banner_area div.container h2 {
-    top: 38vh;
-    padding-bottom: 0;
-    padding-right: 40vw;
+  body.index_page main div.banner_area div.container div.banner_text img {
+    width: 30rem;
+    padding-right: 0vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h2 {
+    padding-bottom: 3rem;
     font-size: 1rem;
+    color: #21613b;
+    font-weight: bold;
   }
-  body.index_page main div.banner_area div.container h1 {
-    margin-top: 0vh;
-    margin-right: 50vw;
-    font-size: 1.5rem;
-    letter-spacing: 0.5rem;
-    padding: 5px 2rem 5px 1.5rem;
+  body.index_page main div.banner_area div.container div.banner_text h1 {
+    margin-right: 5rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+    padding: 5px 2rem 5px 2rem;
   }
 }
 @media screen and (max-width: 455px) {
@@ -2364,7 +2380,8 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     top: 2vh;
   }
   body.index_page main div.banner_area div.container img.cloud_M {
-    top: 5vh;
+    transform: scale(0.5);
+    top: 4vh;
   }
   body.index_page main div.banner_area div.container img.bird {
     right: -200px;
@@ -2375,25 +2392,27 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     bottom: -10vh;
     padding-left: 10vw;
   }
-  body.index_page main div.banner_area div.container img.title {
-    transform: scale(0.4);
-    top: 15vh;
+  body.index_page main div.banner_area div.container div.banner_text {
+    height: 30%;
+    width: 100%;
+    margin-right: 0vw;
+    margin-bottom: 40vh;
+  }
+  body.index_page main div.banner_area div.container div.banner_text img {
+    width: 30rem;
     padding-right: 0vw;
   }
-  body.index_page main div.banner_area div.container h2 {
-    top: 30vh;
-    padding-top: 0.5rem;
-    padding-bottom: 0;
-    padding-right: 0;
+  body.index_page main div.banner_area div.container div.banner_text h2 {
+    padding-bottom: 2rem;
     font-size: 1rem;
+    color: #21613b;
+    font-weight: bold;
   }
-  body.index_page main div.banner_area div.container h1 {
-    top: 30vh;
-    margin-top: 3rem;
-    margin-right: 0vw;
-    font-size: 1.5rem;
-    letter-spacing: 0.5rem;
-    padding: 5px 2rem 5px 1.5rem;
+  body.index_page main div.banner_area div.container div.banner_text h1 {
+    margin-right: 0rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+    padding: 5px 2rem 5px 2rem;
   }
   body.index_page main div.banner_area div.container a {
     position: absolute;
@@ -2401,5 +2420,473 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container a i.fa-caret-down {
     font-size: 3.5rem;
+  }
+}
+body.index_page main div.index_p2 {
+  position: relative;
+  min-height: 80vh;
+}
+body.index_page main div.index_p2 img.background-tree {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+}
+body.index_page main div.index_p2 main {
+  display: flex;
+}
+body.index_page main div.index_p2 main article {
+  position: absolute;
+  top: 12vh;
+  right: 2vw;
+}
+body.index_page main div.index_p2 main article .speech-bubble {
+  width: 25vw;
+  position: relative;
+  background: #e1feff;
+  border-radius: 0.75em;
+  padding: 2rem;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+}
+body.index_page main div.index_p2 main article .speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.906em solid transparent;
+  border-top-color: #e1feff;
+  border-bottom: 0;
+  margin-left: -0.906em;
+  margin-bottom: -0.906em;
+}
+body.index_page main div.index_p2 main article .speech-bubble h1.t1 {
+  font-size: 2rem;
+  color: #0e4375;
+  letter-spacing: 0.25rem;
+}
+body.index_page main div.index_p2 main article .speech-bubble h1.t2 {
+  font-size: 2rem;
+  color: #e52626;
+  letter-spacing: 0.25rem;
+}
+body.index_page main div.index_p2 main article .speech-bubble h4 {
+  font-weight: normal;
+  text-align: right;
+  margin-top: 1rem;
+  letter-spacing: 0.1rem;
+}
+body.index_page main div.index_p2 main article .speech-bubble img {
+  position: absolute;
+  top: -3rem;
+  right: -3rem;
+  width: 150px;
+}
+body.index_page main div.index_p2 main div.block_content_area {
+  position: relative;
+  width: 80vw;
+}
+body.index_page main div.index_p2 main div.block_content_area section {
+  position: absolute;
+  margin: -2rem 0;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  border: #00722f 2px solid;
+  transform: skewX(-10deg);
+  width: 35vw;
+  min-width: 350px;
+  min-height: 250px;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content .line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2px;
+  border-radius: 10px;
+  --color: gray;
+  background-color: var(--color);
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content .line::after, body.index_page main div.index_p2 main div.block_content_area section .block_content .line::before {
+  content: "";
+  --l: 5px;
+  width: var(--l);
+  height: var(--l);
+  background-color: var(--color);
+  border-radius: 50%;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content h2,
+body.index_page main div.index_p2 main div.block_content_area section .block_content h4,
+body.index_page main div.index_p2 main div.block_content_area section .block_content p,
+body.index_page main div.index_p2 main div.block_content_area section .block_content h1,
+body.index_page main div.index_p2 main div.block_content_area section .block_content img,
+body.index_page main div.index_p2 main div.block_content_area section .block_content .line {
+  transform: skewX(10deg);
+  margin: 0.25rem 0;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content h2 {
+  font-size: 2rem;
+  letter-spacing: 0.25rem;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content h4 {
+  color: #4f4f4f;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content p {
+  padding: 0 1rem;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content h1.title {
+  position: absolute;
+  top: -4rem;
+  right: -1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: white;
+  --l: 175px;
+  width: var(--l);
+  height: var(--l);
+  background-image: url("../../img/block_leaf.png");
+  background-size: cover;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content .img1 {
+  position: absolute;
+  bottom: -4rem;
+  left: -8.5rem;
+  width: 300px;
+}
+body.index_page main div.index_p2 main div.block_content_area section .block_content .img2 {
+  position: absolute;
+  bottom: -4rem;
+  right: -8.5rem;
+  height: 200px;
+}
+body.index_page main div.index_p2 main div.block_content_area section.block1 {
+  top: -20vh;
+  left: 10vw;
+}
+body.index_page main div.index_p2 main div.block_content_area section.block2 {
+  top: 0;
+  right: 50vw;
+}
+@media screen and (max-width: 1440px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    width: 30vw;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble h1.t1,
+  body.index_page main div.index_p2 main article .speech-bubble h1.t2 {
+    font-size: 1.75rem;
+    letter-spacing: 0.25rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble h4 {
+    font-weight: normal;
+    margin-top: 0.75rem;
+    letter-spacing: 0.1rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble img {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    width: 120px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    width: 80vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section {
+    margin: -2rem 0;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content {
+    padding: 2rem;
+    width: 35vw;
+    min-width: 350px;
+    min-height: 210px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.25rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content h1.title {
+    transform: scale(0.8) skew(10deg);
+    position: absolute;
+    top: -4.3rem;
+    right: -3rem;
+    font-size: 2.5rem;
+    --l: 175px;
+    width: var(--l);
+    height: var(--l);
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content .img1 {
+    transform: scale(0.8) skew(10deg);
+    bottom: -4rem;
+    left: -8.5rem;
+    width: 300px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content .img2 {
+    transform: scale(0.8) skew(10deg);
+    bottom: -4rem;
+    right: -8.5rem;
+    height: 200px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -20vh;
+    left: 10vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 10vh;
+    right: 50vw;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 8vh;
+    right: 2vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    width: 30vw;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble h1.t1,
+  body.index_page main div.index_p2 main article .speech-bubble h1.t2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble h4 {
+    font-weight: normal;
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+    letter-spacing: 0.1rem;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble img {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    width: 120px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    width: 80vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section {
+    margin: -2rem 0;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content {
+    padding: 2rem;
+    width: 35vw;
+    min-width: 350px;
+    min-height: 210px;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content h2 {
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section .block_content h4,
+  body.index_page main div.index_p2 main div.block_content_area section .block_content p {
+    font-size: 0.75rem;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 13vh;
+    right: 2vw;
+  }
+}
+@media screen and (max-width: 920px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    transform: scale(0.9);
+    width: 35vw;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    transform: scale(0.8);
+    width: 80vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -10vh;
+    left: 10vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 25vh;
+    right: 50vw;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 10vh;
+    right: 10vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    transform: scale(0.8);
+    width: 40vw;
+    min-width: 350px;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    transform: scale(0.8);
+    width: 100vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -15vh;
+    left: 15vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 25vh;
+    left: 15vw;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 0vh;
+    right: 10vw;
+  }
+}
+@media screen and (max-width: 520px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    transform: scale(0.8);
+    width: 40vw;
+    min-width: 350px;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    transform: scale(0.7);
+    width: 100vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -15vh;
+    left: 15vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 25vh;
+    left: 15vw;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 0vh;
+    right: 10vw;
+  }
+}
+@media screen and (max-width: 475px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    transform: scale(0.8);
+    width: 40vw;
+    min-width: 350px;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    transform: scale(0.7);
+    width: 100vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area .block_content {
+    padding: 1.5rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -15vh;
+    left: 12vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 h1.title {
+    transform: scale(0.7) skew(10deg);
+    top: -4.7rem;
+    right: -2.3rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 #Finance {
+    transform: scale(0.7) skew(10deg);
+    bottom: -4rem;
+    left: -8.5rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 25vh;
+    left: 12vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 h1.title {
+    transform: scale(0.7) skew(10deg);
+    top: -4.7rem;
+    right: -2.3rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 #Secure_lock {
+    transform: scale(0.7) skew(10deg);
+    bottom: -4.5rem;
+    left: -8.5rem;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 0vh;
+    right: 6vw;
+  }
+}
+@media screen and (max-width: 380px) {
+  body.index_page main div.index_p2 {
+    min-height: 90vh;
+  }
+  body.index_page main div.index_p2 main article .speech-bubble {
+    transform: scale(0.8);
+    width: 40vw;
+    min-width: 350px;
+    padding: 2rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area {
+    transform: scale(0.7);
+    width: 100vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area .block_content {
+    padding: 1.5rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -15vh;
+    left: 6vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 h1.title {
+    transform: scale(0.6) skew(10deg);
+    top: -4.7rem;
+    right: -2.3rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 #Finance {
+    transform: scale(0.5) skew(10deg);
+    bottom: -4rem;
+    left: -8.5rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 25vh;
+    left: 6vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 h1.title {
+    transform: scale(0.6) skew(10deg);
+    top: -4.7rem;
+    right: -2.3rem;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 #Secure_lock {
+    transform: scale(0.5) skew(10deg);
+    bottom: -4.5rem;
+    left: -8.5rem;
+  }
+  body.index_page main div.index_p2 main article {
+    position: absolute;
+    top: 0vh;
+    right: 3vw;
   }
 }/*# sourceMappingURL=style.css.map */
