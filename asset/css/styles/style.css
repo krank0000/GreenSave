@@ -2889,4 +2889,85 @@ body.index_page main div.index_p2 main div.block_content_area section.block2 {
     top: 0vh;
     right: 3vw;
   }
+}
+body.index_page main div.index_p3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+body.index_page main div.index_p3 section {
+  margin-top: 5vh;
+  width: 25vw;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body.index_page main div.index_p3 section div.icon_container {
+  z-index: 2;
+  width: 130px;
+  height: 130px;
+  padding: 1.25rem;
+  background-color: #009f41;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body.index_page main div.index_p3 section div.icon_container .index-p3-icon {
+  width: 100%;
+  height: 100%;
+}
+body.index_page main div.index_p3 section div.text_container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: #009f41 2px solid;
+  margin-top: -70px;
+  width: 100%;
+  padding: 2rem;
+}
+body.index_page main div.index_p3 section div.text_container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 60px;
+  text-shadow: rgba(61, 61, 61, 0.4235294118) 1px 1px 1px;
+}
+body.index_page main div.index_p3 section div.text_container ul {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+body.index_page main div.index_p3 section div.text_container ul li {
+  font-size: 1rem;
+  padding: 0.25rem 0;
+}
+body.index_page main div.index_p3 img.Environment-bro {
+  width: 35vw;
+  min-width: 300px;
+  margin: 2rem 0 10vh 0;
+}
+@media screen and (max-width: 800px) {
+  body.index_page main div.index_p3 {
+    justify-content: center;
+  }
+  body.index_page main div.index_p3 img.Environment-bro {
+    width: 50vw;
+    margin: 0 25vw;
+    order: -1; /* 預設是 0，這樣將該元素排在最前面 */
+  }
+  body.index_page main div.index_p3 section {
+    margin-top: 0vh;
+    width: 45vw;
+    transform: scale(0.9);
+  }
+  body.index_page main div.index_p3 section:first-child {
+    order: 1; /* 這樣把第一個元素排在中間 */
+  }
+}
+@media screen and (max-width: 425px) {
+  body.index_page main div.index_p3 section {
+    transform: scale(0.8);
+  }
 }/*# sourceMappingURL=style.css.map */

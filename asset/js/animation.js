@@ -2,7 +2,7 @@
 let tl_p1 = gsap.timeline({
   scrollTrigger: {
     trigger: "#index_p1",
-    markers: false,
+    // markers: false,
     start: "top top",
     end: "bottom bottom",
     scrub: false, //動畫播放是否以視窗滾動播放
@@ -94,3 +94,35 @@ tl_p2
     x: 40,
     opacity: 0,
   });
+
+//首頁-第三頁----------------------------------------------
+let tl_p3 = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#index_p3",
+    // markers: true,
+    start: "top 50%",
+    end: "bottom 50%",
+    scrub: false, //動畫播放是否以視窗滾動播放
+  },
+});
+
+tl_p3
+  .from(".Environment-bro", {
+    duration: 0.5,
+    y: 50,
+    opacity: 0,
+  })
+  .from("section.p3", {
+    duration: 1,
+    y: 40,
+    opacity: 0,
+    rotateY: 180,
+  });
+
+gsap.from(".Environment-bro", {
+  duration: 2,
+  y: -8,
+  repeat: -1,
+  yoyo: true,
+  ease: "none",
+});
