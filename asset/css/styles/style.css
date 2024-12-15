@@ -2962,12 +2962,148 @@ body.index_page main div.index_p3 img.Environment-bro {
     width: 45vw;
     transform: scale(0.9);
   }
-  body.index_page main div.index_p3 section:first-child {
-    order: 1; /* 這樣把第一個元素排在中間 */
-  }
 }
 @media screen and (max-width: 425px) {
   body.index_page main div.index_p3 section {
     transform: scale(0.8);
+  }
+}
+body.index_page main div.index_p4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+body.index_page main div.index_p4 div.btn_area {
+  width: 95vw;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+}
+body.index_page main div.index_p4 div.btn_area i {
+  opacity: 0.5;
+  font-size: 3rem;
+  transition: all 0.5s;
+}
+body.index_page main div.index_p4 div.btn_area i:hover {
+  opacity: 1;
+}
+body.index_page main div.index_p4 main.carousel {
+  transition: transform 0.5s ease;
+}
+body.index_page main div.index_p4 main.carousel div.carousel {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+body.index_page main div.index_p4 main.carousel div.carousel img.macbook {
+  width: 40vw;
+  transition: all 0.5s;
+}
+body.index_page main div.index_p4 main.carousel div.carousel img.macbook:hover {
+  transform: scale(1.1);
+}
+body.index_page main div.index_p4 main.carousel div.carousel section {
+  width: 32vw;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5215686275);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: 0 1rem;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section h1 {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  text-shadow: rgba(61, 61, 61, 0.4235294118) 1px 1px 1px;
+  margin-bottom: 0.5rem;
+  display: flex;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section h1::before {
+  content: url("../../img/leaf.png");
+  margin-right: 1rem;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section .line {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2px;
+  border-radius: 10px;
+  --color: gray;
+  background-color: var(--color);
+}
+body.index_page main div.index_p4 main.carousel div.carousel section .line::after, body.index_page main div.index_p4 main.carousel div.carousel section .line::before {
+  content: "";
+  --l: 5px;
+  width: var(--l);
+  height: var(--l);
+  background-color: var(--color);
+  border-radius: 50%;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section p {
+  font-size: 1rem;
+  padding: 1rem;
+  line-height: 1.75rem;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section a {
+  background: linear-gradient(to left, #fdff79, #00b336);
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  float: right;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+body.index_page main div.index_p4 main.carousel div.carousel section a:hover {
+  transform: scale(1.1);
+}
+body.index_page main div.index_p4 main.carousel div.carousel {
+  display: none; /* 隱藏所有項目 */
+}
+body.index_page main div.index_p4 main.carousel div.carousel.active {
+  display: flex; /* 顯示當前項目 */
+}
+@media screen and (max-width: 1440px) {
+  body.index_page main div.index_p4 main.carousel div.carousel img.macbook {
+    width: 40vw;
+  }
+  body.index_page main div.index_p4 main.carousel div.carousel section {
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  body.index_page main div.index_p4 main.carousel div.carousel {
+    flex-direction: column;
+  }
+  body.index_page main div.index_p4 main.carousel div.carousel img.macbook {
+    width: 75vw;
+  }
+  body.index_page main div.index_p4 main.carousel div.carousel img.macbook:hover {
+    transform: scale(1);
+  }
+  body.index_page main div.index_p4 main.carousel div.carousel section {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 465px) {
+  body.index_page main div.index_p4 {
+    height: 100vh;
+  }
+  body.index_page main div.index_p4 main.carousel div.carousel section {
+    transform: scale(0.8);
+    width: 80vw;
   }
 }/*# sourceMappingURL=style.css.map */

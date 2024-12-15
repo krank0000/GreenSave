@@ -202,6 +202,113 @@
           </div>
         </section>
       </div>
+      <!-- 第四頁  輪播圖-->
+      <div class="container index_p4" id="index_p4">
+        <!-- 切換按鈕 -->
+        <div class="btn_area">
+          <i class="fa-solid fa-caret-left fa-2xl" id="prevBtn"></i>
+          <i class="fa-solid fa-caret-right fa-2xl" id="nextBtn"></i>
+        </div>
+        <main class="carousel">
+          <!-- 首頁輪播圖 -->
+          <div class="carousel carousel-1 active">
+            <img src="./asset/img/macbook-p1.png" alt="" class="macbook" />
+            <section>
+              <h1>專案理念</h1>
+              <h4>讓我們用心愛地球，一起減碳養綠！</h4>
+              <div class="line"></div>
+              <p>
+                深入了解「存碳養綠」的背景與使命。透過日常生活中的簡單行為，引導每個人關注碳排放，為地球創造更美好的未來！
+              </p>
+              <a href="#">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+
+          <!-- 綠色帳本-輪播圖 -->
+          <div class="carousel carousel-2">
+            <img src="./asset/img/macbook-p2.png" alt="" class="macbook" />
+            <section>
+              <h1>綠色帳本</h1>
+              <h4>記錄生活，減少碳排，共建永續未來！</h4>
+              <div class="line"></div>
+              <p>
+                每日記錄您的消費行為，自動計算碳足跡，幫助您了解環保表現。圖表化的呈現方式清晰掌握進步空間，輕鬆培養減碳的生活習慣！
+              </p>
+              <a href="./page/accounting.html">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+          <!-- 合作店家-輪播圖 -->
+          <div class="carousel carousel-3">
+            <img src="./asset/img/macbook-p2.png" alt="" class="macbook" />
+            <section>
+              <h1>合作店家</h1>
+              <h4>綠色消費，一起支持環保商家！</h4>
+              <div class="line"></div>
+              <p>
+                瀏覽合作店家的地圖位置，參加特定活動或消費即可累積點數。透過支持友善環境的店家，為地球盡一份力，同時享受購物的樂趣！
+              </p>
+              <a href="./page/partner_stores.html">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+          <!-- 養成遊戲-輪播圖 -->
+          <div class="carousel carousel-4">
+            <img src="./asset/img/macbook-p2.png" alt="" class="macbook" />
+            <section>
+              <h1>養成遊戲</h1>
+              <h4>種植綠意，讓環保更有趣！</h4>
+              <div class="line"></div>
+              <p>
+                透過植物養成遊戲和知識挑戰，學習更多環保概念。解鎖圖鑑、完成每日簽到，讓每一個小綠舉動都成為遊戲中的精彩篇章！
+              </p>
+              <a href="./page/plant_games.html">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+          <!-- 點數商店-輪播圖 -->
+          <div class="carousel carousel-5">
+            <img src="./asset/img/macbook-p5.png" alt="" class="macbook" />
+            <section>
+              <h1>點數商店</h1>
+              <h4>點數兌換好禮，讓環保回饋生活！</h4>
+              <div class="line"></div>
+              <p>
+                累積點數後，進入專屬的獎勵兌換中心，挑選實用又環保的商品。每次兌換，都是對環保行動的肯定與支持！
+              </p>
+              <a href="./page/points_shop.html">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+          <!-- 會員中心-輪播圖 -->
+          <div class="carousel carousel-6">
+            <img src="./asset/img/macbook-p6.png" alt="" class="macbook" />
+            <section>
+              <h1>會員中心</h1>
+              <h4>掌握記錄與進步，邁向更綠的未來！</h4>
+              <div class="line"></div>
+              <p>
+                管理您的帳戶資料，查看記帳歷史與點數累積狀況。透過完整的記錄與分析，讓您更了解自己的環保成效，持續為地球努力！
+              </p>
+              <a href="./page/member_center.html">
+                立即前往
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+        </main>
+      </div>
     </main>
 
     <!-- footer -->
@@ -211,4 +318,36 @@
   </body>
   <script src="./asset/js/app.js"></script>
   <script src="./asset/js/animation.js"></script>
+  <!-- 輪播圖-切換 -->
+  <script>
+    const carouselItems = document.querySelectorAll(".carousel > div");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      carouselItems.forEach((item, index) => {
+        if (index === currentIndex) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    };
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex =
+        (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % carouselItems.length;
+      updateCarousel();
+    });
+
+    // 初始化位置
+    updateCarousel();
+  </script>
 </html>

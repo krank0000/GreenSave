@@ -121,8 +121,8 @@ tl_p3
 
 gsap.from(".Environment-bro", {
   duration: 2,
-  y: -8,
+  y: -5,
   repeat: -1,
   yoyo: true,
-  ease: "none",
+  ease: "power1.inOut",
 });
