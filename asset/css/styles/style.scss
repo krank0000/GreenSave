@@ -392,14 +392,43 @@ main {
 }
 // 頁腳設定
 footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  text-align: center;
   padding: 25px 0 20px 0;
   margin-top: 7vh;
   color: $white;
   background: linear-gradient(to top right, #93e880, #4fb980);
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      list-style: none;
+      margin: 0 10px;
+      a {
+        text-decoration: none;
+        color: $white;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        transition: 0.5s;
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+  }
   p {
+    min-width: 325px;
     font-size: 1rem;
+  }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    border-radius: 20px 20px 0 0;
+    ul {
+      margin: 5px 0 10px 0;
+    }
   }
 }
 
@@ -1947,7 +1976,7 @@ main {
       aside {
         min-width: 265px;
         width: 25vw;
-        min-height: 75vh;
+        // min-height: 75vh;
         section {
           display: flex;
           width: 100%;
@@ -2085,6 +2114,36 @@ main {
                 background-color: #f0f0f0;
                 transition: all 0.5s;
               }
+            }
+          }
+          //店家列表-滾動條設定
+          &.store_list {
+            /* 設定滾動條的寬度為 7px */
+            &::-webkit-scrollbar {
+              width: 7px;
+            }
+
+            /* 設定滾動條按鈕的背景為透明，並且邊角有圓角效果 */
+            &::-webkit-scrollbar-button {
+              background: transparent;
+              border-radius: 4px;
+            }
+
+            /* 設定滾動條的軌道背景為透明 */
+            &::-webkit-scrollbar-track-piece {
+              background: transparent;
+            }
+
+            /* 設定滾動條的滑塊 (thumb) 背景顏色為半透明的黑色，並且有圓角和邊框效果 */
+            &::-webkit-scrollbar-thumb {
+              border-radius: 4px;
+              background-color: rgba(0, 0, 0, 0.4); /* 半透明黑色 */
+              border: 1px solid slategrey; /* 邊框顏色為 Slate Grey */
+            }
+
+            /* 設定滾動條軌道的陰影為透明 */
+            &::-webkit-scrollbar-track {
+              box-shadow: transparent;
             }
           }
         }

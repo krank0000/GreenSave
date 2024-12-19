@@ -349,15 +349,46 @@ main {
 }
 
 footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  text-align: center;
   padding: 25px 0 20px 0;
   margin-top: 7vh;
   color: #fff;
   background: linear-gradient(to top right, #93e880, #4fb980);
 }
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+footer ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  transition: 0.5s;
+}
+footer ul li a:hover {
+  color: rgb(0, 159, 65);
+}
 footer p {
+  min-width: 325px;
   font-size: 1rem;
+}
+@media screen and (max-width: 480px) {
+  footer {
+    flex-direction: column;
+    border-radius: 20px 20px 0 0;
+  }
+  footer ul {
+    margin: 5px 0 10px 0;
+  }
 }
 
 @media screen and (max-width: 1080px) {
@@ -1599,7 +1630,6 @@ main div.partner_stores_page form {
 main div.partner_stores_page form aside {
   min-width: 265px;
   width: 25vw;
-  min-height: 75vh;
 }
 main div.partner_stores_page form aside section {
   display: flex;
@@ -1735,6 +1765,31 @@ main div.partner_stores_page form aside section.store_list article.store div.sto
 main div.partner_stores_page form aside section.store_list article.store:hover {
   background-color: #f0f0f0;
   transition: all 0.5s;
+}
+main div.partner_stores_page form aside section.store_list {
+  /* 設定滾動條的寬度為 7px */
+  /* 設定滾動條按鈕的背景為透明，並且邊角有圓角效果 */
+  /* 設定滾動條的軌道背景為透明 */
+  /* 設定滾動條的滑塊 (thumb) 背景顏色為半透明的黑色，並且有圓角和邊框效果 */
+  /* 設定滾動條軌道的陰影為透明 */
+}
+main div.partner_stores_page form aside section.store_list::-webkit-scrollbar {
+  width: 7px;
+}
+main div.partner_stores_page form aside section.store_list::-webkit-scrollbar-button {
+  background: transparent;
+  border-radius: 4px;
+}
+main div.partner_stores_page form aside section.store_list::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+main div.partner_stores_page form aside section.store_list::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明黑色 */
+  border: 1px solid slategrey; /* 邊框顏色為 Slate Grey */
+}
+main div.partner_stores_page form aside section.store_list::-webkit-scrollbar-track {
+  box-shadow: transparent;
 }
 main div.partner_stores_page form div.map_area iframe {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
