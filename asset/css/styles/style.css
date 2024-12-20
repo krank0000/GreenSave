@@ -23,6 +23,14 @@ body {
   -ms-overflow-style: none;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes float {
   0% {
     transform: translate3d(0, 0%, 0);
@@ -577,6 +585,7 @@ footer p {
     justify-content: center;
     width: 90vw;
     position: relative;
+    margin-top: 3vh;
   }
   #partner_stores_page form aside#partner_store {
     width: 90vw;
@@ -1620,12 +1629,15 @@ main .member_center_page main.content_area .content#rewards div.area table tbody
 
 main div.partner_stores_page {
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 main div.partner_stores_page form {
   display: flex;
   justify-content: space-around;
   align-items: self-start;
   flex-wrap: wrap;
+  margin-top: 2vh;
 }
 main div.partner_stores_page form aside {
   min-width: 265px;
@@ -1795,6 +1807,129 @@ main div.partner_stores_page form div.map_area iframe {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   width: 60vw;
   height: 455px;
+}
+main div.partner_stores_page div.hot_news {
+  background-color: #ffffff;
+  border: 1px solid #f0c040;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 20vh auto;
+}
+main div.partner_stores_page div.hot_news .news-container .news-header {
+  display: flex;
+  align-items: center;
+  background-color: #f0c040;
+  padding: 10px 2rem;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+main div.partner_stores_page div.hot_news .news-container .news-header i {
+  margin-right: 10px;
+}
+main div.partner_stores_page div.hot_news .news-container ul.news-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+main div.partner_stores_page div.hot_news .news-container ul.news-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 0.5rem;
+  border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+main div.partner_stores_page div.hot_news .news-container ul.news-list li span.new {
+  background-color: #ff6f6f;
+  color: white;
+  padding: 2px 5px;
+  font-size: 0.75rem;
+  margin-left: 1rem;
+  animation: fadeIn 0.55s infinite alternate linear;
+}
+main div.partner_stores_page div.hot_news .news-container ul.news-list li span.date {
+  position: absolute;
+  right: 0;
+}
+main div.partner_stores_page div.hot_news .news-container ul.news-list li:hover {
+  background-color: #f0f0f0;
+}
+@media screen and (max-width: 500px) {
+  main div.partner_stores_page div.hot_news .news-container ul.news-list li span.new {
+    display: none;
+  }
+  main div.partner_stores_page div.hot_news .news-container ul.news-list li span.date {
+    display: none;
+  }
+}
+main div.partner_stores_page div.hot_news dialog {
+  padding: 1.75rem;
+  width: 60vw;
+  min-height: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: none;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+main div.partner_stores_page div.hot_news dialog button {
+  outline: none;
+}
+main div.partner_stores_page div.hot_news dialog #close-button {
+  float: right;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s;
+}
+main div.partner_stores_page div.hot_news dialog #close-button:hover {
+  color: white;
+  background-color: rgb(73, 73, 73);
+}
+main div.partner_stores_page div.hot_news dialog .dialog-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: #6a6a6a 1px solid;
+}
+main div.partner_stores_page div.hot_news dialog .dialog-content {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+main div.partner_stores_page div.hot_news dialog .dialog-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+main div.partner_stores_page div.hot_news dialog .dialog-footer button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+main div.partner_stores_page div.hot_news dialog .dialog-footer button:hover {
+  color: white;
+  background-color: rgb(50, 205, 91);
+}
+@media screen and (max-width: 768px) {
+  main div.partner_stores_page div.hot_news dialog {
+    width: 90vw;
+  }
 }
 
 main div.points_shop_page div.containers {
@@ -2162,7 +2297,7 @@ main div.points_shop_page div.containers.FAQ_area .accordion dd section {
   padding: 1rem;
 }
 main div.points_shop_page div.containers.FAQ_area .accordion dd section p::before {
-  content: " 🠶  ";
+  content: " 🢒 ";
   font-weight: bold;
 }
 main div.points_shop_page div.containers.FAQ_area .accordion dd section p span {

@@ -34,6 +34,14 @@ body {
 }
 
 //動畫設定
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes float {
   0% {
     transform: translate3d(0, 0%, 0);
@@ -680,6 +688,7 @@ footer {
       justify-content: center;
       width: 90vw;
       position: relative;
+      margin-top: 3vh;
       aside#partner_store {
         width: 90vw;
         section {
@@ -1967,11 +1976,15 @@ main {
 main {
   div.partner_stores_page {
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    //地圖區塊
     form {
       display: flex;
       justify-content: space-around;
       align-items: self-start;
       flex-wrap: wrap;
+      margin-top: 2vh;
       //選擇合作商店
       aside {
         min-width: 265px;
@@ -2155,6 +2168,148 @@ main {
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
           width: 60vw;
           height: 455px;
+        }
+      }
+    }
+    //最新消息
+    div.hot_news {
+      background-color: #ffffff;
+      border: 1px solid #f0c040;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      margin: 20vh auto;
+      .news-container {
+        // 標題
+        .news-header {
+          display: flex;
+          align-items: center;
+          background-color: #f0c040;
+          padding: 10px 2rem;
+          border-radius: 5px;
+          color: white;
+          font-size: 1.25rem;
+          font-weight: bold;
+          i {
+            margin-right: 10px;
+          }
+        }
+        // 消息列表
+        ul.news-list {
+          list-style: none;
+          padding: 10px;
+          margin: 0;
+          // 消息
+          li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 0.5rem;
+            border-bottom: 1px dashed #ddd;
+            cursor: pointer;
+            transition: all 0.2s;
+            span.new {
+              background-color: #ff6f6f;
+              color: white;
+              padding: 2px 5px;
+              font-size: 0.75rem;
+              margin-left: 1rem;
+              animation: fadeIn 0.55s infinite alternate linear;
+            }
+            span.date {
+              position: absolute;
+              right: 0;
+            }
+            &:hover {
+              background-color: #f0f0f0;
+            }
+          }
+        }
+        //RWD
+        @media screen and (max-width: 500px) {
+          // 消息列表
+          ul.news-list {
+            // 消息
+            li {
+              span.new {
+                display: none;
+              }
+              span.date {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      // 彈窗
+      dialog {
+        padding: 1.75rem;
+        width: 60vw;
+        min-height: 300px;
+        // 置中
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+        button {
+          outline: none;
+        }
+
+        //關閉按鈕
+        #close-button {
+          float: right;
+          cursor: pointer;
+          font-size: 1rem;
+          line-height: 1rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 5px;
+          border: none;
+          transition: all 0.3s;
+          &:hover {
+            color: white;
+            background-color: rgb(73, 73, 73);
+          }
+        }
+        // 標題
+        .dialog-header {
+          font-size: 1.25rem;
+          font-weight: bold;
+          padding-bottom: 0.5rem;
+          margin-bottom: 0.5rem;
+          border-bottom: #6a6a6a 1px solid;
+        }
+        // 內容
+        .dialog-content {
+          margin-bottom: 20px;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+        .dialog-footer {
+          position: absolute;
+          bottom: 1.5rem;
+          right: 1.5rem;
+          button {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover {
+              color: white;
+              background-color: rgb(50, 205, 91);
+            }
+          }
+        }
+        //RWD
+        @media screen and (max-width: 768px) {
+          width: 90vw;
         }
       }
     }
@@ -2573,7 +2728,7 @@ main {
           padding: 1rem; // 內邊距
           p {
             &::before {
-              content: "\00A0 🠶 \00A0";
+              content: "\00A0 \01F892 \00A0";
               font-weight: bold;
             }
             //點數文字裝飾

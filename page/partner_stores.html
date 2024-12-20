@@ -70,6 +70,7 @@
 
     <main>
       <div class="container partner_stores_page" id="partner_stores_page">
+        <!-- 地圖區塊 -->
         <form action="">
           <!-- 選擇合作商店 -->
           <aside id="partner_store">
@@ -339,6 +340,42 @@
             ></iframe>
           </div>
         </form>
+        <!-- 最新消息 -->
+        <div class="hot_news">
+          <div class="news-container">
+            <!-- 標題 -->
+            <div class="news-header">
+              <i class="fa-solid fa-megaphone"></i>最新消息 NEWS
+            </div>
+            <!-- 消息列表 -->
+            <ul class="news-list" id="news-list">
+              <li data-index="0">
+                12月實體快閃活動開跑！ <span class="new">NEW</span>
+                <span class="date">2024-12-20</span>
+              </li>
+              <li data-index="1">
+                YouTube頻道正式上線！ <span class="new">NEW</span>
+                <span class="date">2024-12-19</span>
+              </li>
+              <li data-index="2">
+                合作店家地圖公佈，歡迎共襄盛舉！ <span class="new">NEW</span>
+                <span class="date">2024-12-18</span>
+              </li>
+            </ul>
+          </div>
+
+          <dialog id="news-dialog">
+            <button id="close-button"><i class="fa-solid fa-xmark"></i></button>
+            <div class="dialog-header" id="dialog-title">最新消息標題</div>
+            <div class="dialog-content" id="dialog-content">
+              這是最新消息的詳細內容。
+            </div>
+            <div class="dialog-footer">
+              <button id="prev-button">&lt; 上一則</button>
+              <button id="next-button">下一則 &gt;</button>
+            </div>
+          </dialog>
+        </div>
       </div>
     </main>
 
@@ -363,10 +400,16 @@
             ><i class="fa-brands fa-line"></i
           ></a>
         </li>
+        <li>
+          <a href="https://www.youtube.com/@greenbook_1228" target="_blank"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </li>
       </ul>
       <p>&copy;存碳養綠 2022 | 中原大學資訊管理系專題製作</p>
     </footer>
   </body>
   <script src="../asset/js/add.js"></script>
+  <script src="../asset/js/news.js"></script>
   <script src="../asset/js/app.js"></script>
 </html>
