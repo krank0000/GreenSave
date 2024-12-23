@@ -31,6 +31,9 @@
     </style>
     <!-- jquery -->
     <script src="../asset/js/jquery-3.7.1.min.js"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <title>存碳養綠｜養成遊戲</title>
   </head>
   <body class="plant_games_page">
@@ -150,50 +153,144 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
             <h2>每日簽到</h2>
-            <div class="sign-in-grid" id="signInGrid">
-              <section></section>
-              <section></section>
-              <section></section>
-              <section></section>
-              <section></section>
-              <section></section>
-              <section></section>
+            <div class="sign-in-area" id="signInArea">
+              <section>1</section>
+              <section>2</section>
+              <section>3</section>
+              <section>4</section>
+              <section>5</section>
+              <section>6</section>
+              <section>7</section>
             </div>
-            <button id="signInButton">簽到</button>
+            <button id="signInButton" class="btn_style_green_no">簽到</button>
           </dialog>
 
           <!-- 環保小問題對話框 -->
           <dialog id="questionDialog">
+            <button onclick="closeDialog('questionDialog')" class="close_btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
             <h2>環保小問題</h2>
-            <p id="questionText">今天的問題：塑膠袋會對環境造成什麼影響？</p>
+            <form action="">
+              <h3 id="questionText">Q：地球日是每年的哪一天？</h3>
+              <!-- <ul>
+                <li>
+                  <label for="Answer1">
+                    <input
+                      type="radio"
+                      name="question"
+                      class="bnt_question"
+                      id="Answer1"
+                      checked
+                    />
+                    6 月 06 號
+                  </label>
+                </li>
+                <li>
+                  <label for="Answer2">
+                    <input
+                      type="radio"
+                      name="question"
+                      class="bnt_question"
+                      id="Answer2"
+                    />
+                    4 月 22 號
+                  </label>
+                </li>
+                <li>
+                  <label for="Answer3">
+                    <input
+                      type="radio"
+                      name="question"
+                      class="bnt_question"
+                      id="Answer3"
+                    />
+                    5 月 28 號
+                  </label>
+                </li>
+                <li>
+                  <label for="Answer4">
+                    <input
+                      type="radio"
+                      name="question"
+                      class="bnt_question"
+                      id="Answer4"
+                    />
+                    9 月 28 號
+                  </label>
+                </li>
+              </ul> -->
+              <ul>
+                <li>
+                  <input
+                    type="radio"
+                    name="question"
+                    id="Answer1"
+                    class="bnt_question"
+                    checked
+                  />
+                  <label for="Answer1">(1) 6 月 6 號</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="question"
+                    id="Answer2"
+                    class="bnt_question"
+                  />
+                  <label for="Answer2">(2) 4 月 22 號</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="question"
+                    id="Answer3"
+                    class="bnt_question"
+                  />
+                  <label for="Answer3">(3) 5 月 28 號</label>
+                </li>
+                <li>
+                  <input
+                    type="radio"
+                    name="question"
+                    id="Answer4"
+                    class="bnt_question"
+                  />
+                  <label for="Answer4">(4) 9 月 28 號</label>
+                </li>
+              </ul>
+            </form>
             <div class="dialog-actions">
-              <button onclick="answerQuestion(true)">答對</button>
-              <button onclick="answerQuestion(false)">答錯</button>
-              <button onclick="closeDialog('questionDialog')" class="close_btn">
-                <i class="fa-solid fa-xmark"></i>
+              <!-- <button onclick="answerQuestion(true)">確定</button> -->
+              <button onclick="confrimalert()" class="btn_style_green_no">
+                確定
               </button>
             </div>
+            <!-- <div class="dialog-actions">
+              <button onclick="answerQuestion(true)">答對</button>
+              <button onclick="answerQuestion(false)">答錯</button>
+            </div> -->
           </dialog>
 
           <!-- 道具背包對話框 -->
           <dialog id="inventoryDialog">
+            <button onclick="closeDialog('inventoryDialog')" class="close_btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
             <h2>道具背包</h2>
             <p>肥料：<span id="fertilizerCount">1</span></p>
             <p>復活液：<span id="reviveCount">1</span></p>
             <div class="dialog-actions">
               <button onclick="useFertilizer()">使用肥料</button>
               <button onclick="useRevive()">使用復活液</button>
-              <button
-                onclick="closeDialog('inventoryDialog')"
-                class="close_btn"
-              >
-                <i class="fa-solid fa-xmark"></i>
-              </button>
             </div>
           </dialog>
 
           <!-- 植物圖鑑對話框 -->
           <dialog id="galleryDialog">
+            <button onclick="closeDialog('galleryDialog')" class="close_btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
             <h2>植物圖鑑</h2>
             <div class="thumbnail-container" id="thumbnailContainer"></div>
             <div class="plant-detail" id="plantDetail" style="display: none">
@@ -205,9 +302,6 @@
                 <button id="nextPlantButton">下一個</button>
               </div>
             </div>
-            <button onclick="closeDialog('galleryDialog')" class="close_btn">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
           </dialog>
         </main>
       </div>

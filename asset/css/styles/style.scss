@@ -115,6 +115,16 @@ body {
       outline: green 1px solid;
     }
   }
+  .btn_style_green_no {
+    background-color: $green;
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: none;
+  }
   // 新增按鈕
   #btn_add {
     background-color: $green;
@@ -2277,6 +2287,7 @@ main {
 
         button {
           outline: none;
+          color: #000;
         }
 
         //關閉按鈕
@@ -3944,6 +3955,7 @@ body.plant_games_page {
             color: #fff;
             font-weight: bold;
             height: 1.5rem;
+            transition: all 0.5s;
             p {
               position: absolute;
               z-index: 2;
@@ -3958,9 +3970,13 @@ body.plant_games_page {
             }
             &.plant-growing {
               background: linear-gradient(to right, #3dcb68, #ffd71a);
+              --gw: 0%; // 初始值
+              width: calc(50% + var(--gw));
             }
             &.plant-wilt {
               background: linear-gradient(to right, #783d3d, #b3b3b3);
+              --ww: 0%;
+              width: calc(50% + var(--ww));
             }
           }
         }
@@ -3973,6 +3989,7 @@ body.plant_games_page {
         transform: translateX(-50%);
         img.watering-can {
           width: 200px;
+          opacity: 0;
         }
         //RWD
         @media screen and (max-width: 480px) {
@@ -4037,7 +4054,7 @@ body.plant_games_page {
           &#waterButton {
             width: 100px;
             height: 60px;
-            background-color: #ffc194;
+            background: linear-gradient(to top, #ffc194, #ffebdc);
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
             color: #6d332a;
             h3 {
@@ -4070,10 +4087,11 @@ body.plant_games_page {
   dialog {
     width: 90vw;
     max-width: 500px;
-    height: 50vh;
-    background-color: #bdf0bd;
-    border: #00722f 3px solid;
-    border-radius: 10px;
+    min-height: 295px;
+    height: 55vh;
+    background-color: #d3ffd3;
+    border: #00722f 5px solid;
+    border-radius: 20px;
     padding: 1rem;
     position: fixed;
     top: 50%;
@@ -4105,6 +4123,123 @@ body.plant_games_page {
     h2 {
       color: #21613b;
       height: 40px;
+      text-align: center;
+    }
+    //簽到
+    &#signInDialog {
+      .sign-in-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 70px;
+          width: 70px;
+          border: #00a545 5px solid;
+          border-radius: 10px;
+          background-color: #ecff72;
+          color: #00722f;
+          font-size: 2rem;
+          font-weight: bold;
+          font-family: "cwTeXYen";
+          cursor: pointer;
+        }
+      }
+      //簽到按鈕
+      #signInButton {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.25rem;
+      }
+    }
+    //問題
+    &#questionDialog {
+      position: relative;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        h3 {
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        ul {
+          list-style: none; // 隱藏列表樣式
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-top: 0.5rem;
+          li {
+            // margin-bottom: 15px; // 每個選項的間距
+            input[type="radio"] {
+              display: none; // 隱藏原始的 radio 按鈕
+            }
+            label {
+              display: flex;
+              align-items: center;
+              background-color: #85c88a; // 背景色
+              border-radius: 5px;
+              padding: 0 2.5rem;
+              font-size: 1.1rem;
+              color: #004d00; // 文字顏色
+              cursor: pointer;
+              transition: all 0.3s ease;
+
+              &:hover {
+                background-color: #68a96c; // 滑鼠懸停效果
+              }
+
+              &::before {
+                content: "○"; // 默認未選中狀態的圓點
+                font-size: 1.25rem;
+                color: #004d00;
+                margin-right: 10px;
+                transition: all 0.3s ease;
+              }
+            }
+
+            input[type="radio"]:checked + label {
+              background-color: #d9f2dc; // 選中後的背景色
+              color: #1e6a27; // 選中後的文字顏色
+              outline: 2px solid #60b566; // 選中後的邊框
+            }
+
+            input[type="radio"]:checked + label::before {
+              content: "●"; // 選中時顯示的圓點
+              font-size: 1.25rem;
+              color: #37c448;
+            }
+          }
+        }
+      }
+      .dialog-actions button {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.25rem;
+      }
+    } //道具
+    &#inventoryDialog {
+    } //圖鑑
+    &#galleryDialog {
     }
   }
 }

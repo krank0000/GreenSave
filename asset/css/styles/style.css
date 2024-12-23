@@ -103,6 +103,17 @@ body .btn_style_green:hover {
   color: green;
   outline: green 1px solid;
 }
+html .btn_style_green_no,
+body .btn_style_green_no {
+  background-color: rgb(0, 159, 65);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  outline: none;
+}
 html #btn_add,
 body #btn_add {
   background-color: rgb(0, 159, 65);
@@ -1903,6 +1914,7 @@ main div.partner_stores_page div.hot_news dialog {
 }
 main div.partner_stores_page div.hot_news dialog button {
   outline: none;
+  color: #000;
 }
 main div.partner_stores_page div.hot_news dialog #close-button {
   float: right;
@@ -3402,6 +3414,7 @@ body.plant_games_page main.game_area div.game div.stats div section {
   color: #fff;
   font-weight: bold;
   height: 1.5rem;
+  transition: all 0.5s;
 }
 body.plant_games_page main.game_area div.game div.stats div section p {
   position: absolute;
@@ -3417,9 +3430,13 @@ body.plant_games_page main.game_area div.game div.stats div section.points {
 }
 body.plant_games_page main.game_area div.game div.stats div section.plant-growing {
   background: linear-gradient(to right, #3dcb68, #ffd71a);
+  --gw: 0%;
+  width: calc(50% + var(--gw));
 }
 body.plant_games_page main.game_area div.game div.stats div section.plant-wilt {
   background: linear-gradient(to right, #783d3d, #b3b3b3);
+  --ww: 0%;
+  width: calc(50% + var(--ww));
 }
 body.plant_games_page main.game_area div.game div.watering-can-container {
   position: absolute;
@@ -3429,6 +3446,7 @@ body.plant_games_page main.game_area div.game div.watering-can-container {
 }
 body.plant_games_page main.game_area div.game div.watering-can-container img.watering-can {
   width: 200px;
+  opacity: 0;
 }
 @media screen and (max-width: 480px) {
   body.plant_games_page main.game_area div.game div.watering-can-container {
@@ -3493,7 +3511,7 @@ body.plant_games_page main.game_area div.game div.actions button p {
 body.plant_games_page main.game_area div.game div.actions button#waterButton {
   width: 100px;
   height: 60px;
-  background-color: #ffc194;
+  background: linear-gradient(to top, #ffc194, #ffebdc);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   color: #6d332a;
 }
@@ -3521,10 +3539,11 @@ body.plant_games_page main.game_area div.game div.actions button:hover {
 body.plant_games_page dialog {
   width: 90vw;
   max-width: 500px;
-  height: 50vh;
-  background-color: #bdf0bd;
-  border: #00722f 3px solid;
-  border-radius: 10px;
+  min-height: 295px;
+  height: 55vh;
+  background-color: #d3ffd3;
+  border: #00722f 5px solid;
+  border-radius: 20px;
   padding: 1rem;
   position: fixed;
   top: 50%;
@@ -3555,4 +3574,100 @@ body.plant_games_page dialog .close_btn i {
 body.plant_games_page dialog h2 {
   color: #21613b;
   height: 40px;
+  text-align: center;
+}
+body.plant_games_page dialog#signInDialog .sign-in-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body.plant_games_page dialog#signInDialog .sign-in-area section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  border: #00a545 5px solid;
+  border-radius: 10px;
+  background-color: #ecff72;
+  color: #00722f;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "cwTeXYen";
+  cursor: pointer;
+}
+body.plant_games_page dialog#signInDialog #signInButton {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+}
+body.plant_games_page dialog#questionDialog {
+  position: relative;
+}
+body.plant_games_page dialog#questionDialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body.plant_games_page dialog#questionDialog form h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+body.plant_games_page dialog#questionDialog form ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+body.plant_games_page dialog#questionDialog form ul li input[type=radio] {
+  display: none;
+}
+body.plant_games_page dialog#questionDialog form ul li label {
+  display: flex;
+  align-items: center;
+  background-color: #85c88a;
+  border-radius: 5px;
+  padding: 0 2.5rem;
+  font-size: 1.1rem;
+  color: #004d00;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+body.plant_games_page dialog#questionDialog form ul li label:hover {
+  background-color: #68a96c;
+}
+body.plant_games_page dialog#questionDialog form ul li label::before {
+  content: "○";
+  font-size: 1.25rem;
+  color: #004d00;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+body.plant_games_page dialog#questionDialog form ul li input[type=radio]:checked + label {
+  background-color: #d9f2dc;
+  color: #1e6a27;
+  outline: 2px solid #60b566;
+}
+body.plant_games_page dialog#questionDialog form ul li input[type=radio]:checked + label::before {
+  content: "●";
+  font-size: 1.25rem;
+  color: #37c448;
+}
+body.plant_games_page dialog#questionDialog .dialog-actions button {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
 }/*# sourceMappingURL=style.css.map */

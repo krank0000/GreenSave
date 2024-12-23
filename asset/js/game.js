@@ -137,6 +137,41 @@ waterButton.addEventListener("click", () => {
     growthValue += 5;
     waterCount -= 1;
     wiltValue = Math.max(0, wiltValue - 5); // 澆水減少枯萎值
+
+    // 更新 SCSS 自定義屬性 --gw
+    const plantGrowing = document.querySelector(".plant-growing");
+    let currentGw =
+      parseFloat(getComputedStyle(plantGrowing).getPropertyValue("--gw")) || 0;
+    currentGw = Math.min(50, currentGw + 2.5); // 確保最大值為 50%
+    plantGrowing.style.setProperty("--gw", `${currentGw}%`);
+
+    // 澆水動畫
+    gsap.set("#wateringCan", {
+      duration: 1,
+      rotateZ: 0,
+      opacity: 0,
+      yoyo: true,
+      repeat: 1,
+      ease: "power1.inOut",
+    });
+    gsap.to("#wateringCan", {
+      duration: 1,
+      rotateZ: -30,
+      opacity: 1,
+      yoyo: true,
+      repeat: 1,
+      ease: "power1.inOut",
+    });
+
+    //植物動畫
+    gsap.to("#plantImage", {
+      duration: 0.5,
+      delay: 0.8,
+      y: -10,
+      yoyo: true,
+      repeat: 1,
+      ease: "power1.inOut",
+    });
     updateUI();
   } else {
     alert("澆水次數不足！");
@@ -163,6 +198,15 @@ function useFertilizer() {
   if (fertilizerCount > 0) {
     growthValue += 30;
     fertilizerCount -= 1;
+    //植物動畫
+    gsap.to("#plantImage", {
+      duration: 0.5,
+      delay: 0,
+      y: -10,
+      yoyo: true,
+      repeat: 1,
+      ease: "power1.inOut",
+    });
     updateUI();
   } else {
     alert("肥料不足！");
@@ -180,18 +224,44 @@ function useRevive() {
   }
 }
 
-// 回答問題
-function answerQuestion(isCorrect) {
-  if (isCorrect) {
+// // 回答問題
+// function answerQuestion(isCorrect) {
+//   if (isCorrect) {
+//     waterCount += 2;
+//     alert("回答正確！增加2次澆水次數！");
+//   } else {
+//     waterCount += 1;
+//     alert("回答錯誤！增加1次澆水次數！");
+//   }
+//   updateUI();
+//   closeDialog("questionDialog");
+// }
+
+// 檢查回答是否正確
+function confrimalert(event) {
+  // 獲取使用者選中的答案
+  const selectedAnswer = document.querySelector(
+    'input[name="question"]:checked + label'
+  ).innerText;
+
+  // 正確答案
+  const correctAnswer = "(2) 4 月 22 號";
+
+  // 判斷答案是否正確
+  if (selectedAnswer === correctAnswer) {
     waterCount += 2;
     alert("回答正確！增加2次澆水次數！");
   } else {
     waterCount += 1;
     alert("回答錯誤！增加1次澆水次數！");
   }
+
+  // 更新 UI（需要根據需求實現 updateUI 函數）
   updateUI();
+
+  // 關閉對話框
   closeDialog("questionDialog");
 }
 
 // 初始化
-updateUI();
+// updateUI();
