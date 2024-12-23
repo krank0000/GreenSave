@@ -233,6 +233,26 @@ body .top_btn:hover {
   }
 }
 
+img.background-tree {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  img.background-tree {
+    transform: scale(1.5);
+    bottom: 5vh;
+  }
+}
+@media screen and (max-width: 431px) {
+  img.background-tree {
+    transform: scale(1.9);
+    bottom: 6.2vh;
+  }
+}
+
 .bg_img {
   background-image: url("../../img/background-tree.png");
   background-size: contain;
@@ -2616,12 +2636,6 @@ body.index_page main div.index_p2 {
   position: relative;
   min-height: 80vh;
 }
-body.index_page main div.index_p2 img.background-tree {
-  width: 100vw;
-  position: fixed;
-  bottom: 0;
-  z-index: -1;
-}
 body.index_page main div.index_p2 main {
   display: flex;
 }
@@ -3347,4 +3361,198 @@ body.index_page main div.index_p5 .input_area form section textarea {
 body.index_page main div.index_p5 .input_area form button {
   width: 50%;
   float: right;
+}
+
+body.plant_games_page {
+  background-color: #e1feff;
+}
+body.plant_games_page main.game_area div.game {
+  width: 90vw;
+  max-width: 1350px;
+  min-height: 540px;
+  background-image: url("../../img/game/bg_natural_sougen.png");
+  background-size: cover;
+  background-position: center bottom; /* 確保背景圖片居中 */
+  background-repeat: no-repeat; /* 防止背景圖片重複 */
+  border-radius: 20px;
+  border: #91c41f 5px solid;
+  position: relative;
+}
+body.plant_games_page main.game_area div.game div.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 325px;
+}
+body.plant_games_page main.game_area div.game div.stats div {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4392156863);
+  padding: 4px;
+  border-radius: 10px;
+}
+body.plant_games_page main.game_area div.game div.stats div section {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border-radius: 7px;
+  padding: 5px 10px;
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  height: 1.5rem;
+}
+body.plant_games_page main.game_area div.game div.stats div section p {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  font-size: 1rem;
+}
+body.plant_games_page main.game_area div.game div.stats div section.points {
+  background: linear-gradient(to right, #fff7c8, #ffa500);
+  width: 100%;
+  color: #996f50;
+  justify-content: center;
+}
+body.plant_games_page main.game_area div.game div.stats div section.plant-growing {
+  background: linear-gradient(to right, #3dcb68, #ffd71a);
+}
+body.plant_games_page main.game_area div.game div.stats div section.plant-wilt {
+  background: linear-gradient(to right, #783d3d, #b3b3b3);
+}
+body.plant_games_page main.game_area div.game div.watering-can-container {
+  position: absolute;
+  bottom: calc(1rem + 90px + 200px - 20px);
+  left: calc(50% + 200px);
+  transform: translateX(-50%);
+}
+body.plant_games_page main.game_area div.game div.watering-can-container img.watering-can {
+  width: 200px;
+}
+@media screen and (max-width: 480px) {
+  body.plant_games_page main.game_area div.game div.watering-can-container {
+    left: calc(50% + 120px - 20px);
+  }
+  body.plant_games_page main.game_area div.game div.watering-can-container img.watering-can {
+    width: 120px;
+  }
+}
+body.plant_games_page main.game_area div.game div.plant-container {
+  position: absolute;
+  bottom: calc(1rem + 90px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+body.plant_games_page main.game_area div.game div.plant-container img {
+  width: 270px;
+}
+@media screen and (max-width: 480px) {
+  body.plant_games_page main.game_area div.game div.plant-container img {
+    width: 200px;
+  }
+}
+body.plant_games_page main.game_area div.game div.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  position: absolute;
+  bottom: 1rem;
+}
+body.plant_games_page main.game_area div.game div.actions button {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 70px;
+  height: 80px;
+  background: transparent;
+  border-radius: 10px;
+  color: white;
+  transition: all 0.5s;
+}
+body.plant_games_page main.game_area div.game div.actions button div {
+  background-color: rgba(0, 0, 0, 0.4392156863);
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px;
+  z-index: 1;
+}
+body.plant_games_page main.game_area div.game div.actions button img {
+  width: 40px;
+  z-index: 2;
+  position: relative;
+}
+body.plant_games_page main.game_area div.game div.actions button p {
+  z-index: 3;
+  position: relative;
+}
+body.plant_games_page main.game_area div.game div.actions button#waterButton {
+  width: 100px;
+  height: 60px;
+  background-color: #ffc194;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  color: #6d332a;
+}
+body.plant_games_page main.game_area div.game div.actions button#waterButton h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+  body.plant_games_page main.game_area div.game div.actions button {
+    width: 55px;
+  }
+  body.plant_games_page main.game_area div.game div.actions button div {
+    height: 60%;
+  }
+  body.plant_games_page main.game_area div.game div.actions button#waterButton {
+    width: 70px;
+  }
+  body.plant_games_page main.game_area div.game div.actions button#waterButton p {
+    font-size: 0.65rem;
+  }
+}
+body.plant_games_page main.game_area div.game div.actions button:hover {
+  transform: translateY(-5px);
+}
+body.plant_games_page dialog {
+  width: 90vw;
+  max-width: 500px;
+  height: 50vh;
+  background-color: #bdf0bd;
+  border: #00722f 3px solid;
+  border-radius: 10px;
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+body.plant_games_page dialog .close_btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 30px;
+  height: 30px;
+  background-color: #00722f;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+body.plant_games_page dialog .close_btn i {
+  color: white;
+  font-size: 1.5rem;
+}
+body.plant_games_page dialog h2 {
+  color: #21613b;
+  height: 40px;
 }/*# sourceMappingURL=style.css.map */

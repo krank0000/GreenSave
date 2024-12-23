@@ -267,6 +267,23 @@ $fatness: 2px; // 調整fatness為較小值
 }
 
 //背景圖片
+img.background-tree {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+  @media screen and (max-width: 768px) {
+    transform: scale(1.5);
+    bottom: 5vh;
+  }
+  @media screen and (max-width: 431px) {
+    transform: scale(1.9);
+    bottom: 6.2vh;
+  }
+}
+
+//背景圖片
 .bg_img {
   background-image: url("../../img/background-tree.png");
   background-size: contain;
@@ -3081,13 +3098,7 @@ body.index_page {
     div.index_p2 {
       position: relative;
       min-height: 80vh;
-      //背景圖片
-      img.background-tree {
-        width: 100vw;
-        position: fixed;
-        bottom: 0;
-        z-index: -1;
-      }
+
       //主要內容
       main {
         display: flex;
@@ -3890,6 +3901,210 @@ body.index_page {
           }
         }
       }
+    }
+  }
+}
+
+// 養成遊戲
+body.plant_games_page {
+  background-color: #e1feff;
+  main.game_area {
+    div.game {
+      width: 90vw;
+      max-width: 1350px;
+      min-height: 540px;
+      background-image: url("../../img/game/bg_natural_sougen.png");
+      background-size: cover;
+      background-position: center bottom; /* 確保背景圖片居中 */
+      background-repeat: no-repeat; /* 防止背景圖片重複 */
+      border-radius: 20px;
+      border: #91c41f 5px solid;
+      // padding: 1rem;
+      position: relative;
+      //植物狀態-按鈕
+      div.stats {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 10px;
+        width: 325px;
+        div {
+          width: 100%;
+          background-color: #00000070;
+          padding: 4px;
+          border-radius: 10px;
+          section {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            border-radius: 7px;
+            padding: 5px 10px;
+            position: relative;
+            color: #fff;
+            font-weight: bold;
+            height: 1.5rem;
+            p {
+              position: absolute;
+              z-index: 2;
+              margin: 0;
+              font-size: 1rem;
+            }
+            &.points {
+              background: linear-gradient(to right, #fff7c8, #ffa500);
+              width: 100%;
+              color: #996f50;
+              justify-content: center; //文字置中
+            }
+            &.plant-growing {
+              background: linear-gradient(to right, #3dcb68, #ffd71a);
+            }
+            &.plant-wilt {
+              background: linear-gradient(to right, #783d3d, #b3b3b3);
+            }
+          }
+        }
+      }
+      //澆水圖片
+      div.watering-can-container {
+        position: absolute;
+        bottom: calc(1rem + 90px + 200px - 20px);
+        left: calc(50% + 200px);
+        transform: translateX(-50%);
+        img.watering-can {
+          width: 200px;
+        }
+        //RWD
+        @media screen and (max-width: 480px) {
+          left: calc(50% + 120px - 20px);
+          img.watering-can {
+            width: 120px;
+          }
+        }
+      }
+      //植物圖片
+      div.plant-container {
+        position: absolute;
+        bottom: calc(1rem + 90px);
+        left: 50%;
+        transform: translateX(-50%);
+        img {
+          width: 270px;
+          //RWD
+          @media screen and (max-width: 480px) {
+            width: 200px;
+          }
+        }
+      }
+      //操作按鈕
+      div.actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+        position: absolute;
+        bottom: 1rem;
+        button {
+          position: relative;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          width: 70px;
+          height: 80px;
+          background: transparent;
+          border-radius: 10px;
+          color: white;
+
+          div {
+            background-color: #00000070;
+            width: 100%;
+            height: 70%;
+            position: absolute;
+            bottom: 0;
+            border-radius: 10px;
+            z-index: 1;
+          }
+          img {
+            width: 40px;
+            z-index: 2;
+            position: relative;
+          }
+          p {
+            z-index: 3;
+            position: relative;
+          }
+          //澆水
+          &#waterButton {
+            width: 100px;
+            height: 60px;
+            background-color: #ffc194;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            color: #6d332a;
+            h3 {
+              font-size: 1.25rem;
+              font-weight: bold;
+            }
+          }
+          //RWD
+          @media screen and (max-width: 480px) {
+            width: 55px;
+            div {
+              height: 60%;
+            }
+            &#waterButton {
+              width: 70px;
+              p {
+                font-size: 0.65rem;
+              }
+            }
+          }
+          transition: all 0.5s;
+          &:hover {
+            transform: translateY(-5px);
+          }
+        }
+      }
+    }
+  }
+  //功能彈窗
+  dialog {
+    width: 90vw;
+    max-width: 500px;
+    height: 50vh;
+    background-color: #bdf0bd;
+    border: #00722f 3px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    //關閉按鈕
+    .close_btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 30px;
+      height: 30px;
+      background-color: #00722f;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      i {
+        color: white;
+        font-size: 1.5rem;
+      }
+    }
+    //標題
+    h2 {
+      color: #21613b;
+      height: 40px;
     }
   }
 }

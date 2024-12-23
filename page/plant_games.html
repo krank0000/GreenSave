@@ -33,7 +33,7 @@
     <script src="../asset/js/jquery-3.7.1.min.js"></script>
     <title>存碳養綠｜養成遊戲</title>
   </head>
-  <body>
+  <body class="plant_games_page">
     <!-- 導覽列 -->
     <header>
       <nav>
@@ -69,10 +69,148 @@
     </div>
 
     <main>
-      <!-- 背景圖片 -->
-      <div class="bg_img"></div>
       <!-- 主要內容 -->
-      <div class="container"></div>
+      <div class="container plant_games_page">
+        <!-- 背景圖片 -->
+        <img
+          src="../asset/img/background-tree.png"
+          alt=""
+          class="background-tree"
+        />
+        <!-- 遊戲區 -->
+        <main class="game_area">
+          <div class="game">
+            <!-- 植物狀態 -->
+            <div class="stats">
+              <div>
+                <section class="points">
+                  <p>持有點數&emsp;<span id="points">0</span></p>
+                </section>
+              </div>
+              <div>
+                <section class="plant-growing">
+                  <p>成長值&emsp;<span id="growthValue">0</span> / 100</p>
+                </section>
+              </div>
+              <div>
+                <section class="plant-wilt">
+                  <p>枯萎值&emsp;<span id="wiltValue">0</span> / 100</p>
+                </section>
+              </div>
+            </div>
+            <!-- 澆水圖片 -->
+            <div class="watering-can-container">
+              <img
+                src="../asset/img/game/gardening_jouro.png"
+                alt="Watering Can"
+                class="watering-can"
+                id="wateringCan"
+              />
+            </div>
+            <!-- 植物圖片 -->
+            <div class="plant-container">
+              <img
+                id="plantImage"
+                src="../asset/img/game/tane_hatsuga.png"
+                alt="Plant"
+              />
+            </div>
+            <!-- 操作按鈕 -->
+            <div class="actions">
+              <button id="openSignInButton" onclick="signInDialog.showModal()">
+                <div></div>
+                <img src="../asset/img/game/calendar.png" alt="" />
+                <p>簽到</p>
+              </button>
+              <button id="openQuestionButton">
+                <div></div>
+                <img src="../asset/img/game/qa (1).png" alt="" />
+                <p>問題</p>
+              </button>
+              <button id="waterButton">
+                <h3>澆水</h3>
+                <p>次數：<span id="waterCount">1</span></p>
+              </button>
+              <button id="openInventoryButton">
+                <div></div>
+                <img src="../asset/img/game/fertilizer.png" alt="" />
+                <p>道具</p>
+              </button>
+              <button id="openGalleryButton">
+                <div></div>
+                <img src="../asset/img/game/art-book.png" alt="" />
+                <p>圖鑑</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- 簽到對話框 -->
+          <dialog id="signInDialog">
+            <button onclick="closeDialog('signInDialog')" class="close_btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2>每日簽到</h2>
+            <div class="sign-in-grid" id="signInGrid">
+              <section></section>
+              <section></section>
+              <section></section>
+              <section></section>
+              <section></section>
+              <section></section>
+              <section></section>
+            </div>
+            <button id="signInButton">簽到</button>
+          </dialog>
+
+          <!-- 環保小問題對話框 -->
+          <dialog id="questionDialog">
+            <h2>環保小問題</h2>
+            <p id="questionText">今天的問題：塑膠袋會對環境造成什麼影響？</p>
+            <div class="dialog-actions">
+              <button onclick="answerQuestion(true)">答對</button>
+              <button onclick="answerQuestion(false)">答錯</button>
+              <button onclick="closeDialog('questionDialog')" class="close_btn">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </dialog>
+
+          <!-- 道具背包對話框 -->
+          <dialog id="inventoryDialog">
+            <h2>道具背包</h2>
+            <p>肥料：<span id="fertilizerCount">1</span></p>
+            <p>復活液：<span id="reviveCount">1</span></p>
+            <div class="dialog-actions">
+              <button onclick="useFertilizer()">使用肥料</button>
+              <button onclick="useRevive()">使用復活液</button>
+              <button
+                onclick="closeDialog('inventoryDialog')"
+                class="close_btn"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </dialog>
+
+          <!-- 植物圖鑑對話框 -->
+          <dialog id="galleryDialog">
+            <h2>植物圖鑑</h2>
+            <div class="thumbnail-container" id="thumbnailContainer"></div>
+            <div class="plant-detail" id="plantDetail" style="display: none">
+              <img id="plantDetailImage" src="" alt="Plant Detail" />
+              <p id="plantDetailDescription"></p>
+              <div class="navigation-buttons">
+                <button id="prevPlantButton">上一個</button>
+                <button onclick="closePlantDetail()">目錄</button>
+                <button id="nextPlantButton">下一個</button>
+              </div>
+            </div>
+            <button onclick="closeDialog('galleryDialog')" class="close_btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </dialog>
+        </main>
+      </div>
     </main>
 
     <!-- footer -->
@@ -106,4 +244,5 @@
     </footer>
   </body>
   <script src="../asset/js/app.js"></script>
+  <script src="../asset/js/game.js"></script>
 </html>
