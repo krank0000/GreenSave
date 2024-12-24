@@ -87,7 +87,7 @@
             <div class="stats">
               <div>
                 <section class="points">
-                  <p>持有點數&emsp;<span id="points">0</span></p>
+                  <p>持有點數&emsp;<span id="points">100</span></p>
                 </section>
               </div>
               <div>
@@ -153,16 +153,23 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
             <h2>每日簽到</h2>
-            <div class="sign-in-area" id="signInArea">
-              <section>1</section>
-              <section>2</section>
-              <section>3</section>
-              <section>4</section>
-              <section>5</section>
-              <section>6</section>
-              <section>7</section>
-            </div>
-            <button id="signInButton" class="btn_style_green_no">簽到</button>
+            <form action="">
+              <article>
+                <img src="../asset/img/game/calendar (1) .png" alt="" />
+                <h4>已連續簽到</h4>
+                <p><span id="signInCount">0</span>天</p>
+              </article>
+              <div class="sign-in-area" id="signInArea">
+                <section>1</section>
+                <section>2</section>
+                <section>3</section>
+                <section>4</section>
+                <section>5</section>
+                <section>6</section>
+                <section>7</section>
+              </div>
+            </form>
+            <button id="signInButton">立即簽到</button>
           </dialog>
 
           <!-- 環保小問題對話框 -->
@@ -278,12 +285,19 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
             <h2>道具背包</h2>
-            <p>肥料：<span id="fertilizerCount">1</span></p>
-            <p>復活液：<span id="reviveCount">1</span></p>
-            <div class="dialog-actions">
-              <button onclick="useFertilizer()">使用肥料</button>
-              <button onclick="useRevive()">使用復活液</button>
+            <div class="inventory">
+              <button onclick="useFertilizer()">
+                <img src="../asset/img/game/fertilizer (1).png" alt="" />
+                <p>肥料&nbsp;<span id="fertilizerCount">1</span>/20</p>
+                <h6>使用道具</h6>
+              </button>
+              <button onclick="useRevive()">
+                <img src="../asset/img/game/fertilizer (2).png" alt="" />
+                <p>復活液&nbsp;<span id="reviveCount">1</span>/20</p>
+                <h6>使用道具</h6>
+              </button>
             </div>
+            <div class="dialog-actions"></div>
           </dialog>
 
           <!-- 植物圖鑑對話框 -->
@@ -292,18 +306,51 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
             <h2>植物圖鑑</h2>
-            <div class="thumbnail-container" id="thumbnailContainer"></div>
+            <!-- 植物目錄 -->
+            <div class="thumbnail-container" id="thumbnailContainer">
+              <!-- 每一個植物縮圖 -->
+              <section>
+                <img src="../asset/img/game/valentinesday_rose.png" alt="" />
+                <h3>月季</h3>
+              </section>
+              <section>
+                <img src="../asset/img/game/plant_saboten3.png" alt="" />
+                <h3>仙人掌</h3>
+              </section>
+            </div>
+            <!-- 植物詳情 -->
             <div class="plant-detail" id="plantDetail" style="display: none">
-              <img id="plantDetailImage" src="" alt="Plant Detail" />
-              <p id="plantDetailDescription"></p>
+              <section>
+                <img id="plantDetailImage" src="" alt="Plant Detail" />
+                <div>
+                  <h3>月季</h3>
+                  <label for="">植物名稱：<span>月季</span></label>
+                  <label for="">光照需求：<span>日照充足</span></label>
+                  <label for="">水分需求：<span>中等至高水需求</span></label>
+                  <label for=""
+                    >特徵：<span
+                      >花朵五顏六色，開花期長，適合用於園藝裝飾。</span
+                    ></label
+                  >
+                </div>
+              </section>
               <div class="navigation-buttons">
                 <button id="prevPlantButton">上一個</button>
-                <button onclick="closePlantDetail()">目錄</button>
+                <button onclick="closePlantDetail()" class="catalogBtn">
+                  目錄
+                </button>
                 <button id="nextPlantButton">下一個</button>
               </div>
             </div>
           </dialog>
         </main>
+        <!-- 加載動畫 -->
+        <div id="loadingOverlay" class="loading-overlay">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <p class="progress-text" id="progressText">0%</p>
+          </div>
+        </div>
       </div>
     </main>
 

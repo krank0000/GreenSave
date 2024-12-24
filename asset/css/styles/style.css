@@ -3380,7 +3380,7 @@ body.plant_games_page {
 }
 body.plant_games_page main.game_area div.game {
   width: 90vw;
-  max-width: 1350px;
+  max-width: 900px;
   min-height: 540px;
   background-image: url("../../img/game/bg_natural_sougen.png");
   background-size: cover;
@@ -3538,26 +3538,28 @@ body.plant_games_page main.game_area div.game div.actions button:hover {
 }
 body.plant_games_page dialog {
   width: 90vw;
-  max-width: 500px;
+  max-width: 400px;
   min-height: 295px;
-  height: 55vh;
-  background-color: #d3ffd3;
-  border: #00722f 5px solid;
+  min-height: 380px;
+  background-color: #fff1dc;
+  border: #009f41 5px solid;
   border-radius: 20px;
   padding: 1rem;
+  padding-top: 3rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  overflow: visible;
 }
 body.plant_games_page dialog .close_btn {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.35rem;
+  right: 0.35rem;
   width: 30px;
   height: 30px;
-  background-color: #00722f;
+  background-color: #009f41;
   border-radius: 50%;
   border: none;
   outline: none;
@@ -3572,43 +3574,258 @@ body.plant_games_page dialog .close_btn i {
   font-size: 1.5rem;
 }
 body.plant_games_page dialog h2 {
-  color: #21613b;
-  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: -17px;
+  transform: translateX(-50%);
+  color: white;
+  background: linear-gradient(to bottom, #009f41, #55d087);
+  padding: 0.5rem 2rem;
+  border-radius: 2px 2px 30px 30px;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 480px) {
+  body.plant_games_page dialog h2 {
+    top: -10px;
+    font-size: 1.25rem;
+  }
+}
+body.plant_games_page dialog#signInDialog form {
+  position: relative;
+  width: 100%;
+}
+body.plant_games_page dialog#signInDialog form article {
+  position: relative;
+  width: 100%;
+}
+body.plant_games_page dialog#signInDialog form article img {
+  width: 120px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+body.plant_games_page dialog#signInDialog form article h4 {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  font-weight: normal;
+}
+body.plant_games_page dialog#signInDialog form article p {
+  position: relative;
+  top: 50px;
   text-align: center;
 }
-body.plant_games_page dialog#signInDialog .sign-in-area {
+body.plant_games_page dialog#signInDialog form article p span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area {
+  position: relative;
+  top: 80px;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 90%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  background-color: #ddd;
+  color: #999;
+  transition: all 0.3s ease;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(1) {
+  background-color: #fece21;
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #ffe3b2;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(1)::after {
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
 }
-body.plant_games_page dialog#signInDialog .sign-in-area section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70px;
-  width: 70px;
-  border: #00a545 5px solid;
-  border-radius: 10px;
-  background-color: #ecff72;
-  color: #00722f;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: "cwTeXYen";
-  cursor: pointer;
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(1)::before {
+  content: "第1天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(2)::before {
+  content: "第2天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(3)::before {
+  content: "第3天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(4)::before {
+  content: "第4天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(5)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(5)::before {
+  content: "第5天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(6)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(6)::before {
+  content: "第6天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(7)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+body.plant_games_page dialog#signInDialog form .sign-in-area section:nth-child(7)::before {
+  content: "第7天";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  font-size: 0.55rem;
+  width: 100%;
+  text-align: center;
+  color: #999;
 }
 body.plant_games_page dialog#signInDialog #signInButton {
   position: absolute;
-  bottom: 1rem;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.25rem;
+  padding: 0.25rem 2rem;
+  background: linear-gradient(to bottom, #fdffa0, #ffc402);
+  color: #b35613;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  font-family: "cwTeXYen", sans-serif;
 }
 body.plant_games_page dialog#questionDialog {
   position: relative;
@@ -3630,39 +3847,29 @@ body.plant_games_page dialog#questionDialog form ul {
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
+body.plant_games_page dialog#questionDialog form ul li {
+  margin-bottom: 5px;
+}
 body.plant_games_page dialog#questionDialog form ul li input[type=radio] {
   display: none;
 }
 body.plant_games_page dialog#questionDialog form ul li label {
   display: flex;
   align-items: center;
-  background-color: #85c88a;
-  border-radius: 5px;
-  padding: 0 2.5rem;
+  border-radius: 20px;
+  padding: 0.25rem 2.5rem;
   font-size: 1.1rem;
   color: #004d00;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 body.plant_games_page dialog#questionDialog form ul li label:hover {
-  background-color: #68a96c;
-}
-body.plant_games_page dialog#questionDialog form ul li label::before {
-  content: "○";
-  font-size: 1.25rem;
-  color: #004d00;
-  margin-right: 10px;
-  transition: all 0.3s ease;
+  background-color: #abdeaf;
 }
 body.plant_games_page dialog#questionDialog form ul li input[type=radio]:checked + label {
   background-color: #d9f2dc;
   color: #1e6a27;
   outline: 2px solid #60b566;
-}
-body.plant_games_page dialog#questionDialog form ul li input[type=radio]:checked + label::before {
-  content: "●";
-  font-size: 1.25rem;
-  color: #37c448;
 }
 body.plant_games_page dialog#questionDialog .dialog-actions button {
   position: absolute;
@@ -3670,4 +3877,180 @@ body.plant_games_page dialog#questionDialog .dialog-actions button {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.25rem;
+}
+body.plant_games_page dialog#inventoryDialog div.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+body.plant_games_page dialog#inventoryDialog div.inventory button {
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  border: white 2px solid;
+  background-color: #f1ffc0;
+  cursor: pointer;
+}
+body.plant_games_page dialog#inventoryDialog div.inventory button img {
+  width: 90px;
+  height: 90px;
+  transition: all 0.5s;
+}
+body.plant_games_page dialog#inventoryDialog div.inventory button img:hover {
+  transform: scale(1.1);
+}
+body.plant_games_page dialog#inventoryDialog div.inventory button p {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body.plant_games_page dialog#inventoryDialog div.inventory button h6 {
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  background-color: #9dca63;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container section {
+  width: 30%;
+  border: #edd399 2px solid;
+  border-radius: 10px;
+  background-color: #fff9eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container section img {
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container section img:hover {
+  transform: scale(1.1);
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container section h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container .pagination-buttons {
+  position: absolute;
+  top: 0.5rem;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container .pagination-buttons button {
+  background-color: #009f41;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+body.plant_games_page dialog#galleryDialog div.thumbnail-container .pagination-buttons button:hover {
+  background-color: #27c066;
+  transform: scale(1.05);
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail {
+  min-height: 290px;
+  position: relative;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section {
+  position: relative;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section img:hover {
+  transform: scale(1.1);
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section div {
+  display: flex;
+  flex-direction: column;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section div h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  letter-spacing: 0.15rem;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section div label {
+  font-weight: bold;
+  color: #3d3d3d;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail section div label span {
+  font-weight: normal;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail .navigation-buttons {
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -0.5rem;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail .navigation-buttons button {
+  background-color: #009f41;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+body.plant_games_page dialog#galleryDialog div.plant-detail .navigation-buttons button:hover {
+  background-color: #27c066;
+  transform: scale(1.05);
+}
+body.plant_games_page .loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+body.plant_games_page .loading-overlay .progress-container {
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+body.plant_games_page .loading-overlay .progress-container .progress-bar {
+  height: 20px;
+  width: 0;
+  background-color: #4caf50;
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+}
+body.plant_games_page .loading-overlay .progress-container .progress-text {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
 }/*# sourceMappingURL=style.css.map */

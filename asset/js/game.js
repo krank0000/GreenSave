@@ -1,69 +1,194 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const loadingOverlay = document.getElementById("loadingOverlay");
+  const progressBar = document.getElementById("progressBar");
+  const progressText = document.getElementById("progressText");
+
+  let progress = 0;
+  const totalDuration = 2000; // 總持續時間（毫秒）
+  const updateInterval = 50; // 更新間隔（毫秒）
+  const step = 100 / (totalDuration / updateInterval); // 每次增加的百分比
+
+  const updateProgress = () => {
+    progress += step;
+    if (progress >= 100) {
+      progress = 100;
+      loadingOverlay.style.display = "none"; // 隱藏加載動畫
+    } else {
+      setTimeout(updateProgress, updateInterval); // 調整數字更新的頻率
+    }
+
+    progressBar.style.width = `${progress}%`;
+    progressText.textContent = `${Math.floor(progress)}%`;
+  };
+
+  updateProgress();
+});
+
+// 圖鑑----------------------------------------------------
 const galleryDialog = document.getElementById("galleryDialog");
 const thumbnailContainer = document.getElementById("thumbnailContainer");
 const plantDetail = document.getElementById("plantDetail");
 const plantDetailImage = document.getElementById("plantDetailImage");
-const plantDetailDescription = document.getElementById(
-  "plantDetailDescription"
-);
 
 const plantData = [
-  { src: "seed.png", description: "種子：生命的開始。" },
-  { src: "sprout.png", description: "幼苗：生機勃勃。" },
-  { src: "bud.png", description: "花苞：即將綻放的美麗。" },
-  { src: "flower.png", description: "開花：美麗的高峰。" },
-  { src: "fruit.png", description: "結果：豐收的喜悅。" },
+  {
+    src: "../asset/img/game/valentinesday_rose.png",
+    name: "月季",
+    light: "日照充足",
+    water: "中等至高水需求",
+    features: "花朵五顏六色，開花期長，適合用於園藝裝飾。",
+  },
+  {
+    src: "../asset/img/game/plant_saboten3.png",
+    name: "仙人掌",
+    light: "強光",
+    water: "低水需求",
+    features: "耐旱，適合放置於乾燥的環境中，具有獨特的外型。",
+  },
+  // Add more plant objects here as needed
+  {
+    src: "../asset/img/game/himawari.png",
+    name: "向日葵",
+    light: "全日照",
+    water: "中等水分需求",
+    features: "花朵隨陽光轉動，具有較高的觀賞價值及食用價值。",
+  },
+  {
+    src: "../asset/img/game/plant_aloe.png",
+    name: "蘆薈",
+    light: "強光",
+    water: "低水需求",
+    features: "具有藥用價值，葉片厚實、肉質，主要用於製作護膚產品。",
+  },
+  {
+    src: "../asset/img/game/flower_lavender.png",
+    name: "薰衣草",
+    light: "全日照",
+    water: "低水需求",
+    features: "具有療癒和放鬆的效果，廣泛用於香氛、精油和美容產品。",
+  },
+  {
+    src: "../asset/img/game/plant_utsubokazura.png",
+    name: "豬籠草",
+    light: "部分陰影",
+    water: "中等水分需求",
+    features:
+      "捕捉昆蟲以補充養分，具有獨特的外型和生態價值，廣泛用於觀賞植物和研究。",
+  },
+  {
+    src: "../asset/img/game/plant_haetorigusa.png",
+    name: "捕蠅草",
+    light: "全日照",
+    water: "中等水分需求",
+    features:
+      "捕捉並消化昆蟲以補充氮元素，具有獨特的捕食機制，是觀賞植物愛好者的熱門選擇。",
+  },
 ];
 
 let currentPlantIndex = 0;
+let currentPage = 0;
+const plantsPerPage = 6;
 
 // 初始化圖鑑縮圖
 function initGallery() {
+  renderGalleryPage();
+}
+
+// 渲染當前頁面的植物縮圖
+function renderGalleryPage() {
   thumbnailContainer.innerHTML = "";
-  plantData.forEach((plant, index) => {
-    const thumbnail = document.createElement("div");
-    thumbnail.className = "thumbnail";
-    thumbnail.innerHTML = `<img src="${plant.src}" alt="Plant Thumbnail">`;
-    thumbnail.addEventListener("click", () => showPlantDetail(index));
-    thumbnailContainer.appendChild(thumbnail);
-  });
+  const startIndex = currentPage * plantsPerPage;
+  const endIndex = Math.min(startIndex + plantsPerPage, plantData.length);
+
+  for (let i = startIndex; i < endIndex; i++) {
+    const plant = plantData[i];
+    const section = document.createElement("section");
+    section.innerHTML = `
+      <img src="${plant.src}" alt="${plant.name}" />
+      <h3>${plant.name}</h3>
+    `;
+    section.addEventListener("click", () => showPlantDetail(i));
+    thumbnailContainer.appendChild(section);
+  }
+
+  addPaginationButtons();
+}
+
+// 添加分頁按鈕
+function addPaginationButtons() {
+  const paginationContainer = document.createElement("div");
+  paginationContainer.className = "pagination-buttons";
+
+  if (currentPage > 0) {
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "上一頁";
+    prevButton.addEventListener("click", () => {
+      currentPage--;
+      renderGalleryPage();
+    });
+    paginationContainer.appendChild(prevButton);
+  }
+
+  if ((currentPage + 1) * plantsPerPage < plantData.length) {
+    const nextButton = document.createElement("button");
+    nextButton.textContent = "下一頁";
+    nextButton.addEventListener("click", () => {
+      currentPage++;
+      renderGalleryPage();
+    });
+    paginationContainer.appendChild(nextButton);
+  }
+
+  thumbnailContainer.appendChild(paginationContainer);
 }
 
 // 顯示植物詳細資訊
 function showPlantDetail(index) {
   currentPlantIndex = index;
-  thumbnailContainer.style.display = "none";
-  plantDetail.style.display = "inline";
-  updatePlantDetail();
-}
-
-// 更新植物詳細內容
-function updatePlantDetail() {
   const plant = plantData[currentPlantIndex];
+
+  thumbnailContainer.style.display = "none";
+  plantDetail.style.display = "block";
+
   plantDetailImage.src = plant.src;
-  plantDetailDescription.textContent = plant.description;
+  plantDetail.innerHTML = `
+    <section>
+      <img id="plantDetailImage" src="${plant.src}" alt="Plant Detail" />
+      <div>
+        <h3>${plant.name}</h3>
+        <label>植物名稱：<span>${plant.name}</span></label>
+        <label>光照需求：<span>${plant.light}</span></label>
+        <label>水分需求：<span>${plant.water}</span></label>
+        <label>特徵：<span>${plant.features}</span></label>
+      </div>
+    </section>
+    <div class="navigation-buttons">
+      <button id="prevPlantButton">上一個</button>
+      <button onclick="closePlantDetail()">目錄</button>
+      <button id="nextPlantButton">下一個</button>
+    </div>
+  `;
+
+  document.getElementById("prevPlantButton").addEventListener("click", () => {
+    currentPlantIndex =
+      (currentPlantIndex - 1 + plantData.length) % plantData.length;
+    showPlantDetail(currentPlantIndex);
+  });
+
+  document.getElementById("nextPlantButton").addEventListener("click", () => {
+    currentPlantIndex = (currentPlantIndex + 1) % plantData.length;
+    showPlantDetail(currentPlantIndex);
+  });
 }
-
-// 切換到上一個植物
-document.getElementById("prevPlantButton").addEventListener("click", () => {
-  currentPlantIndex =
-    (currentPlantIndex - 1 + plantData.length) % plantData.length;
-  updatePlantDetail();
-});
-
-// 切換到下一個植物
-document.getElementById("nextPlantButton").addEventListener("click", () => {
-  currentPlantIndex = (currentPlantIndex + 1) % plantData.length;
-  updatePlantDetail();
-});
 
 // 返回圖鑑主畫面
 function closePlantDetail() {
-  thumbnailContainer.style.display = "inline";
+  thumbnailContainer.style.display = "flex";
   plantDetail.style.display = "none";
 }
 
 // 打開植物圖鑑
-document.getElementById("openGalleryButton").addEventListener("click", () => {
+document.getElementById("openGalleryButton")?.addEventListener("click", () => {
   initGallery();
   galleryDialog.showModal();
 });
@@ -198,6 +323,14 @@ function useFertilizer() {
   if (fertilizerCount > 0) {
     growthValue += 30;
     fertilizerCount -= 1;
+
+    // 更新 SCSS 自定義屬性 --gw
+    const plantGrowing = document.querySelector(".plant-growing");
+    let currentGw =
+      parseFloat(getComputedStyle(plantGrowing).getPropertyValue("--gw")) || 0;
+    currentGw = Math.min(50, currentGw + 15); // 確保最大值為 50%
+    plantGrowing.style.setProperty("--gw", `${currentGw}%`);
+
     //植物動畫
     gsap.to("#plantImage", {
       duration: 0.5,
@@ -265,3 +398,58 @@ function confrimalert(event) {
 
 // 初始化
 // updateUI();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const signInButton = document.getElementById("signInButton"); // 簽到按鈕
+  const signInCount = document.getElementById("signInCount"); // 簽到天數顯示
+  const signInArea = document.getElementById("signInArea"); // 簽到區域
+  const sections = signInArea.querySelectorAll("section"); // 每一天的節點
+
+  // 簽到天數初始化為 0，每次重整都清零
+  let count = 0;
+  localStorage.setItem("signInCount", count); // 重設 localStorage 的簽到天數
+
+  // 更新簽到區域的樣式
+  const updateSignInArea = () => {
+    sections.forEach((section, index) => {
+      if (index < count) {
+        section.style.backgroundColor = "#fece21"; // 高亮背景顏色
+        section.style.color = "#fff"; // 高亮文字顏色
+        section.style.border = "2px solid #ffe3b2"; // 高亮外框
+        section.style.fontWeight = "bold"; // 粗體
+      } else {
+        section.style.backgroundColor = "#ddd"; // 默認背景顏色
+        section.style.color = "#999"; // 默認文字顏色
+        section.style.border = "none"; // 移除外框
+        section.style.fontWeight = "normal"; // 恢復正常字體
+      }
+    });
+  };
+
+  // 更新簽到天數
+  const updateSignInCount = () => {
+    signInCount.textContent = count; // 更新簽到天數顯示
+    localStorage.setItem("signInCount", count); // 儲存簽到天數到 localStorage
+    updateSignInArea(); // 更新簽到區域樣式
+  };
+
+  // 點擊簽到按鈕的處理邏輯
+  signInButton.addEventListener("click", () => {
+    if (count < sections.length) {
+      count += 1; // 簽到天數增加
+      updateSignInCount(); // 更新顯示
+      alert(`簽到成功！已連續簽到 ${count} 天`);
+    } else {
+      alert("已完成7天簽到！");
+    }
+  });
+
+  // 初始化時更新顯示
+  updateSignInCount();
+});
+
+// 關閉對話框
+function closeDialog(dialogId) {
+  const dialog = document.getElementById(dialogId);
+  dialog.close();
+}

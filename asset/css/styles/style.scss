@@ -3922,7 +3922,7 @@ body.plant_games_page {
   main.game_area {
     div.game {
       width: 90vw;
-      max-width: 1350px;
+      max-width: 900px;
       min-height: 540px;
       background-image: url("../../img/game/bg_natural_sougen.png");
       background-size: cover;
@@ -4086,26 +4086,29 @@ body.plant_games_page {
   //功能彈窗
   dialog {
     width: 90vw;
-    max-width: 500px;
+    max-width: 400px;
     min-height: 295px;
-    height: 55vh;
-    background-color: #d3ffd3;
-    border: #00722f 5px solid;
+    // height: 55vh;
+    min-height: 380px;
+    background-color: #fff1dc;
+    border: #009f41 5px solid;
     border-radius: 20px;
     padding: 1rem;
+    padding-top: 3rem;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+    overflow: visible;
     //關閉按鈕
     .close_btn {
       position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
+      top: 0.35rem;
+      right: 0.35rem;
       width: 30px;
       height: 30px;
-      background-color: #00722f;
+      background-color: #009f41;
       border-radius: 50%;
       border: none;
       outline: none;
@@ -4121,46 +4124,144 @@ body.plant_games_page {
     }
     //標題
     h2 {
-      color: #21613b;
-      height: 40px;
-      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: -17px;
+      transform: translateX(-50%);
+      color: white;
+      background: linear-gradient(to bottom, #009f41, #55d087);
+      padding: 0.5rem 2rem;
+      border-radius: 2px 2px 30px 30px;
+      font-size: 1.5rem;
+      //RWD
+      @media screen and (max-width: 480px) {
+        top: -10px;
+        font-size: 1.25rem;
+      }
     }
     //簽到
     &#signInDialog {
-      .sign-in-area {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        width: 90%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        section {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 70px;
-          width: 70px;
-          border: #00a545 5px solid;
-          border-radius: 10px;
-          background-color: #ecff72;
-          color: #00722f;
-          font-size: 2rem;
-          font-weight: bold;
-          font-family: "cwTeXYen";
-          cursor: pointer;
+      form {
+        position: relative;
+        width: 100%;
+        //簽到圖片
+        article {
+          position: relative;
+          width: 100%;
+          img {
+            width: 120px;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(-1px 1px 1px rgba(0, 0, 0, 0.2)); // 添加陰影
+          }
+          h4 {
+            position: relative;
+            top: 40px;
+            text-align: center;
+            font-weight: normal;
+            // font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
+          }
+          p {
+            position: relative;
+            top: 50px;
+            text-align: center;
+            span {
+              font-weight: bold;
+              font-size: 1.5rem;
+            }
+          }
+        }
+
+        // 定義簽到區域樣式
+        .sign-in-area {
+          position: relative;
+          top: 80px;
+          width: 100%;
+          display: flex; // 使用 flex 排列
+          justify-content: space-between; // 平均分佈各節點
+          align-items: center; // 垂直置中
+          padding: 10px;
+
+          // 定義每一天的樣式
+          section {
+            position: relative; // 為了定位下方文字
+            display: flex;
+            flex-direction: column; // 讓圖標與文字垂直排列
+            align-items: center; // 垂直置中
+            justify-content: center; // 水平置中
+            width: 40px; // 每節的寬度
+            height: 40px; // 每節的高度
+            border-radius: 50%; // 圓形
+            font-size: 1rem; // 字型大小
+            background-color: #ddd; // 默認背景顏色
+            color: #999; // 默認文字顏色
+            transition: all 0.3s ease; // 動態效果
+
+            // 使用 @for 迴圈設定每一天的樣式
+            @for $i from 1 through 7 {
+              &:nth-child(#{$i}) {
+                // 第一個節點高亮
+                @if $i == 1 {
+                  background-color: #fece21; // 高亮背景顏色
+                  color: #fff; // 高亮文字顏色
+                  font-weight: bold; // 粗體文字
+                  border: 2px solid #ffe3b2; // 添加外框
+                }
+
+                // 添加橫線
+                &::after {
+                  content: "";
+                  position: absolute;
+                  top: 50%; // 垂直置中
+                  left: 50%; // 水平置中
+                  transform: translate(50%, -50%);
+                  width: 20px; // 線條長度
+                  height: 2px; // 線條寬度
+                  background-color: #ddd; // 默認線條顏色
+                  z-index: -1; // 將線條置於背景下方
+
+                  // 僅當前天數前的連線高亮
+                  @if $i == 2 {
+                    // background-color: #ffe3b2; // 高亮線條顏色
+                  }
+                }
+
+                // 顯示「第 N 天」文字
+                &::before {
+                  content: "第#{$i}天"; // 使用 SCSS 插值輸出文字
+                  position: absolute;
+                  top: 100%; // 位於圓點下方
+                  left: 50%; // 水平置中
+                  transform: translateX(-50%); // 修正水平置中
+                  margin-top: 5px; // 與圓點保持距離
+                  font-size: 0.55rem; // 調整文字大小
+                  width: 100%; // 佔滿寬度
+                  text-align: center; // 文字置中
+                  color: #999; // 默認文字顏色
+                }
+              }
+            }
+          }
         }
       }
       //簽到按鈕
       #signInButton {
         position: absolute;
-        bottom: 1rem;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
         font-size: 1.25rem;
+        padding: 0.25rem 2rem;
+        background: linear-gradient(to bottom, #fdffa0, #ffc402);
+        color: #b35613;
+        border-radius: 20px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        font-family: "cwTeXYen", sans-serif; // cwTeXYen (Chinese Traditional) 圓體字體
       }
     }
     //問題
@@ -4171,10 +4272,6 @@ body.plant_games_page {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
         h3 {
           text-align: center;
           margin-bottom: 0.5rem;
@@ -4187,32 +4284,32 @@ body.plant_games_page {
           gap: 0.5rem;
           margin-top: 0.5rem;
           li {
-            // margin-bottom: 15px; // 每個選項的間距
+            margin-bottom: 5px; // 每個選項的間距
             input[type="radio"] {
               display: none; // 隱藏原始的 radio 按鈕
             }
             label {
               display: flex;
               align-items: center;
-              background-color: #85c88a; // 背景色
-              border-radius: 5px;
-              padding: 0 2.5rem;
+              // background-color: #85c88a; // 背景色
+              border-radius: 20px;
+              padding: 0.25rem 2.5rem;
               font-size: 1.1rem;
               color: #004d00; // 文字顏色
               cursor: pointer;
               transition: all 0.3s ease;
 
               &:hover {
-                background-color: #68a96c; // 滑鼠懸停效果
+                background-color: #abdeaf; // 滑鼠懸停效果
               }
 
-              &::before {
-                content: "○"; // 默認未選中狀態的圓點
-                font-size: 1.25rem;
-                color: #004d00;
-                margin-right: 10px;
-                transition: all 0.3s ease;
-              }
+              // &::before {
+              //   content: "○"; // 默認未選中狀態的圓點
+              //   font-size: 1.25rem;
+              //   color: #004d00;
+              //   margin-right: 10px;
+              //   transition: all 0.3s ease;
+              // }
             }
 
             input[type="radio"]:checked + label {
@@ -4221,11 +4318,11 @@ body.plant_games_page {
               outline: 2px solid #60b566; // 選中後的邊框
             }
 
-            input[type="radio"]:checked + label::before {
-              content: "●"; // 選中時顯示的圓點
-              font-size: 1.25rem;
-              color: #37c448;
-            }
+            // input[type="radio"]:checked + label::before {
+            //   content: "●"; // 選中時顯示的圓點
+            //   font-size: 1.25rem;
+            //   color: #37c448;
+            // }
           }
         }
       }
@@ -4236,10 +4333,199 @@ body.plant_games_page {
         transform: translateX(-50%);
         font-size: 1.25rem;
       }
-    } //道具
+    }
+    //道具
     &#inventoryDialog {
-    } //圖鑑
+      div.inventory {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        button {
+          padding: 1rem 0.5rem;
+          border-radius: 10px;
+          border: white 2px solid;
+          background-color: #f1ffc0;
+          cursor: pointer;
+          img {
+            width: 90px;
+            height: 90px;
+            transition: all 0.5s;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          p {
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+            letter-spacing: 0.1rem;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          }
+          h6 {
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 1.5rem;
+            letter-spacing: 0.1rem;
+            font-weight: 500;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-color: #9dca63;
+            border-radius: 1rem;
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+    //圖鑑
     &#galleryDialog {
+      // 植物目錄
+      div.thumbnail-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        // 每一個植物縮圖
+        section {
+          width: 30%;
+          border: #edd399 2px solid;
+          border-radius: 10px;
+          background-color: #fff9eb;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem;
+          cursor: pointer;
+          img {
+            width: 90px;
+            height: 90px;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          h2 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+          }
+        }
+        // 分頁按鈕
+        .pagination-buttons {
+          position: absolute;
+          top: 0.5rem;
+          button {
+            background-color: #009f41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+
+            &:hover {
+              background-color: #27c066;
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+      //植物詳情
+      div.plant-detail {
+        min-height: 290px;
+        position: relative;
+        section {
+          position: relative;
+          img {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            h3 {
+              font-size: 1.25rem;
+              margin: 0.5rem 0;
+              letter-spacing: 0.15rem;
+            }
+            label {
+              font-weight: bold;
+              color: #3d3d3d;
+              span {
+                font-weight: normal;
+              }
+            }
+          }
+        }
+        // 按鈕
+        .navigation-buttons {
+          width: 100%;
+          padding: 0 1rem;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          bottom: -0.5rem;
+          button {
+            background-color: #009f41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.25rem 0.55rem;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+
+            &:hover {
+              background-color: #27c066;
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //加載動畫樣式
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+    .progress-container {
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+
+      .progress-bar {
+        height: 20px;
+        width: 0;
+        background-color: #4caf50;
+        border-radius: 10px;
+        transition: width 0.3s ease-in-out;
+      }
+      .progress-text {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+      }
     }
   }
 }
