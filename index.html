@@ -99,9 +99,9 @@
             <h2>小舉動，大改變！ 一起減少碳足跡！</h2>
             <h1 class="actNow">立即行動</h1>
           </div>
-          <a href="#index_p2">
-            <i class="fa-solid fa-caret-down fa-bounce"> </i
-          ></a>
+          <a href="javascript:void(0)" id="scrollToIndex">
+            <i class="fa-solid fa-caret-down fa-bounce"></i>
+          </a>
         </div>
       </div>
       <!-- 第二頁  -->
@@ -373,36 +373,5 @@
   </body>
   <script src="./asset/js/app.js"></script>
   <script src="./asset/js/animation.js"></script>
-  <!-- 輪播圖-切換 -->
-  <script>
-    const carouselItems = document.querySelectorAll(".carousel > div");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let currentIndex = 0;
-
-    const updateCarousel = () => {
-      carouselItems.forEach((item, index) => {
-        if (index === currentIndex) {
-          item.classList.add("active");
-        } else {
-          item.classList.remove("active");
-        }
-      });
-    };
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex =
-        (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-      updateCarousel();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % carouselItems.length;
-      updateCarousel();
-    });
-
-    // 初始化位置
-    updateCarousel();
-  </script>
+  <script src="./asset/js/index.js"></script>
 </html>

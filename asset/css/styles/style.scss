@@ -2914,6 +2914,7 @@ body.index_page {
             font-weight: bold;
           }
           h1 {
+            cursor: pointer;
             font-size: 3rem;
             letter-spacing: 0.75rem;
             color: white;
@@ -3719,6 +3720,7 @@ body.index_page {
         justify-content: space-between;
         position: absolute;
         i {
+          cursor: pointer;
           opacity: 0.5;
           font-size: 3rem;
           transition: all 0.5s;
@@ -3907,8 +3909,10 @@ body.index_page {
             }
           }
           button {
-            width: 50%;
+            width: 100%;
             float: right;
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
           }
         }
       }
@@ -4347,6 +4351,7 @@ body.plant_games_page {
           border-radius: 10px;
           border: white 2px solid;
           background-color: #f1ffc0;
+          color: #000;
           cursor: pointer;
           img {
             width: 90px;
