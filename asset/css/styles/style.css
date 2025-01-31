@@ -2483,12 +2483,13 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   font-size: 5rem;
   color: white;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1600px) {
   body.index_page main div.banner_area div.container img {
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
   body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(1);
+    transform: scale(0.9);
+    bottom: -5vh;
   }
   body.index_page main div.banner_area div.container img.tree_R {
     right: -250px;
@@ -2535,7 +2536,59 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     padding: 5px 3rem 5px 2.5rem;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1440px) {
+  body.index_page main div.banner_area div.container img {
+    transform: scale(0.7);
+  }
+  body.index_page main div.banner_area div.container img.grassland {
+    transform: scale(1);
+  }
+  body.index_page main div.banner_area div.container img.tree_R {
+    right: -250px;
+    bottom: 9vh;
+  }
+  body.index_page main div.banner_area div.container img.tree_L {
+    left: -230px;
+    bottom: 2vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_L {
+    left: -50px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.cloud_M {
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.bird {
+    right: -50px;
+    top: 5vh;
+  }
+  body.index_page main div.banner_area div.container img.piggy {
+    bottom: 3vh;
+    padding-left: 50vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text {
+    height: 35%;
+    margin-right: 30vw;
+    margin-bottom: 16vh;
+  }
+  body.index_page main div.banner_area div.container div.banner_text img {
+    position: relative;
+    width: 90%;
+    padding-right: 10vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h2 {
+    padding-bottom: 4rem;
+    font-size: 1.5rem;
+    color: #21613b;
+    font-weight: bold;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h1 {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    padding: 5px 3rem 5px 2.5rem;
+  }
+}
+@media screen and (max-width: 1050px) {
   body.index_page main div.banner_area div.container img {
     transform: scale(0.6);
   }
@@ -2545,6 +2598,47 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   body.index_page main div.banner_area div.container img.tree_R {
     right: -250px;
     bottom: 1vh;
+  }
+  body.index_page main div.banner_area div.container img.tree_L {
+    left: -230px;
+    bottom: -3vh;
+  }
+  body.index_page main div.banner_area div.container img.piggy {
+    bottom: 1vh;
+    padding-left: 55vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text {
+    height: 30%;
+    margin-right: 30vw;
+    margin-bottom: 18vh;
+  }
+  body.index_page main div.banner_area div.container div.banner_text img {
+    position: relative;
+    width: 88%;
+    padding-right: 10vw;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h2 {
+    padding-bottom: 3rem;
+    font-size: 1.25rem;
+    color: #21613b;
+    font-weight: bold;
+  }
+  body.index_page main div.banner_area div.container div.banner_text h1 {
+    font-size: 1.75rem;
+    letter-spacing: 0.5rem;
+    padding: 5px 3rem 5px 2.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body.index_page main div.banner_area div.container img {
+    transform: scale(0.6);
+  }
+  body.index_page main div.banner_area div.container img.grassland {
+    transform: scale(1);
+  }
+  body.index_page main div.banner_area div.container img.tree_R {
+    right: -270px;
+    bottom: -4vh;
   }
   body.index_page main div.banner_area div.container img.tree_L {
     display: none;
@@ -2596,7 +2690,7 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container img.tree_R {
     right: -300px;
-    bottom: -3vh;
+    bottom: -6vh;
   }
   body.index_page main div.banner_area div.container img.cloud_L {
     left: -50px;
@@ -2794,6 +2888,19 @@ body.index_page main div.index_p2 main div.block_content_area section.block1 {
 body.index_page main div.index_p2 main div.block_content_area section.block2 {
   top: 0;
   right: 50vw;
+}
+@media screen and (max-width: 1600px) {
+  body.index_page main div.index_p2 main article {
+    top: 7.5vh;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block1 {
+    top: -20vh;
+    left: 8vw;
+  }
+  body.index_page main div.index_p2 main div.block_content_area section.block2 {
+    top: 9vh;
+    right: 40vw;
+  }
 }
 @media screen and (max-width: 1440px) {
   body.index_page main div.index_p2 {
