@@ -3819,161 +3819,6 @@ body.index_page {
         }
       }
     }
-    // 第四頁
-    div.index_p4 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      position: relative;
-      //切換按鈕
-      div.btn_area {
-        width: 95vw;
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        i {
-          cursor: pointer;
-          opacity: 0.5;
-          font-size: 3rem;
-          transition: all 0.5s;
-          &:hover {
-            opacity: 1;
-          }
-        }
-      }
-      main.carousel {
-        transition: transform 0.5s ease;
-        div.carousel {
-          display: flex;
-          align-items: center;
-          transition: transform 0.5s ease;
-          img.macbook {
-            width: 40vw;
-            transition: all 0.5s;
-            &:hover {
-              transform: scale(1.1);
-            }
-          }
-          section {
-            width: 32vw;
-            height: auto;
-            background-color: #ffffff85;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 2rem;
-            padding: 2rem;
-            margin: 0 1rem;
-
-            h1 {
-              font-size: 2rem;
-              letter-spacing: 0.5rem;
-              text-shadow: #3d3d3d6c 1px 1px 1px;
-              margin-bottom: 0.5rem;
-              display: flex;
-              &::before {
-                content: url("../../img/leaf.png");
-                margin-right: 1rem;
-              }
-            }
-            h4 {
-              font-size: 1.25rem;
-              margin-bottom: 1rem;
-              text-align: center;
-            }
-            //線條-圓形首尾
-            .line {
-              margin: 1rem 0;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              width: 100%;
-              height: 2px;
-              border-radius: 10px;
-              --color: gray;
-              background-color: var(--color);
-              &::after,
-              &::before {
-                content: "";
-                --l: 5px; //使用變數
-                width: var(--l);
-                height: var(--l);
-                background-color: var(--color);
-                border-radius: 50%;
-              }
-            }
-            p {
-              font-size: 1rem;
-              padding: 1rem;
-              line-height: 1.75rem;
-            }
-            //按鈕-立即前往
-            a {
-              background: linear-gradient(to left, #fdff79, #00b336);
-              border: none;
-              color: white;
-              font-size: 1.25rem;
-              font-weight: bold;
-              letter-spacing: 0.25rem;
-              padding: 0.5rem 2rem;
-              border-radius: 2rem;
-              float: right;
-              cursor: pointer;
-              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-              transition: all 0.5s;
-              &:hover {
-                transform: scale(1.1);
-              }
-            }
-          }
-        }
-        div.carousel {
-          display: none; /* 隱藏所有項目 */
-        }
-        div.carousel.active {
-          display: flex; /* 顯示當前項目 */
-        }
-      }
-      //RWD
-      @media screen and (max-width: 1440px) {
-        main.carousel {
-          div.carousel {
-            img.macbook {
-              width: 40vw;
-            }
-            section {
-              width: 40vw;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: 768px) {
-        main.carousel {
-          div.carousel {
-            flex-direction: column;
-            img.macbook {
-              width: 75vw;
-              &:hover {
-                transform: scale(1);
-              }
-            }
-            section {
-              width: 80vw;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: 465px) {
-        height: 100vh;
-        main.carousel {
-          div.carousel {
-            section {
-              transform: scale(0.8);
-              width: 80vw;
-            }
-          }
-        }
-      }
-    }
     // 第五頁
     div.index_p5 {
       display: flex;
@@ -4644,6 +4489,152 @@ body.plant_games_page {
         font-size: 18px;
         color: #333;
       }
+    }
+  }
+}
+
+//Swiper
+.swiper {
+  width: 100%;
+  height: 100%;
+  //每個項目
+  .swiper-wrapper {
+    padding-bottom: 5vh;
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      // background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img.macbook {
+        width: 40vw;
+        transition: all 0.5s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      section {
+        width: 32vw;
+        height: auto;
+        background-color: #ffffff85;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 2rem;
+        padding: 2rem;
+        margin: 0 1rem;
+
+        h1 {
+          font-size: 2rem;
+          letter-spacing: 0.5rem;
+          text-shadow: #3d3d3d6c 1px 1px 1px;
+          margin-bottom: 0.5rem;
+          display: flex;
+          &::before {
+            content: url("../../img/leaf.png");
+            margin-right: 1rem;
+          }
+        }
+        h4 {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          text-align: center;
+        }
+        //線條-圓形首尾
+        .line {
+          margin: 1rem 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 2px;
+          border-radius: 10px;
+          --color: gray;
+          background-color: var(--color);
+          &::after,
+          &::before {
+            content: "";
+            --l: 5px; //使用變數
+            width: var(--l);
+            height: var(--l);
+            background-color: var(--color);
+            border-radius: 50%;
+          }
+        }
+        p {
+          font-size: 1rem;
+          padding: 1rem;
+          line-height: 1.75rem;
+        }
+        //按鈕-立即前往
+        a {
+          background: linear-gradient(to left, #fdff79, #00b336);
+          border: none;
+          color: white;
+          font-size: 1.25rem;
+          font-weight: bold;
+          letter-spacing: 0.25rem;
+          padding: 0.5rem 2rem;
+          border-radius: 2rem;
+          float: right;
+          cursor: pointer;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+          transition: all 0.5s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      //RWD
+      @media screen and (max-width: 1440px) {
+        img.macbook {
+          width: 40vw;
+        }
+        section {
+          width: 40vw;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        img.macbook {
+          width: 75vw;
+          &:hover {
+            transform: scale(1);
+          }
+        }
+        section {
+          width: 80vw;
+        }
+      }
+      @media screen and (max-width: 465px) {
+        height: 100vh;
+        section {
+          transform: scale(0.8);
+          width: 80vw;
+        }
+      }
+    }
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none; // 隱藏原按鈕樣式
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    i {
+      color: gray;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: #000000;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    // bottom: 10px;
+    .swiper-pagination-bullet {
+      background: #000000;
     }
   }
 }
