@@ -32,7 +32,7 @@ tl_p1
   })
   .from(".bird", {
     duration: 0.5,
-    y: 50,
+    // y: 50,
     x: 50,
     opacity: 0,
   })
@@ -125,4 +125,22 @@ gsap.from(".Environment-bro", {
   repeat: -1,
   yoyo: true,
   ease: "power1.inOut",
+});
+
+//首頁banner ScrollTrigger -----------------------------------------------
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".bird", {
+  y: -40,
+  x: -100,
+  scale: 0.5,
+  ease: "none",
+  scrollTrigger: {
+    // markers: true,
+    trigger: "#index_p1",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
 });
