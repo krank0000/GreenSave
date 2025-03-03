@@ -2409,7 +2409,8 @@ body.index_page main div.banner_area {
 }
 body.index_page main div.banner_area div.container {
   overflow: hidden;
-  width: 1920px;
+  width: 100vw;
+  max-width: 1920px;
   height: 100vh;
   min-height: 650px;
   position: relative;
@@ -2484,33 +2485,33 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   color: white;
 }
 @media screen and (max-width: 1600px) {
-  body.index_page main div.banner_area div.container img {
-    transform: scale(0.8);
-  }
   body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(0.9);
-    bottom: -5vh;
+    width: 100%;
   }
   body.index_page main div.banner_area div.container img.tree_R {
+    width: 35%;
     right: -250px;
     bottom: 10vh;
   }
   body.index_page main div.banner_area div.container img.tree_L {
+    width: 35%;
     left: -230px;
     bottom: 5vh;
   }
   body.index_page main div.banner_area div.container img.cloud_L {
+    width: 20%;
     left: -50px;
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.cloud_M {
+    width: 25%;
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.bird {
-    right: -50px;
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.piggy {
+    width: 90%;
     bottom: 5vh;
     padding-left: 50vw;
   }
@@ -2521,7 +2522,7 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container div.banner_text img {
     position: relative;
-    width: 90%;
+    width: 85%;
     padding-right: 10vw;
   }
   body.index_page main div.banner_area div.container div.banner_text h2 {
@@ -2536,26 +2537,24 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     padding: 5px 3rem 5px 2.5rem;
   }
 }
-@media screen and (max-width: 1440px) {
-  body.index_page main div.banner_area div.container img {
-    transform: scale(0.7);
-  }
-  body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(1);
-  }
+@media screen and (max-width: 1280px) {
   body.index_page main div.banner_area div.container img.tree_R {
+    width: 35%;
     right: -250px;
-    bottom: 9vh;
+    bottom: 15vh;
   }
   body.index_page main div.banner_area div.container img.tree_L {
+    width: 35%;
     left: -230px;
-    bottom: 2vh;
+    bottom: 10vh;
   }
   body.index_page main div.banner_area div.container img.cloud_L {
+    width: 20%;
     left: -50px;
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.cloud_M {
+    width: 25%;
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.bird {
@@ -2563,7 +2562,8 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
     top: 5vh;
   }
   body.index_page main div.banner_area div.container img.piggy {
-    bottom: 3vh;
+    width: 89%;
+    bottom: 10vh;
     padding-left: 50vw;
   }
   body.index_page main div.banner_area div.container div.banner_text {
@@ -2573,11 +2573,12 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container div.banner_text img {
     position: relative;
-    width: 90%;
+    width: 70%;
     padding-right: 10vw;
+    padding-bottom: 0.5rem;
   }
   body.index_page main div.banner_area div.container div.banner_text h2 {
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
     font-size: 1.5rem;
     color: #21613b;
     font-weight: bold;
@@ -2589,12 +2590,6 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
 }
 @media screen and (max-width: 1050px) {
-  body.index_page main div.banner_area div.container img {
-    transform: scale(0.6);
-  }
-  body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(1);
-  }
   body.index_page main div.banner_area div.container img.tree_R {
     right: -250px;
     bottom: 1vh;
@@ -2602,6 +2597,9 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   body.index_page main div.banner_area div.container img.tree_L {
     left: -230px;
     bottom: -3vh;
+  }
+  body.index_page main div.banner_area div.container img.bird {
+    width: 20%;
   }
   body.index_page main div.banner_area div.container img.piggy {
     bottom: 1vh;
@@ -2614,7 +2612,7 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container div.banner_text img {
     position: relative;
-    width: 88%;
+    width: 70%;
     padding-right: 10vw;
   }
   body.index_page main div.banner_area div.container div.banner_text h2 {
@@ -2630,12 +2628,6 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
 }
 @media screen and (max-width: 768px) {
-  body.index_page main div.banner_area div.container img {
-    transform: scale(0.6);
-  }
-  body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(1);
-  }
   body.index_page main div.banner_area div.container img.tree_R {
     right: -270px;
     bottom: -4vh;
@@ -2647,28 +2639,26 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
   }
   body.index_page main div.banner_area div.container img.cloud_L {
     left: -50px;
-    top: 5vh;
+    top: 8vh;
   }
   body.index_page main div.banner_area div.container img.cloud_M {
-    top: 5vh;
+    top: 8vh;
   }
   body.index_page main div.banner_area div.container img.bird {
-    right: -100px;
-    top: 5vh;
+    top: 8vh;
   }
   body.index_page main div.banner_area div.container img.piggy {
-    transform: scale(0.5);
-    bottom: -7vh;
-    padding-left: 50vw;
+    bottom: 2vh;
+    padding-left: 40vw;
   }
   body.index_page main div.banner_area div.container div.banner_text {
     height: 35%;
     width: 50%;
     margin-right: 35vw;
-    margin-bottom: 36vh;
+    margin-bottom: 20vh;
   }
   body.index_page main div.banner_area div.container div.banner_text img {
-    width: 30rem;
+    width: 100%;
     padding-right: 0vw;
   }
   body.index_page main div.banner_area div.container div.banner_text h2 {
@@ -2686,37 +2676,35 @@ body.index_page main div.banner_area div.container a i.fa-caret-down {
 }
 @media screen and (max-width: 455px) {
   body.index_page main div.banner_area div.container img.grassland {
-    transform: scale(1);
+    width: 140%;
   }
   body.index_page main div.banner_area div.container img.tree_R {
     right: -300px;
     bottom: -6vh;
   }
   body.index_page main div.banner_area div.container img.cloud_L {
-    left: -50px;
-    top: 2vh;
+    width: 30%;
+    left: -10px;
   }
   body.index_page main div.banner_area div.container img.cloud_M {
-    transform: scale(0.5);
-    top: 4vh;
+    top: 10vh;
+    width: 40%;
   }
   body.index_page main div.banner_area div.container img.bird {
-    right: -200px;
-    top: 1vh;
+    width: 40%;
+    top: 10vh;
   }
   body.index_page main div.banner_area div.container img.piggy {
-    transform: scale(0.4);
-    bottom: -10vh;
-    padding-left: 10vw;
+    padding-left: 0vw;
+    width: 70%;
   }
   body.index_page main div.banner_area div.container div.banner_text {
     height: 30%;
-    width: 100%;
+    width: 80%;
     margin-right: 0vw;
-    margin-bottom: 40vh;
+    margin-bottom: 20vh;
   }
   body.index_page main div.banner_area div.container div.banner_text img {
-    width: 30rem;
     padding-right: 0vw;
   }
   body.index_page main div.banner_area div.container div.banner_text h2 {
@@ -4160,4 +4148,72 @@ body.plant_games_page .loading-overlay .progress-container .progress-text {
 }
 .swiper .swiper-pagination .swiper-pagination-bullet {
   background: #000000;
+}
+
+#index_p1 .grassland {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+#index_p1 .tree_R,
+#index_p1 .tree_L {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+#index_p1 .cloud_L {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards, floatLeftRight 3s infinite;
+  animation-delay: 0.4s;
+}
+#index_p1 .cloud_M {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards, floatLeftRight 3s infinite reverse;
+  animation-delay: 0.6s;
+}
+#index_p1 .bird {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+#index_p1 .piggy {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards, floatUpDown 2s infinite;
+  animation-delay: 0.8s;
+}
+#index_p1 .banner_text {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes floatLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }/*# sourceMappingURL=style.css.map */

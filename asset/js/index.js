@@ -1,31 +1,3 @@
-// 輪播圖-切換
-const carouselItems = document.querySelectorAll(".carousel > div");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-
-let currentIndex = 0;
-
-const updateCarousel = () => {
-  carouselItems.forEach((item, index) => {
-    if (index === currentIndex) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
-  });
-};
-
-prevBtn.addEventListener("click", () => {
-  currentIndex =
-    (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-  updateCarousel();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % carouselItems.length;
-  updateCarousel();
-});
-
 // 初始化位置
 updateCarousel();
 

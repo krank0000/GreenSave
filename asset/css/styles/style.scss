@@ -2860,7 +2860,8 @@ body.index_page {
       overflow: hidden;
       div.container {
         overflow: hidden;
-        width: 1920px;
+        width: 100vw;
+        max-width: 1920px;
         height: 100vh;
         min-height: 650px;
         position: relative;
@@ -2938,32 +2939,36 @@ body.index_page {
         //筆電尺寸
         @media screen and (max-width: 1600px) {
           img {
-            transform: scale(0.8);
+            // transform: scale(0.8);
             &.grassland {
-              transform: scale(0.9);
-              bottom: -5vh;
+              width: 100%;
+              // bottom: -5vh;
             }
             &.tree_R {
+              width: 35%;
               right: -250px;
               bottom: 10vh;
             }
             &.tree_L {
+              width: 35%;
               left: -230px;
               bottom: 5vh;
             }
             &.cloud_L {
+              width: 20%;
               left: -50px;
               top: 5vh;
             }
             &.cloud_M {
+              width: 25%;
               top: 5vh;
             }
             &.bird {
-              right: -50px;
               top: 5vh;
             }
 
             &.piggy {
+              width: 90%;
               bottom: 5vh;
               padding-left: 50vw;
             }
@@ -2974,7 +2979,7 @@ body.index_page {
             margin-bottom: 16vh;
             img {
               position: relative;
-              width: 90%;
+              width: 85%;
               padding-right: 10vw;
             }
             h2 {
@@ -2990,25 +2995,29 @@ body.index_page {
             }
           }
         }
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1280px) {
           img {
-            transform: scale(0.7);
+            // transform: scale(0.7);
             &.grassland {
-              transform: scale(1);
+              // transform: scale(1);
             }
             &.tree_R {
+              width: 35%;
               right: -250px;
-              bottom: 9vh;
+              bottom: 15vh;
             }
             &.tree_L {
+              width: 35%;
               left: -230px;
-              bottom: 2vh;
+              bottom: 10vh;
             }
             &.cloud_L {
+              width: 20%;
               left: -50px;
               top: 5vh;
             }
             &.cloud_M {
+              width: 25%;
               top: 5vh;
             }
             &.bird {
@@ -3017,7 +3026,8 @@ body.index_page {
             }
 
             &.piggy {
-              bottom: 3vh;
+              width: 89%;
+              bottom: 10vh;
               padding-left: 50vw;
             }
           }
@@ -3027,11 +3037,12 @@ body.index_page {
             margin-bottom: 16vh;
             img {
               position: relative;
-              width: 90%;
+              width: 70%;
               padding-right: 10vw;
+              padding-bottom: 0.5rem;
             }
             h2 {
-              padding-bottom: 4rem;
+              padding-bottom: 3rem;
               font-size: 1.5rem;
               color: #21613b;
               font-weight: bold;
@@ -3045,9 +3056,9 @@ body.index_page {
         }
         @media screen and (max-width: 1050px) {
           img {
-            transform: scale(0.6);
+            // transform: scale(0.6);
             &.grassland {
-              transform: scale(1);
+              // transform: scale(1);
             }
             &.tree_R {
               right: -250px;
@@ -3056,6 +3067,9 @@ body.index_page {
             &.tree_L {
               left: -230px;
               bottom: -3vh;
+            }
+            &.bird {
+              width: 20%;
             }
 
             &.piggy {
@@ -3069,7 +3083,7 @@ body.index_page {
             margin-bottom: 18vh;
             img {
               position: relative;
-              width: 88%;
+              width: 70%;
               padding-right: 10vw;
             }
             h2 {
@@ -3087,9 +3101,9 @@ body.index_page {
         }
         @media screen and (max-width: 768px) {
           img {
-            transform: scale(0.6);
+            // transform: scale(0.6);
             &.grassland {
-              transform: scale(1);
+              // transform: scale(1);
             }
             &.tree_R {
               right: -270px;
@@ -3102,29 +3116,28 @@ body.index_page {
             }
             &.cloud_L {
               left: -50px;
-              top: 5vh;
+              top: 8vh;
             }
             &.cloud_M {
-              top: 5vh;
+              top: 8vh;
             }
             &.bird {
-              right: -100px;
-              top: 5vh;
+              // right: -100px;
+              top: 8vh;
             }
 
             &.piggy {
-              transform: scale(0.5);
-              bottom: -7vh;
-              padding-left: 50vw;
+              bottom: 2vh;
+              padding-left: 40vw;
             }
           }
           div.banner_text {
             height: 35%;
             width: 50%;
             margin-right: 35vw;
-            margin-bottom: 36vh;
+            margin-bottom: 20vh;
             img {
-              width: 30rem;
+              width: 100%;
               padding-right: 0vw;
             }
             h2 {
@@ -3144,7 +3157,7 @@ body.index_page {
         @media screen and (max-width: 455px) {
           img {
             &.grassland {
-              transform: scale(1);
+              width: 140%;
             }
             &.tree_R {
               right: -300px;
@@ -3152,31 +3165,33 @@ body.index_page {
             }
 
             &.cloud_L {
-              left: -50px;
-              top: 2vh;
+              width: 30%;
+              left: -10px;
+              // top: 2vh;
             }
             &.cloud_M {
-              transform: scale(0.5);
-              top: 4vh;
+              // transform: scale(0.5);
+              top: 10vh;
+              width: 40%;
             }
             &.bird {
-              right: -200px;
-              top: 1vh;
+              width: 40%;
+              top: 10vh;
             }
 
             &.piggy {
-              transform: scale(0.4);
-              bottom: -10vh;
-              padding-left: 10vw;
+              // transform: scale(0.4);
+              // bottom: -10vh;
+              padding-left: 0vw;
+              width: 70%;
             }
           }
           div.banner_text {
             height: 30%;
-            width: 100%;
+            width: 80%;
             margin-right: 0vw;
-            margin-bottom: 40vh;
+            margin-bottom: 20vh;
             img {
-              width: 30rem;
               padding-right: 0vw;
             }
             h2 {
@@ -4636,5 +4651,82 @@ body.plant_games_page {
     .swiper-pagination-bullet {
       background: #000000;
     }
+  }
+}
+
+//首頁-banner 動畫===============================================
+#index_p1 {
+  .grassland {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  .tree_R,
+  .tree_L {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 0.2s;
+  }
+  .cloud_L {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards, floatLeftRight 3s infinite;
+    animation-delay: 0.4s;
+  }
+  .cloud_M {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards,
+      floatLeftRight 3s infinite reverse;
+    animation-delay: 0.6s;
+  }
+  .bird {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+  .piggy {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards, floatUpDown 2s infinite;
+    animation-delay: 0.8s;
+  }
+  .banner_text {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+  .title {
+  }
+}
+//浮現
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+//上下浮動
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+//左右浮動
+@keyframes floatLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
